@@ -38,8 +38,23 @@ Calagator's settings can be configured by editing these files in your host appli
 * `config/initializers/01_calagator.rb`
 * `config/initializers/02_geokit.rb`
 * `config/initializers/03_recaptcha.rb`
+* `config/initializers/04_devise.rb`
 
 Please see these files for more details.
+
+### Devise Authentication
+Devise can be enabled in the `01_calagator.rb` initializer.
+
+If enabled, you must also configure your mail settings in `config/environments/production.rb`.
+If it's not already there, please add the following:
+```rb
+config.action_mailer.default_url_options = { host: 'my-calagator-url.example' }
+```
+Replace the example host with your own.
+
+Once Devise has been enabled, Calagator will prompt you with a form to add an admin user next time the server loads.
+
+You will also want to set up [Action Mailer](https://guides.rubyonrails.org/action_mailer_basics.html) for password reset functionality.
 
 ### Time Zone
 

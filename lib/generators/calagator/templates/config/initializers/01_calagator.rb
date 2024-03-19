@@ -14,6 +14,11 @@ Calagator.setup do |config|
   # and requests for assistance from users:
   config.administrator_email = "your@email.addr"
 
+  # Enable devise based authentication
+  # When enabled, users will need to sign up, and be signed in
+  # to create / modify events.
+  # config.devise_enabled = true
+
   # Optional username and password to use when accessing /admin pages
   # config.admin_username = 'admin'
   # config.admin_password = ENV['CALAGATOR_ADMIN_PASSWORD']

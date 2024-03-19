@@ -26,6 +26,7 @@ require "utf8-cleaner"
 require "sunspot_rails"
 require "lucene_query"
 require "rack/contrib/jsonp"
+require "devise"
 
 module Calagator
   mattr_accessor :title,
@@ -41,7 +42,8 @@ module Calagator
     :mapping_provider,
     :mapping_tiles,
     :venues_map_options,
-    :denylist_patterns
+    :denylist_patterns,
+    :devise_enabled
 
   self.title = "Calagator"
   self.tagline = "A Tech Calendar"
@@ -57,6 +59,7 @@ module Calagator
     /\b(online|overseas).+(drugstore|pharmacy)\b/,
     /\bcialis\b/
   ]
+  self.devise_enabled = false
 
   def self.configure_search_engine
     kind = search_engine.try(:to_sym)

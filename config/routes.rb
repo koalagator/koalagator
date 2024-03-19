@@ -5,6 +5,8 @@ Calagator::Engine.routes.draw do
   return unless Calagator::Engine.routes.empty?
 
   root "site#index"
+  
+  devise_for :users, class_name: "Calagator::User", module: :devise if Calagator.devise_enabled
 
   get "omfg" => "site#omfg"
   get "hello" => "site#hello"
