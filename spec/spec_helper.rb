@@ -144,4 +144,7 @@ RSpec.configure do |config|
   end
 
   config.alias_example_to :fscenario, focus: true
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end

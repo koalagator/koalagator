@@ -27,8 +27,8 @@ module Calagator
 
     context "with admin auth for duplicates" do
       before do
-        credentials = ActionController::HttpAuthentication::Basic.encode_credentials Calagator.admin_username, Calagator.admin_password
-        request.env["HTTP_AUTHORIZATION"] = credentials
+        user = create(:admin)
+        sign_in user
       end
 
       it "displays an error message if given invalid arguments" do

@@ -17,8 +17,11 @@ describe "Administrative suite is hidden behind an http basic auth wall" do
     end
 
     it "Authenticated users are permitted in #{path}" do
-      skip # Skipped until auth re-work
-      page.driver.browser.basic_authorize Calagator.admin_username, Calagator.admin_password
+      user = create(:admin)
+      visit "/users/sign_in"
+      fill_in "user_email", with: user.email
+      fill_in "user_password", with: "asdf1234"
+      click_on "Log in"
       visit path
       expect([200, 304]).to include page.status_code
     end
