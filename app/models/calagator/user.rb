@@ -3,6 +3,7 @@
 # Table name: calagator_users
 #
 #  id                     :integer          not null, primary key
+#  admin                  :boolean
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  remember_created_at    :datetime

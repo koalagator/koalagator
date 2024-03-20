@@ -33,13 +33,22 @@ module Calagator
     end
 
     def self.require_admin(options = {})
-     return false unless Calagator.admin_username && Calagator.admin_password
+      return devise_require_admin(options) if Calagator.devise_enabled
+      return false unless Calagator.admin_username && Calagator.admin_password
       http_basic_authenticate_with(
         **options.reverse_merge(
           name: Calagator.admin_username,
           password: Calagator.admin_password
         )
       )
+    end
+
+    def self.devise_require_admin(options = {})
+      return false unless Calagator.devise_enabled
+      before_action :authenticate_user!, **options
+      before_action -> {
+        render status: 403, html: "403: Access Denied" unless current_user&.admin?
+      }, **options
     end
     private_class_method :require_admin
 
