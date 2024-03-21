@@ -3,10 +3,14 @@
 require "rails_helper"
 
 describe "Event Creation", js: true do
+  include_context 'devise'
+
   before do
     create :venue, title: "Empire State Building"
     create :venue, title: "New Relic"
     create :venue, title: "Urban Airship"
+
+    devise_sign_in create(:user)
   end
 
   it "User adds an event at an existing venue" do

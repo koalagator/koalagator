@@ -5,6 +5,10 @@ require "./spec/controllers/squash_many_duplicates_examples"
 
 module Calagator
   describe VenuesController, type: :controller do
+    before do
+      sign_in create(:user)
+    end
+    
     routes { Calagator::Engine.routes }
 
     render_views

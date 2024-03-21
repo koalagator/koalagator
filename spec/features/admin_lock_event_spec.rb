@@ -2,21 +2,21 @@
 
 require "rails_helper"
 
-# Disabled pending a way to both set up the full event page size so that the editing sidebar is accessible
-# and also that will handle basic auth
-xfeature "Event locking" do
-  background do
+describe "Event locking", js: true do
+  include_context 'devise'
+
+  before do
     create :venue, title: "Empire State Building"
     create :event, title: "Ruby Newbies", start_time: Time.zone.now
     create :event, title: "Ruby Privateers", start_time: Time.zone.now, locked: true
 
-    page.driver.browser.basic_authorize Calagator.admin_username, Calagator.admin_password
+    devise_sign_in create(:admin)
 
     visit "/admin"
     click_on "Lock events"
   end
 
-  scenario "Admin locks an event to prevent it from being modified" do
+  it "Admin locks an event to prevent it from being modified" do
     within "tr", text: "Ruby Newbies" do
       click_on "Lock"
     end
@@ -29,7 +29,7 @@ xfeature "Event locking" do
     expect(page).not_to have_selector("a", text: "delete")
   end
 
-  scenario "Admin unlocks a locked event" do
+  it "Admin unlocks a locked event" do
     within "tr", text: "Ruby Privateers" do
       click_on "Unlock"
     end

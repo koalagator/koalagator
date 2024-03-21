@@ -2,14 +2,15 @@
 
 require "rails_helper"
 
-# Skip test until authentication system is re-worked
-xfeature "Admin lock events search" do
+describe "Admin lock events search", js: true do
+  include_context 'devise'
+
   before do
     create :venue, title: "Empire State Building"
     create :event, title: "Ruby Newbies", start_time: Time.zone.now
     create :event, title: "Ruby Privateers", start_time: Time.zone.now, locked: true
 
-    page.driver.browser.basic_authorize Calagator.admin_username, Calagator.admin_password
+    devise_sign_in create(:admin)
 
     visit "/admin/events"
   end

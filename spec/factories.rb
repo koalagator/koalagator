@@ -75,6 +75,7 @@ FactoryBot.define do
 
   factory :admin, class: "Calagator::User" do
     id { 1 }
+    name { "admin" }
     email { "admin@example.com" }
     password { "asdf1234" }
     admin { true }
@@ -82,6 +83,7 @@ FactoryBot.define do
 
   factory :user, class: "Calagator::User" do
     id { 2 }
+    name { "testing" }
     email { "testing@example.com" }
     password { "asdf1234" }
   end

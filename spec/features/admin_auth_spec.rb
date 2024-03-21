@@ -2,13 +2,16 @@
 
 require "rails_helper"
 
-describe "Administrative suite is hidden behind an http basic auth wall" do
+describe "Administrative suite is hidden behind authorization" do
+  include_context 'devise'
+
   [
     "/admin",
+    "/changes",
     "/events/duplicates",
     "/venues/duplicates"
   ].each do |path|
-    it "Users are not permitted in #{path}" do
+    it "Visitors are not permitted in #{path}" do
       begin
         visit path
       rescue Selenium::WebDriver::Error::UnexpectedAlertOpenError
@@ -16,14 +19,16 @@ describe "Administrative suite is hidden behind an http basic auth wall" do
       end
     end
 
-    it "Authenticated users are permitted in #{path}" do
-      user = create(:admin)
-      visit "/users/sign_in"
-      fill_in "user_email", with: user.email
-      fill_in "user_password", with: "asdf1234"
-      click_on "Log in"
+    it "Authorized users are permitted in #{path}" do
+      devise_sign_in create(:admin)
       visit path
       expect([200, 304]).to include page.status_code
+    end
+
+    it "Un-authorized users are not permitted in #{path}" do
+      devise_sign_in create(:user)
+      visit path
+      expect([403]).to include page.status_code
     end
   end
 end

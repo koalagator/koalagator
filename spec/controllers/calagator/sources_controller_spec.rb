@@ -5,6 +5,10 @@ require "open-uri"
 
 module Calagator
   describe SourcesController, type: :controller do
+    before do
+      sign_in create(:user)
+    end
+    
     routes { Calagator::Engine.routes }
 
     describe "using import logic" do
