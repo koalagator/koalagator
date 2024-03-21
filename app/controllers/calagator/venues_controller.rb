@@ -8,6 +8,8 @@ module Calagator
     include DuplicateChecking::ControllerActions
     require_admin only: %i[duplicates squash_many_duplicates]
 
+    authorize_resource :venues, only: %i[edit create update destroy]
+
     def venue
       @venue ||= params[:id] ? Venue.find(params[:id]) : Venue.new
     end

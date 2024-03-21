@@ -44,6 +44,13 @@ Please see these files for more details.
 
 ### Devise Authentication
 Devise can be enabled in the `01_calagator.rb` initializer.
+You will also want to configure Calagator's admin username, email, and password; this will
+be used to automatically create the initial admin user.
+
+Alternately, you could create an admin user in the rails console like this:
+```
+User.create(name: "admin", email: "admin@example.com", password: "mypassword", password_confirmation: "mypassword", admin: true)
+```
 
 If enabled, you must also configure your mail settings in `config/environments/production.rb`.
 If it's not already there, please add the following:
@@ -52,7 +59,7 @@ config.action_mailer.default_url_options = { host: 'my-calagator-url.example' }
 ```
 Replace the example host with your own.
 
-Once Devise has been enabled, Calagator will prompt you with a form to add an admin user next time the server loads.
+Once Devise has been enabled, users will be required to sign in to create and modify events, venues etc.
 
 You will also want to set up [Action Mailer](https://guides.rubyonrails.org/action_mailer_basics.html) for password reset functionality.
 

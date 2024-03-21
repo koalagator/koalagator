@@ -43,6 +43,13 @@ module Calagator
       )
     end
 
+    def self.authorize_resource(resource, options = {})
+      return false unless Calagator.devise_enabled
+      resource = resource.to_s.to_sym
+      return devise_require_admin(options) if Calagator.admin_resources.include?(resource)
+      before_action(:authenticate_user!, **options) if Calagator.user_resources.include?(resource)
+    end
+
     def self.devise_require_admin(options = {})
       return false unless Calagator.devise_enabled
       before_action :authenticate_user!, **options
