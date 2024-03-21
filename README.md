@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/calagator/calagator.svg?branch=main)](http://travis-ci.org/calagator/calagator)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ebc339bb7a91acaafeba/maintainability)](https://codeclimate.com/github/koalagator/koalagator/maintainability)
 [![Coverage Status](https://coveralls.io/repos/calagator/calagator/badge.svg)](https://coveralls.io/r/calagator/calagator)
 
 Calagator
