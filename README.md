@@ -56,7 +56,7 @@ Bug fixes and features are welcomed. Please fork the source code and submit a pu
 
 When you make a pull request, make sure to add your name to the list of contributors in [CONTRIBUTORS.md](http://github.com/koalagator/koalagator/blob/main/CONTRIBUTORS.md).
 
-All Koalagator contributors are expected to read and follow our [code of conduct](https://github.com/calagator/calagator/wiki/Code-of-Conduct).
+All Koalagator contributors are expected to read and follow our [Code of Conduct](https://github.com/koalagator/koalagator/blob/main/CODE_OF_CONDUCT.md).
 
 Contributors
 ------------
