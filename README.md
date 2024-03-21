@@ -23,7 +23,7 @@ About the revival
 -----------------
 
 The calagator project has much to celebrate in creating a vibrant community calander platform.
-In the 2020's, the calagator project became effectivley inactive. An out-of-date rails versiom (v4.2) as well as a range of build issues and development bugs made it difficult to start new projects or receive support.
+In the 2020's, the calagator project became effectivley inactive. An out-of-date rails version (v4.2) as well as a range of build issues and development bugs made it difficult to start new projects or receive support.
 
 Over the last year our new team, based in Australia, have been gradually slaying dragons to undertake the unenviable task of upgrading the calagator code base across multiple major Rails versions. We are pleased to announce that in March 2023 we bought the project up to the current latest version of ruby and rails. 
 
