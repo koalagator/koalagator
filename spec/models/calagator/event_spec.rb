@@ -5,6 +5,7 @@
 # Table name: events
 #
 #  id              :integer          not null, primary key
+#  created_by_name :string
 #  description     :text
 #  end_time        :datetime
 #  locked          :boolean          default(FALSE)
@@ -15,9 +16,18 @@
 #  venue_details   :text
 #  created_at      :datetime
 #  updated_at      :datetime
+#  created_by_id   :integer
 #  duplicate_of_id :integer
 #  source_id       :integer
 #  venue_id        :integer
+#
+# Indexes
+#
+#  index_events_on_created_by_id  (created_by_id)
+#
+# Foreign Keys
+#
+#  created_by_id  (created_by_id => calagator_users.id)
 #
 require "spec_helper"
 

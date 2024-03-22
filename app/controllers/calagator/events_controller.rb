@@ -47,6 +47,9 @@ module Calagator
     # POST /events.xml
     def create
       @event = Event.new
+      if Calagator.devise_enabled && current_user.present?
+        @event.created_by = current_user
+      end
       create_or_update
     end
 

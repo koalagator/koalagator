@@ -25,7 +25,12 @@ module Calagator
         if params[:event] && params[:event][:venue_id].present?
           Venue.find(params[:event][:venue_id]).originator
         else
-          Venue.find_or_initialize_by(title: params[:venue_name]).originator
+          venue = Venue.find_or_initialize_by(title: params[:venue_name]).originator
+          # Set the created_by to match the event, if creating the venue.
+          if event.created_by_id? && !venue.id?
+            venue.created_by = event.created_by
+          end
+          venue
         end
       end
 

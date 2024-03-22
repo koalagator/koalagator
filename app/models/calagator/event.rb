@@ -5,6 +5,7 @@
 # Table name: events
 #
 #  id              :integer          not null, primary key
+#  created_by_name :string
 #  description     :text
 #  end_time        :datetime
 #  locked          :boolean          default(FALSE)
@@ -15,9 +16,18 @@
 #  venue_details   :text
 #  created_at      :datetime
 #  updated_at      :datetime
+#  created_by_id   :integer
 #  duplicate_of_id :integer
 #  source_id       :integer
 #  venue_id        :integer
+#
+# Indexes
+#
+#  index_events_on_created_by_id  (created_by_id)
+#
+# Foreign Keys
+#
+#  created_by_id  (created_by_id => calagator_users.id)
 #
 
 require "calagator/denylist_validator"
@@ -49,6 +59,7 @@ module Calagator
     include ActiveModel::Serializers::Xml
 
     # Associations
+    belongs_to :created_by, class_name: "Calagator::User", optional: true
     belongs_to :venue, counter_cache: true, optional: true
     belongs_to :source, optional: true
 
@@ -60,6 +71,7 @@ module Calagator
       format: {with: %r{\Ahttps?://(\w+:?\w*@)?(\S+)(:[0-9]+)?(/|/([\w#!:.?+=&%@\-/]))?\Z},
                allow_blank: true}
 
+    before_save :set_created_by_name, if: :created_by_id?
     before_destroy :check_if_locked_before_destroy # prevent locked events from being destroyed
 
     # Duplicates
@@ -182,5 +194,10 @@ module Calagator
 
       (end_time - start_time)
     end
+
+    def set_created_by_name
+      self.created_by_name = created_by.name_with_email
+    end
+    private :set_created_by_name
   end
 end

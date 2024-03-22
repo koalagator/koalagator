@@ -9,6 +9,7 @@
 #  address         :string
 #  closed          :boolean          default(FALSE)
 #  country         :string
+#  created_by_name :string
 #  description     :text
 #  email           :string
 #  events_count    :integer
@@ -24,8 +25,17 @@
 #  wifi            :boolean          default(FALSE)
 #  created_at      :datetime
 #  updated_at      :datetime
+#  created_by_id   :integer
 #  duplicate_of_id :integer
 #  source_id       :integer
+#
+# Indexes
+#
+#  index_venues_on_created_by_id  (created_by_id)
+#
+# Foreign Keys
+#
+#  created_by_id  (created_by_id => calagator_users.id)
 #
 require "spec_helper"
 

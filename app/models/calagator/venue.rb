@@ -9,6 +9,7 @@
 #  address         :string
 #  closed          :boolean          default(FALSE)
 #  country         :string
+#  created_by_name :string
 #  description     :text
 #  email           :string
 #  events_count    :integer
@@ -24,8 +25,17 @@
 #  wifi            :boolean          default(FALSE)
 #  created_at      :datetime
 #  updated_at      :datetime
+#  created_by_id   :integer
 #  duplicate_of_id :integer
 #  source_id       :integer
+#
+# Indexes
+#
+#  index_venues_on_created_by_id  (created_by_id)
+#
+# Foreign Keys
+#
+#  created_by_id  (created_by_id => calagator_users.id)
 #
 require "calagator/decode_html_entities_hack"
 require "calagator/strip_whitespace"
@@ -51,11 +61,13 @@ module Calagator
 
     # Associations
     has_many :events, -> { non_duplicates }, dependent: :nullify
+    belongs_to :created_by, class_name: "Calagator::User", optional: true
     belongs_to :source, optional: true
 
     # Triggers
     strip_whitespace! :title, :description, :address, :url, :street_address, :locality, :region, :postal_code, :country, :email, :telephone
     before_save :geocode!
+    before_save :set_created_by_name, if: :created_by_id?
 
     # Validations
     validates :title, presence: true
@@ -112,5 +124,10 @@ module Calagator
     def update_events_count!
       update_attribute(:events_count, events.non_duplicates.count)
     end
+
+    def set_created_by_name
+      self.created_by_name = created_by.name_with_email
+    end
+    private :set_created_by_name
   end
 end

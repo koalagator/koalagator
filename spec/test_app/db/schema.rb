@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_20_043535) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_22_035554) do
   create_table "calagator_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -41,6 +41,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_043535) do
     t.string "rrule"
     t.text "venue_details"
     t.boolean "locked", default: false
+    t.string "created_by_name"
+    t.integer "created_by_id"
+    t.index ["created_by_id"], name: "index_events_on_created_by_id"
   end
 
   create_table "sources", force: :cascade do |t|
@@ -49,6 +52,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_043535) do
     t.datetime "imported_at", precision: nil
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
+    t.string "created_by_name"
+    t.integer "created_by_id"
+    t.index ["created_by_id"], name: "index_sources_on_created_by_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -97,6 +103,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_043535) do
     t.boolean "wifi", default: false
     t.text "access_notes"
     t.integer "events_count"
+    t.string "created_by_name"
+    t.integer "created_by_id"
+    t.index ["created_by_id"], name: "index_venues_on_created_by_id"
   end
 
   create_table "versions", force: :cascade do |t|
@@ -109,4 +118,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_043535) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "events", "calagator_users", column: "created_by_id"
+  add_foreign_key "sources", "calagator_users", column: "created_by_id"
+  add_foreign_key "venues", "calagator_users", column: "created_by_id"
 end

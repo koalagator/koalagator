@@ -55,11 +55,18 @@ module Calagator
       else
         "imported from #{link_to truncate(item.source.name, length: 40), url_for(item.source)}"
       end
+      creator = if item&.created_by_id?
+        " by:<br />#{display_username(item.created_by)}"
+      elsif item&.created_by_name?
+        " by:<br />#{CGI.escapeHTML(item.created_by_name)}"
+      else
+        nil
+      end
       created = " <br /><strong>#{normalize_time(item.created_at, format: :html)}</strong>"
       updated = if item.updated_at > item.created_at
         " and last updated <br /><strong>#{normalize_time(item.updated_at, format: :html)}</strong>"
       end
-      raw "This item was #{source}#{created}#{updated}."
+      raw "This item was #{source}#{creator}#{created}#{updated}."
     end
 
     # Caches +block+ in view only if the +condition+ is true.

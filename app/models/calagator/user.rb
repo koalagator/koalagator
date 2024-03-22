@@ -32,11 +32,19 @@ module Calagator
     validates :name, :email, presence: true
     validates :name, format: { with: /\A[a-z0-9\-_]+\z/, message: "only allows ASCII letters, numbers, dashes and underscores" }
 
+    has_many :events, foreign_key: :created_by_id, dependent: :nullify
+    has_many :venues, foreign_key: :created_by_id, dependent: :nullify
+    has_many :sources, foreign_key: :created_by_id, dependent: :nullify
+
     before_validation -> { name&.downcase! }, on: :create
 
     def display_name
       attribute = read_attribute(:display_name)
       attribute.present? ? attribute : name
+    end
+
+    def name_with_email
+      "@#{name} <#{email}>"
     end
   end
 end

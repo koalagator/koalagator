@@ -4,12 +4,22 @@
 #
 # Table name: sources
 #
-#  id          :integer          not null, primary key
-#  imported_at :datetime
-#  title       :string
-#  url         :string
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id              :integer          not null, primary key
+#  created_by_name :string
+#  imported_at     :datetime
+#  title           :string
+#  url             :string
+#  created_at      :datetime
+#  updated_at      :datetime
+#  created_by_id   :integer
+#
+# Indexes
+#
+#  index_sources_on_created_by_id  (created_by_id)
+#
+# Foreign Keys
+#
+#  created_by_id  (created_by_id => calagator_users.id)
 #
 
 # == Source
@@ -26,10 +36,13 @@ module Calagator
 
     validate :assert_url
 
+    belongs_to :created_by, class_name: "Calagator::User", optional: true
     has_many :events, dependent: :destroy
     has_many :venues, dependent: :destroy
 
     scope :listing, -> { order("created_at DESC") }
+
+    before_save :set_created_by_name, if: :created_by_id?
 
     has_paper_trail
 
@@ -75,6 +88,10 @@ module Calagator
     rescue URI::InvalidURIError
       errors.add :url, "has invalid format"
       false
+    end
+
+    def set_created_by_name
+      self.created_by_name = created_by.name_with_email
     end
   end
 end

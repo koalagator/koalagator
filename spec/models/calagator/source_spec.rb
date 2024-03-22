@@ -4,12 +4,22 @@
 #
 # Table name: sources
 #
-#  id          :integer          not null, primary key
-#  imported_at :datetime
-#  title       :string
-#  url         :string
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id              :integer          not null, primary key
+#  created_by_name :string
+#  imported_at     :datetime
+#  title           :string
+#  url             :string
+#  created_at      :datetime
+#  updated_at      :datetime
+#  created_by_id   :integer
+#
+# Indexes
+#
+#  index_sources_on_created_by_id  (created_by_id)
+#
+# Foreign Keys
+#
+#  created_by_id  (created_by_id => calagator_users.id)
 #
 require "spec_helper"
 
