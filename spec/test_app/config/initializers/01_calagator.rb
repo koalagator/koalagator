@@ -32,11 +32,16 @@ Calagator.setup do |config|
   config.admin_resources = %i[changes]
   # Resources in this category can be CRUDed by any authenticated user.
   config.user_resources = %i[events venues]
+  # Resources not in either can be CRUDed without authentication.
 
-  # Optional username and password to use when accessing /admin pages
+  # Optional username and password to use when accessing /admin pages.
+  # If devise is enabled, used to generate the initial devise admin user.
   config.admin_email = 'admin@e.com'
   config.admin_username = 'admin'
   config.admin_password = 'asdf1234'
+
+  # Emoji used as administrator icon (if devise enabled)
+  config.admin_icon = '🐨'
 
   # Search engine to use for searching events.
   # Values: :sql, :sunspot.

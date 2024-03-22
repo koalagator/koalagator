@@ -19,6 +19,13 @@ module Calagator
       content.gsub("<br>", "<br />")
     end
 
+    def display_username(user)
+      name = sanitize(user.name)
+      display_name = sanitize(user.display_name)
+      admin_flag = (user.admin? ? "<span title=\"Administrator\">#{Calagator.admin_icon} </span>" : nil )
+      raw "<span title=\"@#{name}\">#{admin_flag}#{display_name}</span>"
+    end
+
     FLASH_TYPES = %i[success failure].freeze
 
     def render_flash

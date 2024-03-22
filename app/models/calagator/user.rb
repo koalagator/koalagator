@@ -29,6 +29,10 @@ module Calagator
     end
 
     scope :admin, -> { where(admin: true) }
+    validates :name, :email, presence: true
+    validates :name, format: { with: /\A[a-z0-9\-_]+\z/, message: "only allows ASCII letters, numbers, dashes and underscores" }
+
+    before_validation -> { name&.downcase! }, on: :create
 
     def display_name
       attribute = read_attribute(:display_name)

@@ -36,6 +36,7 @@ module Calagator
     :admin_email,
     :admin_username,
     :admin_password,
+    :admin_icon,
     :admin_resources,
     :user_resources,
     :search_engine,
