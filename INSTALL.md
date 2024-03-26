@@ -14,13 +14,13 @@ If you're looking to build your own community calendar using Calagator, follow t
 
 **At the moment, calagator is only compatible with Rails 5, which is not the current major version release. You can still add calagator to an existing Rails 5 app, but the generator may not work as expected until we upgrade to Rails 6.**
 
-First, install the `calagator2` gem:
+First, install the `koalagator` gem:
 
-    gem install calagator2
+    gem install koalagator
     
-You can then use the `calagator` command to generate a new Rails application with Calagator installed:
+You can then use the `koalagator` command to generate a new Rails application with Koalagator installed:
 
-    calagator new my_great_calendar
+    koalagator new my_great_calendar
     cd my_great_calendar
 
 You should now be able to start your calendar in development mode with:
@@ -55,7 +55,7 @@ User.create(name: "admin", email: "admin@example.com", password: "mypassword", p
 If enabled, you must also configure your mail settings in `config/environments/production.rb`.
 If it's not already there, please add the following:
 ```rb
-config.action_mailer.default_url_options = { host: 'my-calagator-url.example' }
+config.action_mailer.default_url_options = { host: 'my-koalagator-url.example' }
 ```
 Replace the example host with your own.
 

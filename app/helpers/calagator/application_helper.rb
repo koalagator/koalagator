@@ -5,6 +5,10 @@ module Calagator
   module ApplicationHelper
     include TimeRangeHelper
 
+    def distro_name
+      NAME.to_s
+    end
+
     # Returns HTML string of an event or venue description for display in a view.
     def format_description(string)
       sanitize(auto_link(upgrade_br(markdown(string))))

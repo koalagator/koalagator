@@ -14,6 +14,13 @@ Conventions used in this document:
 ## Change Log
 List of Calagator releases and changes, with the latest at the top:
 
+### [5.0.0] - Unreleased
+  * Project renamed to Koalagator
+    - Updated user-facing `calagator` references to `koalagator`.
+    - Code-base kept using `Calagator` namespace, for potential compatibility.
+  * Added FORKING.md to document necessary changes for a fork.
+  * Made changes to assist forking / upstreaming in the future.
+
 ### [4.1.0] - 2024-03-14
   * Upgrade to Rails 7.1
   * Recommended Ruby version is now 3.3

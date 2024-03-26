@@ -7,19 +7,21 @@ require "calagator/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name = "calagator"
+  # Please configure these in 'lib/calagator/version.rb'
+  s.name = Calagator::GEMSPEC
   s.version = Calagator::VERSION
-  s.authors = ["the Calagator team"]
+
+  s.authors = ["the Koalagator team"]
   s.email = ["info@calagator.org"]
-  s.homepage = "https://github.com/calagator/calagator"
+  s.homepage = "https://github.com/koalagator/koalagator"
   s.summary = "A calendar for communities"
-  s.description = "Calagator is an open source community calendaring platform"
+  s.description = "#{Calagator::NAME} is an open source community calendaring platform"
   s.license = "MIT"
 
   s.required_ruby_version = [">= 2.6.0"]
 
   s.files = Dir["{app,config,lib,vendor}/**/*"] + Dir["db/**/*.rb"] + ["MIT-LICENSE.txt", "Rakefile", "README.md", "rails_template.rb"]
-  s.executables << "calagator"
+  s.executables << "koalagator"
 
   # To change this Rails requirement, update RAILS_VERSION in lib/calagator/version.rb
   s.add_dependency "rails", Calagator::RAILS_VERSION

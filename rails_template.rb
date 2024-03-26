@@ -9,7 +9,7 @@ def assert_minimum_rails_version
   rails_version = Gem::Version.new(Rails::VERSION::STRING)
   return if requirement.satisfied_by?(rails_version)
 
-  puts "Calagator requires Rails #{Calagator::RAILS_VERSION}. You are using #{rails_version}."
+  puts "#{Calagator::NAME} requires Rails #{Calagator::RAILS_VERSION}. You are using #{rails_version}."
   exit 1
 end
 
@@ -26,8 +26,8 @@ if options[:database] == "postgresql" && ARGV.any? { |arg| arg =~ /--postgres-us
 end
 
 # FactoryBot and Faker are required for Calagator's db:seed task
-spec = Gem::Specification.load(File.expand_path("calagator.gemspec", __dir__))
-spec ||= Gem::Specification.find_by_name("calagator")
+spec = Gem::Specification.load(File.expand_path("#{Calagator::GEMSPEC}.gemspec", __dir__))
+spec ||= Gem::Specification.find_by_name(Calagator::GEMSPEC)
 required_dev_gems = %w[factory_bot_rails faker]
 
 gem_group :development, :test do
@@ -41,7 +41,7 @@ gem_group :development, :test do
   end
 end
 
-gem "calagator", Calagator::VERSION, (generating_test_app ? {path: relative_calagator_path.to_s} : {})
+gem Calagator::GEMSPEC, Calagator::VERSION, (generating_test_app ? {path: relative_calagator_path.to_s} : {})
 run "bundle install"
 rails_command "db:create"
 inside("app/assets") do

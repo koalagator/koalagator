@@ -2,13 +2,13 @@
 
 Calagator.setup do |config|
   # Site name
-  config.title = "Calagator"
+  config.title = "Koalagator"
 
   # Site tagline
   config.tagline = "A Tech Calendar"
 
   # Site URL with trailing slash
-  config.url = "http://my-calagator.org/"
+  config.url = "http://my-koalagator.org/"
 
   # Email address of administrator that will get exception notifications
   # and requests for assistance from users:
@@ -36,7 +36,7 @@ Calagator.setup do |config|
   # Optional username and password to use when accessing /admin pages
   # config.admin_email = 'admin@e.com'
   # config.admin_username = 'admin'
-  # config.admin_password = ENV['CALAGATOR_ADMIN_PASSWORD']
+  # config.admin_password = ENV['KOALAGATOR_ADMIN_PASSWORD']
 
   # Emoji used as administrator icon
   config.admin_icon = "🐨"
@@ -66,10 +66,10 @@ Calagator.setup do |config|
 
   # The tile provider to use when rendering maps with Leaflet.
   # One of: leaflet, stamen, mapbox, google
-  config.mapping_provider = "stamen"
+  config.mapping_provider = "leaflet"
 
   # The tiles to use for the map, see the docs for individual Leaflet plugins.
-  config.mapping_tiles = "terrain"
+  config.mapping_tiles = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 
   # Other mapping examples:
   #

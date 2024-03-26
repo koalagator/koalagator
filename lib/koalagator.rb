@@ -49,7 +49,7 @@ module Calagator
     :denylist_patterns,
     :devise_enabled
 
-  self.title = "Calagator"
+  self.title = NAME
   self.tagline = "A Tech Calendar"
   self.url = "http://my-calagator.org/"
   self.administrator_email = "your@email.addr"
