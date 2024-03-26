@@ -1,5 +1,4 @@
-[![Build Status](https://github.com/koalagator/koalagator/actions/workflows/test.yaml)](https://github.com/koalagator/koalagator/actions/workflows/test.yaml)
-https://github.com/koalagator/koalagator/actions/workflows/test.yaml/badge.svg
+[![Build Status](https://github.com/koalagator/koalagator/actions/workflows/test.yaml/badge.svg)](https://github.com/koalagator/koalagator/actions/workflows/test.yaml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ebc339bb7a91acaafeba/maintainability)](https://codeclimate.com/github/koalagator/koalagator/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/koalagator/koalagator/badge.svg?branch=main)](https://coveralls.io/github/koalagator/koalagator?branch=main)
 
