@@ -17,16 +17,13 @@ Thank you to everyone who contributed to the original calagator project.
 We appreciate the encouragment from the ruby community for us to undertaking a revivial of this project.
 Koalagator is a hard fork of calagator. We've upgraded the project from Rails 4.2 to Rails 7.1 as part of this revival.
 
-Resources under the name Calagator are not maintained by the Koalagator team.
-
-
 About the revival
 -----------------
 
 The calagator project has much to celebrate in creating a vibrant community calander platform.
-In the 2020's, the calagator project became effectivley inactive. An out-of-date rails version (v4.2) as well as a range of build issues and development bugs made it difficult to start new projects or receive support.
+In the late 2010's, the calagator project became effectivley inactive. An out-of-date rails version (v4.2) as well as a range of build issues and development bugs made it difficult to start new projects or receive support.
 
-Over the last year our new team, based in Australia, have been gradually slaying dragons to undertake the unenviable task of upgrading the calagator code base across multiple major Rails versions. We are pleased to announce that in March 2023 we bought the project up to the current latest version of ruby and rails. 
+Over the last year our new team, based in Australia, have been gradually slaying dragons to undertake the unenviable task of upgrading the calagator code base across multiple major Rails versions. We are pleased to announce that in March 2024 we bought the project up to the current latest version of ruby and rails. 
 
 With the calagator core team inactive and not open to processing Pull Requests, in communication with them they said they encouraged community forks. 
 
