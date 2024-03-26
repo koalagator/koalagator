@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Event Editing", js: true do
-  include_context 'devise'
+  include_context "devise"
 
   before do
     Timecop.travel("2014-10-09")
@@ -71,7 +71,7 @@ describe "Event Editing", js: true do
 end
 
 describe "Event Cloning", js: true do
-  include_context 'devise'
+  include_context "devise"
 
   before do
     Timecop.travel("2014-10-09")
@@ -117,7 +117,7 @@ describe "Event Cloning", js: true do
 end
 
 describe "Event Deletion", js: true do
-  include_context 'devise'
+  include_context "devise"
 
   before do
     create :event, title: "Ruby and You", start_time: 1.day.from_now

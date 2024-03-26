@@ -8,7 +8,7 @@ module Calagator
     before do
       sign_in create(:user)
     end
-    
+
     routes { Calagator::Engine.routes }
 
     render_views

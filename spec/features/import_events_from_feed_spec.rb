@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "import events from a feed", js: true do
-  include_context 'devise'
+  include_context "devise"
 
   before do
     Timecop.travel(Time.new(2010, 1, 1, 0, 0, 0, "-08:00"))

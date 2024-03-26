@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Recent Changes", js: true do
-  include_context 'devise'
+  include_context "devise"
   let(:event_title) { "The Newest Event" }
 
   before do

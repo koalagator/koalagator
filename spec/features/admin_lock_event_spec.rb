@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Event locking", js: true do
-  include_context 'devise'
+  include_context "devise"
 
   before do
     create :venue, title: "Empire State Building"

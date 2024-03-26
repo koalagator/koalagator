@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Venue Editing", js: true do
-  include_context 'devise'
+  include_context "devise"
 
   let!(:venue) { create(:venue) }
   let!(:event) { create(:event, venue: venue, start_time: Time.now.in_time_zone.end_of_day - 1.hour) }
@@ -79,7 +79,7 @@ describe "Venue Editing", js: true do
 end
 
 describe "Venue Deletion", js: true do
-  include_context 'devise'
+  include_context "devise"
 
   before do
     create :venue, title: "Test Venue"

@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Administrative suite is hidden behind authorization" do
-  include_context 'devise'
+  include_context "devise"
 
   [
     "/admin",
@@ -12,11 +12,9 @@ describe "Administrative suite is hidden behind authorization" do
     "/venues/duplicates"
   ].each do |path|
     it "Visitors are not permitted in #{path}" do
-      begin
-        visit path
-      rescue Selenium::WebDriver::Error::UnexpectedAlertOpenError
-        expect(page).to have_content('Access denied')
-      end
+      visit path
+    rescue Selenium::WebDriver::Error::UnexpectedAlertOpenError
+      expect(page).to have_content("Access denied")
     end
 
     it "Authorized users are permitted in #{path}" do

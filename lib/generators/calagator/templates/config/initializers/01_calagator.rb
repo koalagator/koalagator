@@ -39,7 +39,7 @@ Calagator.setup do |config|
   # config.admin_password = ENV['CALAGATOR_ADMIN_PASSWORD']
 
   # Emoji used as administrator icon
-  config.admin_icon = '🐨'
+  config.admin_icon = "🐨"
 
   # Search engine to use for searching events.
   # Values: :sql, :sunspot.

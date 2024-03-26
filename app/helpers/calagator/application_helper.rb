@@ -22,7 +22,7 @@ module Calagator
     def display_username(user)
       name = sanitize(user.name)
       display_name = sanitize(user.display_name)
-      admin_flag = (user.admin? ? "<span title=\"Administrator\">#{Calagator.admin_icon} </span>" : nil )
+      admin_flag = (user.admin? ? "<span title=\"Administrator\">#{Calagator.admin_icon} </span>" : nil)
       raw "<span title=\"@#{name}\">#{admin_flag}#{display_name}</span>"
     end
 
@@ -59,8 +59,6 @@ module Calagator
         " by:<br />#{display_username(item.created_by)}"
       elsif item&.created_by_name?
         " by:<br />#{CGI.escapeHTML(item.created_by_name)}"
-      else
-        nil
       end
       created = " <br /><strong>#{normalize_time(item.created_at, format: :html)}</strong>"
       updated = if item.updated_at > item.created_at

@@ -36,12 +36,12 @@ Calagator.setup do |config|
 
   # Optional username and password to use when accessing /admin pages.
   # If devise is enabled, used to generate the initial devise admin user.
-  config.admin_email = 'admin@e.com'
-  config.admin_username = 'admin'
-  config.admin_password = 'asdf1234'
+  config.admin_email = "admin@e.com"
+  config.admin_username = "admin"
+  config.admin_password = "asdf1234"
 
   # Emoji used as administrator icon (if devise enabled)
-  config.admin_icon = '🐨'
+  config.admin_icon = "🐨"
 
   # Search engine to use for searching events.
   # Values: :sql, :sunspot.

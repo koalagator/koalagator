@@ -42,6 +42,7 @@ module Calagator
         )
       )
     end
+    private_class_method :require_admin
 
     def self.authorize_resource(resource, options = {})
       return false unless Calagator.devise_enabled
@@ -49,6 +50,7 @@ module Calagator
       return devise_require_admin(options) if Calagator.admin_resources.include?(resource)
       before_action(:authenticate_user!, **options) if Calagator.user_resources.include?(resource)
     end
+    private_class_method :authorize_resource
 
     def self.devise_require_admin(options = {})
       return false unless Calagator.devise_enabled
@@ -57,7 +59,7 @@ module Calagator
         render status: 403, html: "403: Access Denied" unless current_user&.admin?
       }, **options
     end
-    private_class_method :require_admin
+    private_class_method :devise_require_admin
 
     #---[ Helpers ]---------------------------------------------------------
 
