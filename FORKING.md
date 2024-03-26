@@ -11,7 +11,7 @@ This guide has been written to hopefully make forking / upstreaming an easier ta
 
 ## Version
 The version file holds much of the configuration needed to release a fork.
-Here is it's configuration as of writing this guide.
+Here is its configuration as of writing this guide.
 
 ```rb
 # lib/calagator/version.rb
