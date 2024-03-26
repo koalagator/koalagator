@@ -30,10 +30,9 @@ jobs:
           - postgresql
           - sqlite3
         ruby:
-          - 2.6.10
-          - 2.7.8
+          - 3.3.0
         rails:
-          - rails_6_0
+          - rails_7_1
         # exclude:
         #   - rails: rails_4_2
         #     ruby: 2.6.6
@@ -41,7 +40,7 @@ jobs:
         #     ruby: 2.7.2
 
     env:
-      BUNDLER_VERSION: 2.4.12
+      BUNDLER_VERSION: 2.5.6
       BUNDLE_GEMFILE: gemfiles/${{ matrix.rails }}.gemfile
 
     steps:
@@ -68,10 +67,8 @@ jobs:
           bundle install --jobs 4 --retry 3
       # - name: Generate host app for testing
       #   run: bundle _1.17.3_ exec bin/calagator new spec/dummy --dummy --database=${{ matrix.db }} --postgres-username=postgres
-      - name: StandardRB Action
-        uses: andrewmcodes/standardrb-action@v0.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Standardrb Check
+        run: bundle exec standardrb
       - name: Set Postgres Username + Host
         if: matrix.db == 'postgresql'
         run: |
@@ -83,9 +80,10 @@ jobs:
           sudo systemctl start mysql.service
       - name: Prepare Database
         run: bundle exec rake app:db:create app:db:migrate app:db:seed
-      - name: Start Solr
-        run: |
-          RAILS_ENV=test bundle exec rake app:sunspot:solr:start_with_waiting
+      # Solr gem needs to make a new release. Consider either removing support, or making a release for ourselves.
+      # - name: Start Solr
+      #   run: |
+      #     RAILS_ENV=test bundle exec rake app:sunspot:solr:start_with_waiting
       - name: Run RSpec
         run: bundle exec rake spec
       - uses: actions/upload-artifact@v1
