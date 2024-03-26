@@ -1,6 +1,8 @@
-[![Build Status](https://travis-ci.org/calagator/calagator.svg?branch=main)](http://travis-ci.org/calagator/calagator)
+[![Build Status](https://github.com/koalagator/koalagator/actions/workflows/test.yaml)](https://github.com/koalagator/koalagator/actions/workflows/test.yaml)
+https://github.com/koalagator/koalagator/actions/workflows/test.yaml/badge.svg
 [![Maintainability](https://api.codeclimate.com/v1/badges/ebc339bb7a91acaafeba/maintainability)](https://codeclimate.com/github/koalagator/koalagator/maintainability)
-[![Coverage Status](https://coveralls.io/repos/calagator/calagator/badge.svg)](https://coveralls.io/r/calagator/calagator)
+[![Coverage Status](https://coveralls.io/repos/github/koalagator/koalagator/badge.svg?branch=main)](https://coveralls.io/github/koalagator/koalagator?branch=main)
+
 
 Koalagator
 =========
