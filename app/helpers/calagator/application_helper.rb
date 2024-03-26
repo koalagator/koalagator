@@ -19,6 +19,13 @@ module Calagator
       content.gsub("<br>", "<br />")
     end
 
+    def display_username(user)
+      name = sanitize(user.name)
+      display_name = sanitize(user.display_name)
+      admin_flag = (user.admin? ? "<span title=\"Administrator\">#{Calagator.admin_icon} </span>" : nil)
+      raw "<span title=\"@#{name}\">#{admin_flag}#{display_name}</span>"
+    end
+
     FLASH_TYPES = %i[success failure].freeze
 
     def render_flash
@@ -48,11 +55,16 @@ module Calagator
       else
         "imported from #{link_to truncate(item.source.name, length: 40), url_for(item.source)}"
       end
+      creator = if item&.created_by_id?
+        " by:<br />#{display_username(item.created_by)}"
+      elsif item&.created_by_name?
+        " by:<br />#{CGI.escapeHTML(item.created_by_name)}"
+      end
       created = " <br /><strong>#{normalize_time(item.created_at, format: :html)}</strong>"
       updated = if item.updated_at > item.created_at
         " and last updated <br /><strong>#{normalize_time(item.updated_at, format: :html)}</strong>"
       end
-      raw "This item was #{source}#{created}#{updated}."
+      raw "This item was #{source}#{creator}#{created}#{updated}."
     end
 
     # Caches +block+ in view only if the +condition+ is true.

@@ -3,10 +3,13 @@
 require "rails_helper"
 
 describe "Event Editing", js: true do
+  include_context "devise"
+
   before do
     Timecop.travel("2014-10-09")
     create :event, title: "Ruby Future", start_time: Time.zone.now
     create :event, :with_multiple_tags, title: "Tagged Event", start_time: Time.zone.now
+    devise_sign_in create(:user)
   end
 
   after do
@@ -68,9 +71,12 @@ describe "Event Editing", js: true do
 end
 
 describe "Event Cloning", js: true do
+  include_context "devise"
+
   before do
     Timecop.travel("2014-10-09")
     create :event, title: "Ruby Event Part One", start_time: 4.days.from_now
+    devise_sign_in create(:user)
   end
 
   after do
@@ -111,8 +117,11 @@ describe "Event Cloning", js: true do
 end
 
 describe "Event Deletion", js: true do
+  include_context "devise"
+
   before do
     create :event, title: "Ruby and You", start_time: 1.day.from_now
+    devise_sign_in create(:user)
   end
 
   it "A user deletes an event" do

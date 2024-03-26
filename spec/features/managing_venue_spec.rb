@@ -3,10 +3,16 @@
 require "rails_helper"
 
 describe "Venue Editing", js: true do
+  include_context "devise"
+
   let!(:venue) { create(:venue) }
   let!(:event) { create(:event, venue: venue, start_time: Time.now.in_time_zone.end_of_day - 1.hour) }
   let!(:new_venue) { build(:venue) }
   let!(:venue_with_tags) { create(:venue, :with_multiple_tags) }
+
+  before do
+    devise_sign_in create(:user)
+  end
 
   it "A user edits an existing venue" do
     visit "/"
@@ -73,8 +79,11 @@ describe "Venue Editing", js: true do
 end
 
 describe "Venue Deletion", js: true do
+  include_context "devise"
+
   before do
     create :venue, title: "Test Venue"
+    devise_sign_in create(:user)
   end
 
   it "A user deletes a venue" do

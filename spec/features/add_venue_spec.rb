@@ -2,7 +2,13 @@
 
 require "rails_helper"
 
-describe "Venue Creation" do
+describe "Venue Creation", js: true do
+  include_context "devise"
+
+  before do
+    devise_sign_in create(:user)
+  end
+
   let(:new_venue) { build(:venue) }
 
   it "User adds a new venue" do

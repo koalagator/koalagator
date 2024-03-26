@@ -14,9 +14,34 @@ Calagator.setup do |config|
   # and requests for assistance from users:
   config.administrator_email = "your@email.addr"
 
-  # Optional username and password to use when accessing /admin pages
-  # config.admin_username = 'admin'
-  # config.admin_password = ENV['CALAGATOR_ADMIN_PASSWORD']
+  # Enable devise based authentication
+  # Calagator won't load any devise config unless it's enabled,
+  # allowing you to roll your own authentication instead, if desired.
+  # When enabled, users will need to sign up, and be signed in
+  # to create / modify events.
+  # Also configure 'admin_email', 'admin_username', and 'admin_password' for Calagator
+  # to create the initial admin user.
+  config.devise_enabled = true
+
+  # If devise is enabled, the following will configure authorization
+  # to CRUD various resources.
+  # Valid resources are: changes, events, venues
+  # NOTE: Venues can still be created by events, so it's probably best to put them in same category as events.
+  #
+  # Resources in this category can only be CRUDed by admin users.
+  config.admin_resources = %i[changes]
+  # Resources in this category can be CRUDed by any authenticated user.
+  config.user_resources = %i[events venues]
+  # Resources not in either can be CRUDed without authentication.
+
+  # Optional username and password to use when accessing /admin pages.
+  # If devise is enabled, used to generate the initial devise admin user.
+  config.admin_email = "admin@e.com"
+  config.admin_username = "admin"
+  config.admin_password = "asdf1234"
+
+  # Emoji used as administrator icon (if devise enabled)
+  config.admin_icon = "🐨"
 
   # Search engine to use for searching events.
   # Values: :sql, :sunspot.

@@ -6,6 +6,8 @@ Calagator::Engine.routes.draw do
 
   root "site#index"
 
+  devise_for :users, class_name: "Calagator::User" if Calagator.devise_enabled
+
   get "omfg" => "site#omfg"
   get "hello" => "site#hello"
 

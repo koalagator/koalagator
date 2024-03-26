@@ -10,6 +10,7 @@ module Calagator
     include Calagator::DuplicateChecking::ControllerActions
     require_admin only: %i[duplicates squash_many_duplicates]
 
+    authorize_resource :events, only: %i[new edit create update destroy clone]
     before_action :find_and_redirect_if_locked, only: %i[edit update destroy]
 
     # GET /events
@@ -46,6 +47,9 @@ module Calagator
     # POST /events.xml
     def create
       @event = Event.new
+      if Calagator.devise_enabled && current_user.present?
+        @event.created_by = current_user
+      end
       create_or_update
     end
 

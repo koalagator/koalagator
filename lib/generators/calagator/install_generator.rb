@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "fileutils"
+
 module Calagator
   class InstallGenerator < Rails::Generators::Base
     source_root File.expand_path("templates", __dir__)
@@ -12,6 +14,7 @@ module Calagator
       add_initializers
       add_javascripts
       add_stylesheets
+      add_devise_views
       add_assets
       add_seeds
       run "rm -f public/index.html"
@@ -39,6 +42,7 @@ module Calagator
       initializer "01_calagator.rb", File.read(File.expand_path("templates/config/initializers/01_calagator.rb", __dir__))
       initializer "02_geokit.rb", File.read(File.expand_path("templates/config/initializers/02_geokit.rb", __dir__))
       initializer "03_recaptcha.rb", File.read(File.expand_path("templates/config/initializers/03_recaptcha.rb", __dir__))
+      initializer "04_devise.rb", File.read(File.expand_path("templates/config/initializers/04_devise.rb", __dir__))
     end
 
     def add_javascripts
@@ -57,6 +61,10 @@ module Calagator
     def add_assets
       run "cp #{File.expand_path("../../../app/assets/images/spinner.gif", __dir__)} app/assets/images/"
       run "cp #{File.expand_path("../../../app/assets/images/site-icon.png", __dir__)} app/assets/images/"
+    end
+
+    def add_devise_views
+      FileUtils.cp_r(File.expand_path("./templates/app/views/devise/", __dir__), "app/views/")
     end
 
     def add_seeds

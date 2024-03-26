@@ -9,6 +9,9 @@
             </ul>
           </div>
           <%= render partial: 'layouts/calagator/global_search' %>
+          <% if Calagator.devise_enabled %>
+            <%= render partial: 'layouts/calagator/devise' %>
+          <% end %>
         </div>
       </div>
 

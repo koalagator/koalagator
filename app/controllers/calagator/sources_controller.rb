@@ -2,6 +2,8 @@
 
 module Calagator
   class SourcesController < Calagator::ApplicationController
+    authorize_resource :events, only: %i[new edit create update destroy]
+
     # POST /import
     # POST /import.xml
     def import
