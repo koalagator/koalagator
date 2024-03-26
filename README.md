@@ -1,22 +1,41 @@
 [![Build Status](https://travis-ci.org/calagator/calagator.svg?branch=main)](http://travis-ci.org/calagator/calagator)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ebc339bb7a91acaafeba/maintainability)](https://codeclimate.com/github/koalagator/koalagator/maintainability)
 [![Coverage Status](https://coveralls.io/repos/calagator/calagator/badge.svg)](https://coveralls.io/r/calagator/calagator)
 
-Calagator
+Koalagator
 =========
-
 
 About
 -----
 
-Calagator is an open source community calendaring platform:
+Koalagator is an open source community calendaring platform.
+The project is a community fork of the community developed project Calagator.
+Koalagator is run by a wholly new core team, contributors welcome.
 
-  * [Calagator.org](http://calagator.org/) is the flagship website running this software.
-  * [Source code](http://github.com/calagator/calagator/) is available.
-  * [Mailing list](http://groups.google.com/group/pdx-tech-calendar/) for discussion about the software.
-  * [Development mailing list](http://groups.google.com/group/calagator-development/) for discussion of patches, code discussion, and other development issues.
-  * [Wiki](https://github.com/calagator/calagator/wiki) features many useful articles on using and developing.
-  * [Issue tracker](https://github.com/calagator/calagator/issues?state=open) lists outstanding issues.
+Thank you to everyone who contributed to the original calagator project. 
+We appreciate the encouragment from the ruby community for us to undertaking a revivial of this project.
+Koalagator is a hard fork of calagator. We've upgraded the project from Rails 4.2 to Rails 7.1 as part of this revival.
 
+Resources under the name Calagator are not maintained by the Koalagator team.
+
+
+About the revival
+-----------------
+
+The calagator project has much to celebrate in creating a vibrant community calander platform.
+In the 2020's, the calagator project became effectivley inactive. An out-of-date rails version (v4.2) as well as a range of build issues and development bugs made it difficult to start new projects or receive support.
+
+Over the last year our new team, based in Australia, have been gradually slaying dragons to undertake the unenviable task of upgrading the calagator code base across multiple major Rails versions. We are pleased to announce that in March 2023 we bought the project up to the current latest version of ruby and rails. 
+
+With the calagator core team inactive and not open to processing Pull Requests, in communication with them they said they encouraged community forks. 
+
+In March 2024 we are now releasing koalagator as a community fork of calagator.
+
+The koalagator project will seek to improve on the calendar platform taking into account the needs community ecosystems in the 2020's.
+
+We'd love you to join us on the journey.
+
+Ps. We're still settling in so there may still be references to calagator while we're still setting up
 
 Why
 ---
@@ -27,31 +46,31 @@ By releasing this code under a liberal MIT open source license, we hope to empow
 Installing
 ----------
 
-Read the [INSTALL.md](http://github.com/calagator/calagator/blob/main/INSTALL.md) file for details on installing the software.
+Read the [INSTALL.md](http://github.com/koalagator/koalagator/blob/main/INSTALL.md) file for details on installing the software.
 
 
 Contributing
 ------------
 
-Bug fixes and features are welcomed. Please fork the source code and submit a pull request: <http://github.com/calagator/calagator/tree/main>
+Bug fixes and features are welcomed. Please fork the source code and submit a pull request: <http://github.com/koalagator/koalagator/tree/main>
 
-When you make a pull request, make sure to add your name to the list of contributors in [CONTRIBUTORS.md](http://github.com/calagator/calagator/blob/main/CONTRIBUTORS.md).
+When you make a pull request, make sure to add your name to the list of contributors in [CONTRIBUTORS.md](http://github.com/koalagator/koalagator/blob/main/CONTRIBUTORS.md).
 
-All Calagator contributors are expected to read and follow our [code of conduct](https://github.com/calagator/calagator/wiki/Code-of-Conduct).
+All Koalagator contributors are expected to read and follow our [Code of Conduct](https://github.com/koalagator/koalagator/blob/main/CODE_OF_CONDUCT.md).
 
 Contributors
 ------------
 
-This free, open source software was made possible by a group of volunteers that put many hours of hard work into it. See the [CONTRIBUTORS.md](http://github.com/calagator/calagator/blob/main/CONTRIBUTORS.md) file for details.
+This free, open source software was made possible by a group of volunteers that put many hours of hard work into it. See the [CONTRIBUTORS.md](http://github.com/koalagator/koalagator/blob/main/CONTRIBUTORS.md) file for details.
 
 
 License
 -------
 
-This program is provided under an MIT open source license, read the [MIT-LICENSE.txt](http://github.com/calagator/calagator/blob/main/MIT-LICENSE.txt) file for details.
+This program is provided under an MIT open source license, read the [MIT-LICENSE.txt](http://github.com/koalagator/koalagator/blob/main/MIT-LICENSE.txt) file for details.
 
 
 Copyright
 ---------
 
-Copyright (c) 2007-2021 Calagator
+Copyright (c) 2024 Koalagator

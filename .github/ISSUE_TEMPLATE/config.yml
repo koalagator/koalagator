@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Feature Request
+    url: https://koalagator.canny.io/feature-requests
+    about: Provide feedback to the Koalagator development team and ask for new features or enhancements!
+  - name: Discuss Koalagator with the community
+    url: https://github.com/koalagator/koalagator/discussions
+    about: Join our discussions to get answers to your questions and to discuss on new feature requests.
