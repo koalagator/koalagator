@@ -31,7 +31,7 @@ Calagator.setup do |config|
   # Resources in this category can only be CRUDed by admin users.
   config.admin_resources = %i[changes]
   # Resources in this category can be CRUDed by any authenticated user.
-  config.user_resources = %i[events venues]
+  config.user_resources = %i[events venues organizations]
 
   # Optional username and password to use when accessing /admin pages
   # config.admin_email = 'admin@e.com'

@@ -68,3 +68,5 @@ FactoryBot.create_list(:seed_venue, 25, :with_events)
 FactoryBot.create_list(:seed_venue, 25)
 FactoryBot.create_list(:seed_event, 25, :with_venue)
 FactoryBot.create_list(:seed_event, 25)
+
+Calagator::Organization.find_or_create_by(name: "test-org", display_name: "Test Org", description: "Testing")

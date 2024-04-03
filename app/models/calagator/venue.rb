@@ -62,6 +62,7 @@ module Calagator
     # Associations
     has_many :events, -> { non_duplicates }, dependent: :nullify
     belongs_to :created_by, class_name: "Calagator::User", optional: true
+    belongs_to :organization, optional: true
     belongs_to :source, optional: true
 
     # Triggers

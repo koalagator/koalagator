@@ -10,7 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_22_035554) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_28_033750) do
+  create_table "calagator_organization_events", force: :cascade do |t|
+    t.integer "organization_id", null: false
+    t.integer "events_id", null: false
+    t.boolean "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["events_id"], name: "index_calagator_organization_events_on_events_id"
+    t.index ["organization_id"], name: "index_calagator_organization_events_on_organization_id"
+  end
+
+  create_table "calagator_organization_users", force: :cascade do |t|
+    t.integer "organization_id", null: false
+    t.integer "user_id", null: false
+    t.boolean "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_calagator_organization_users_on_organization_id"
+    t.index ["user_id"], name: "index_calagator_organization_users_on_user_id"
+  end
+
+  create_table "calagator_organization_venues", force: :cascade do |t|
+    t.integer "organization_id", null: false
+    t.integer "venues_id", null: false
+    t.boolean "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_calagator_organization_venues_on_organization_id"
+    t.index ["venues_id"], name: "index_calagator_organization_venues_on_venues_id"
+  end
+
+  create_table "calagator_organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "display_name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "calagator_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -118,6 +156,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_035554) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "calagator_organization_events", "calagator_organizations", column: "organization_id"
+  add_foreign_key "calagator_organization_events", "events", column: "events_id"
+  add_foreign_key "calagator_organization_users", "calagator_organizations", column: "organization_id"
+  add_foreign_key "calagator_organization_users", "calagator_users", column: "user_id"
+  add_foreign_key "calagator_organization_venues", "calagator_organizations", column: "organization_id"
+  add_foreign_key "calagator_organization_venues", "venues", column: "venues_id"
   add_foreign_key "events", "calagator_users", column: "created_by_id"
   add_foreign_key "sources", "calagator_users", column: "created_by_id"
   add_foreign_key "venues", "calagator_users", column: "created_by_id"

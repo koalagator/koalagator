@@ -60,6 +60,7 @@ module Calagator
 
     # Associations
     belongs_to :created_by, class_name: "Calagator::User", optional: true
+    belongs_to :organization, optional: true
     belongs_to :venue, counter_cache: true, optional: true
     belongs_to :source, optional: true
 

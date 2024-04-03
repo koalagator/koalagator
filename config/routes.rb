@@ -3,24 +3,26 @@
 Calagator::Engine.routes.draw do
   # Not sure why, but routes is getting loaded twice. This ignores the second load.
   return unless Calagator::Engine.routes.empty?
-
+  
   root "site#index"
-
+  
   devise_for :users, class_name: "Calagator::User" if Calagator.devise_enabled
-
+  
   get "omfg" => "site#omfg"
   get "hello" => "site#hello"
-
+  
   get "about" => "site#about"
 
   get "opensearch.:format" => "site#opensearch"
   get "defunct" => "site#defunct"
-
+  
   get "admin" => "admin#index"
   get "admin/index"
   get "admin/events"
   post "lock_event" => "admin#lock_event"
-
+  
+  resources :organizations
+  
   resources :events do
     collection do
       post :squash_many_duplicates
