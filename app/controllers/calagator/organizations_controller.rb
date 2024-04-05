@@ -49,20 +49,23 @@ module Calagator
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_organization
-        @organization = Organization.find(params[:id])
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_organization
+      @organization = Organization.find_by_name(params[:id])
+      return if @organization.present?
 
-      def ensure_org_admin
-        return unless Calagator.devise_enabled
-        return if current_user&.admin? || @organization.user_is_admin?(current_user)
-        render :index, status: :forbidden
-      end
+      render_404
+    end
 
-      # Only allow a list of trusted parameters through.
-      def organization_params
-        params.require(:organization).permit(:name, :display_name, :description)
-      end
+    def ensure_org_admin
+      return unless Calagator.devise_enabled
+      return if @organization.user_is_admin?(current_user)
+      render :index, status: :forbidden
+    end
+
+    # Only allow a list of trusted parameters through.
+    def organization_params
+      params.require(:organization).permit(:name, :display_name, :description)
+    end
   end
 end

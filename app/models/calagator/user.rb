@@ -36,6 +36,9 @@ module Calagator
     has_many :venues, foreign_key: :created_by_id, dependent: :nullify
     has_many :sources, foreign_key: :created_by_id, dependent: :nullify
 
+    has_many :organization_users
+    has_many :organizations, through: :organization_users
+
     before_validation -> { name&.downcase! }, on: :create
 
     def display_name

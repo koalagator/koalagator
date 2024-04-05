@@ -1,0 +1,28 @@
+<%
+  admin_orgs = venue.organization_venues.admin(true)
+  other_orgs = venue.organization_venues.admin(false)
+%>
+
+<div id='orgs'>
+  <h2>Related Organizations</h2>
+  <% if admin_orgs.any? %>
+    <div id='admin-orgs'>
+      <h3>Custodians</h3>
+      <ul>
+        <% admin_orgs.each do |ov| %>
+          <li><%= link_to ov.organization.display_name, ov.organization %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if other_orgs.any? %>
+    <div id='other-orgs'>
+      <h3>Affiliates</h3>
+      <ul>
+        <% other_orgs.each do |ov| %>
+          <li><%= link_to ov.organization.display_name, ov.organization %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

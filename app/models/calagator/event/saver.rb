@@ -4,11 +4,13 @@ module Calagator
   class Event < Calagator::ApplicationRecord
     class Saver < Struct.new(:event, :params, :failure)
       def save
-        event.attributes = params[:event] || {}
+        event.attributes = params[:event].except(:organization_id) || {}
         event.venue = find_or_initialize_venue
         event.start_time = [params[:start_date], params[:start_time]].join(" ")
         event.end_time = [params[:end_date], params[:end_time]].join(" ")
         event.tags.reload # Reload the #tags association because its members may have been modified when #tag_list was set above.
+
+        add_to_org if params.dig(:event, :organization_id)
 
         attempt_save?
       end
@@ -32,6 +34,12 @@ module Calagator
           end
           venue
         end
+      end
+
+      def add_to_org
+        org = Organization.find_by(id: params.dig(:event, :organization_id))
+        return unless org.present?
+        OrganizationEvent.create!(event: event, organization: org, admin: true)
       end
 
       def attempt_save?

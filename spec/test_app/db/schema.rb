@@ -13,11 +13,11 @@
 ActiveRecord::Schema[7.1].define(version: 2024_03_28_033750) do
   create_table "calagator_organization_events", force: :cascade do |t|
     t.integer "organization_id", null: false
-    t.integer "events_id", null: false
+    t.integer "event_id", null: false
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["events_id"], name: "index_calagator_organization_events_on_events_id"
+    t.index ["event_id"], name: "index_calagator_organization_events_on_event_id"
     t.index ["organization_id"], name: "index_calagator_organization_events_on_organization_id"
   end
 
@@ -33,20 +33,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_033750) do
 
   create_table "calagator_organization_venues", force: :cascade do |t|
     t.integer "organization_id", null: false
-    t.integer "venues_id", null: false
+    t.integer "venue_id", null: false
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_calagator_organization_venues_on_organization_id"
-    t.index ["venues_id"], name: "index_calagator_organization_venues_on_venues_id"
+    t.index ["venue_id"], name: "index_calagator_organization_venues_on_venue_id"
   end
 
   create_table "calagator_organizations", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "display_name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_calagator_organizations_on_name", unique: true
   end
 
   create_table "calagator_users", force: :cascade do |t|
@@ -157,11 +158,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_033750) do
   end
 
   add_foreign_key "calagator_organization_events", "calagator_organizations", column: "organization_id"
-  add_foreign_key "calagator_organization_events", "events", column: "events_id"
+  add_foreign_key "calagator_organization_events", "events"
   add_foreign_key "calagator_organization_users", "calagator_organizations", column: "organization_id"
   add_foreign_key "calagator_organization_users", "calagator_users", column: "user_id"
   add_foreign_key "calagator_organization_venues", "calagator_organizations", column: "organization_id"
-  add_foreign_key "calagator_organization_venues", "venues", column: "venues_id"
+  add_foreign_key "calagator_organization_venues", "venues"
   add_foreign_key "events", "calagator_users", column: "created_by_id"
   add_foreign_key "sources", "calagator_users", column: "created_by_id"
   add_foreign_key "venues", "calagator_users", column: "created_by_id"

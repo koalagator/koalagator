@@ -1,0 +1,12 @@
+<% if devise_enabled? && current_user&.organizations&.any? %>
+  <%= form.inputs do %>
+    <%= form.input :organizations,
+      as: :select, collection: current_user.organizations,
+      include_blank: "-- none --", input_html: {multiple: false, name: "venue[organization_id]"},
+      label: "Organization"
+    %>
+    <p class='inline-hints'>
+      Optionally, select an organization you are a part of to be involved with this venue.
+    </p>
+  <% end %>
+<% end %>

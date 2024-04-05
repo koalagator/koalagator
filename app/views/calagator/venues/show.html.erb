@@ -97,6 +97,8 @@
     <%= map @venue %>
   </div>
 
+  <%= render partial: "calagator/venues/org_list", locals: { venue: @venue } if @venue.organizations.any? %>
+
   <div id='events'>
     <div id='future_events'>
       <h2>Future events happening here</h2>

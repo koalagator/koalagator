@@ -70,3 +70,4 @@ FactoryBot.create_list(:seed_event, 25, :with_venue)
 FactoryBot.create_list(:seed_event, 25)
 
 Calagator::Organization.find_or_create_by(name: "test-org", display_name: "Test Org", description: "Testing")
+Calagator::OrganizationUser.find_or_create_by(user_id: 1, organization_id: 1)

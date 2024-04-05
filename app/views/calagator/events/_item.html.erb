@@ -79,6 +79,9 @@ html_classes << " contentbar" if has_contentbar
       <%= format_description(event.description) %>
     </div>
     <% end -%>
+
+    <%= render partial: "calagator/events/org_list", locals: { event: event } if event.organizations.any? %>
+
     <% if event.persisted? %>
       <h3>Share</h3>
       <div class="share">

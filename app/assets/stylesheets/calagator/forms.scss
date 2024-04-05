@@ -57,6 +57,10 @@ form.formtastic {
   padding-left: 15%;
 }
 
+.formtastic .input select {
+  padding: 0.125rem;
+}
+
 /* @group Autocomplete
 -------------------------------------------------------------- */
 ul.ui-autocomplete {

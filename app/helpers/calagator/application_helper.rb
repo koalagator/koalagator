@@ -9,6 +9,10 @@ module Calagator
       NAME.to_s
     end
 
+    def devise_enabled?
+      Calagator.devise_enabled
+    end
+
     # Returns HTML string of an event or venue description for display in a view.
     def format_description(string)
       sanitize(auto_link(upgrade_br(markdown(string))))

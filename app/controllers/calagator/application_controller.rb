@@ -22,6 +22,8 @@ module Calagator
     protect_from_forgery # :secret => '8813a7fec0bb4fbffd283a3868998eed'
     skip_before_action :verify_authenticity_token, if: :json_request?
 
+    before_action :set_paper_trail_whodunnit, if: -> { Calagator.devise_enabled }
+
     def recaptcha_enabled?
       Recaptcha.configuration.site_key.present?
     end
@@ -110,6 +112,10 @@ module Calagator
       return verify_recaptcha(model: model) if recaptcha_enabled?
 
       true
+    end
+
+    def render_404
+      render :file => 'public/404.html', :layout => false, :status => :not_found
     end
   end
 end

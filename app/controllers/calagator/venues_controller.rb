@@ -124,7 +124,16 @@ module Calagator
       end
 
       def save
-        venue.update params.permit![:venue].to_h
+        save_params = params.permit![:venue]
+        venue.update save_params.to_h.except(:organization_id)
+
+        add_to_org if params.dig(:venue, :organization_id)
+      end
+
+      def add_to_org
+        org = Organization.find_by(id: params.dig(:venue, :organization_id))
+        return unless org.present?
+        OrganizationVenue.create!(venue: venue, organization: org, admin: true)
       end
 
       def render_success

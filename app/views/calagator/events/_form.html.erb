@@ -46,6 +46,9 @@
         </div>
         <%= f.semantic_errors :start_date, :start_time, :end_date, :end_time %>
     </li>
+    <!-- Pre -->
+    <%= render(partial: "calagator/events/org_select", locals: {form: f}) if event.new_record? %>
+    <!-- Post -->
     <%= f.input :url, :label => 'Website' %>
     <%= f.input :description,
                 :input_html => {:rows => 12},
