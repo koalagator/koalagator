@@ -11,6 +11,12 @@ module Calagator
 
     # GET /organizations/1
     def show
+      respond_to do |format|
+        format.html
+        format.xml { render xml: @organization }
+        format.json { render json: @organization }
+        format.ics { render ics: @organization.events.order(:start_time) }
+      end
     end
 
     # GET /organizations/new

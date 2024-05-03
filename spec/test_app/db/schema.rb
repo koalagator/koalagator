@@ -45,9 +45,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_033750) do
     t.string "name", null: false
     t.string "display_name"
     t.string "description"
+    t.integer "primary_venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_calagator_organizations_on_name", unique: true
+    t.index ["primary_venue_id"], name: "index_calagator_organizations_on_primary_venue_id"
   end
 
   create_table "calagator_users", force: :cascade do |t|
@@ -163,6 +165,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_033750) do
   add_foreign_key "calagator_organization_users", "calagator_users", column: "user_id"
   add_foreign_key "calagator_organization_venues", "calagator_organizations", column: "organization_id"
   add_foreign_key "calagator_organization_venues", "venues"
+  add_foreign_key "calagator_organizations", "venues", column: "primary_venue_id"
   add_foreign_key "events", "calagator_users", column: "created_by_id"
   add_foreign_key "sources", "calagator_users", column: "created_by_id"
   add_foreign_key "venues", "calagator_users", column: "created_by_id"

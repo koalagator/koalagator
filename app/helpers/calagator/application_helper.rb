@@ -53,19 +53,19 @@ module Calagator
 
     # Return a string describing the source code version being used
     def source_code_version
-      Calagator::VERSION
+      "#{Calagator::NAME} #{Calagator::VERSION}"
     end
 
     # returns html markup with source (if any), imported/created time, and - if modified - modified time
     def datestamp(item)
-      source = if item.source.nil?
+      source = if !item.respond_to?(:source) || item.source.nil?
         "added directly to #{Calagator.title}"
       else
         "imported from #{link_to truncate(item.source.name, length: 40), url_for(item.source)}"
       end
-      creator = if item&.created_by_id?
+      creator = if item.respond_to?(:created_by_id?) && item&.created_by_id?
         " by:<br />#{display_username(item.created_by)}"
-      elsif item&.created_by_name?
+      elsif item.respond_to?(:created_by_name?) && item&.created_by_name?
         " by:<br />#{CGI.escapeHTML(item.created_by_name)}"
       end
       created = " <br /><strong>#{normalize_time(item.created_at, format: :html)}</strong>"

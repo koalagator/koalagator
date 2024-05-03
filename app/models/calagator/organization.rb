@@ -2,19 +2,27 @@
 #
 # Table name: calagator_organizations
 #
-#  id           :integer          not null, primary key
-#  description  :string
-#  display_name :string
-#  name         :string           not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id               :integer          not null, primary key
+#  description      :string
+#  display_name     :string
+#  name             :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  primary_venue_id :integer
 #
 # Indexes
 #
-#  index_calagator_organizations_on_name  (name) UNIQUE
+#  index_calagator_organizations_on_name              (name) UNIQUE
+#  index_calagator_organizations_on_primary_venue_id  (primary_venue_id)
+#
+# Foreign Keys
+#
+#  primary_venue_id  (primary_venue_id => venues.id)
 #
 module Calagator
   class Organization < Calagator::ApplicationRecord
+    include ActiveModel::Serializers::Xml
+
     has_many :organization_users
     has_many :admin_organization_users, -> { where(admin: true) }, foreign_key: :organization_id, class_name: "Calagator::OrganizationUser"
     has_many :users, through: :organization_users
@@ -25,6 +33,8 @@ module Calagator
 
     has_many :organization_venues
     has_many :venues, through: :organization_venues
+
+    belongs_to :primary_venue, class_name: "Calagator::Venue", optional: true
 
     validates :name, presence: true, format: {with: /\A[a-z0-9\-_]+\z/, message: "only allows ASCII letters, numbers, dashes and underscores"}
 
