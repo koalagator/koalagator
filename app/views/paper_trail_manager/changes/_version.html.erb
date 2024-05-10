@@ -5,7 +5,7 @@
     <div class='time'> <%= version.created_at.strftime('%H:%M:%S') %> </div>
   </td>
   <td class='change_details'>
-    <p class='change_details_description'>
+    <span class='change_details_description'>
       <strong class='event'><%= version.event %></strong>
       <%= change_item_link(version) %>
       <% if PaperTrailManager.whodunnit_class && version.whodunnit %>
@@ -19,10 +19,10 @@
           by <%= version.whodunnit %>
         <% end %>
       <% end %>
-      <% if change_revert_allowed?(version) %>
-        <%= link_to 'Roll back', change_path(version), :method => 'put', :class => 'rollback', :data => { :confirm => 'Are you sure?' } %>
-      <% end %>
-    </p>
+    </span>
+    <% if change_revert_allowed?(version) %>
+      <%= button_to 'Roll back', change_path(version), class: "rollback a-like", form_class: "inline change_details_description", :method => 'put', :data => { :confirm => 'Are you sure?' } %>
+    <% end %>
     <% if version.event == 'update' or version.event == 'create' %>
       <% changes = changes_for(version) %>
       <table class='change_details_table'>

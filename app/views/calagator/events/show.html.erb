@@ -38,12 +38,14 @@
     <% if @event.locked %>
     <p>This event is currently locked and cannot be edited. Please contact an admin for assistance.</p>
     <% else %>
-    <p>
+    <span>
       You can 
       <%= link_to "edit", edit_event_url(@event) %>,
       <%= link_to "clone", clone_event_url(@event) %>,
-      or 
-      <%= link_to "delete", event_url(@event), method: :delete, data: { confirm: "Are you sure?" } %>
+      or
+    </span>
+    <%= button_to "delete", event_url(@event), method: :delete, data: { confirm: "Are you sure?" }, form_class: "inline", class: "a-like" %>
+    <span>
       this event.
     </p>
     <% end %>

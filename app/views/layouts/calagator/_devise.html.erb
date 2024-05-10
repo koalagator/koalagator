@@ -2,7 +2,7 @@
   <% if current_user.present? %>
     <span>Signed in as <%= display_username(current_user) %>
     <span>-</span>
-    <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "a a-btn", form_class: "inline" %>
+    <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "a-like", form_class: "inline" %>
   <% else %>
     <%= link_to "Sign Up", new_user_registration_path %>
     <span>or</span>

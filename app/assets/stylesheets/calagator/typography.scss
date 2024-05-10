@@ -56,14 +56,30 @@ p img       { float: left; margin: 1.5em 1.5em 1.5em 0; padding: 0; }
 p img.right { float: right; margin: 1.5em 0 1.5em 1.5em; }
 p img.inline{ float: none; margin: 1.5em 1.5em;}
 
-a:focus,
-a:hover     { color: #445544; text-decoration: underline; }
-a:link      { color: #66baa9; text-decoration: none;}
-a:visited   { color: #59a12d; text-decoration: none;}
+a:link, .a-like        { color: #66baa9; text-decoration: none;}
+a:visited              { color: #59a12d; text-decoration: none;}
 
-.dark a     { color: #fff; text-decoration: underline; }
+a:focus, .a-like:focus,
+a:hover, .a-like:hover { color: #445544; text-decoration: underline; }
 
-a.summary   { font-weight: bold; }
+.dark a, .dark .a-like { color: #fff; text-decoration: underline; }
+
+a.summary, .a-like.summary { font-weight: bold; }
+
+button.a-like {
+  font-feature-settings: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  font-variation-settings: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  display: inline;
+  cursor: pointer;
+}
 
 blockquote  { margin: 1.5em; color: #666; font-style: italic; }
 strong      { font-weight: bold; }

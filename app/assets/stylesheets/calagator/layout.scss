@@ -13,7 +13,7 @@ body {
   height: 95px;
 }
 
-#global_header a, #global_header .a {
+#global_header a, #global_header .a-like {
   color: $default_text;
 }
 
@@ -711,13 +711,4 @@ fieldset .no_label, fieldset .help {
 
 .sources_index tr.even td {
   background-color: white;
-}
-
-.a-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  padding: unset;
 }
