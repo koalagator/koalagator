@@ -70,7 +70,8 @@ module Calagator
       @_link_class_cache ||= {
         events: ((controller_name == "events" ||
                       controller_name == "sources" ||
-                      controller_name == "site") && "active"),
+                      controller_name == "site" ||
+                      controller_name == "curations") && "active"),
         venues: (controller_name == "venues" && "active")
       }
     end

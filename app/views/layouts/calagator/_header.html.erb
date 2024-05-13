@@ -17,7 +17,7 @@
 
       <% # Pick a subnav %>
 
-      <%= render(:partial => 'calagator/events/subnav') if link_class[:events] == 'active' %>
+      <%= render(:partial => 'calagator/events/subnav', :locals => { :curations => Calagator::Curation.order_by_priority }) if link_class[:events] == 'active' %>
       <%= render(:partial => 'calagator/venues/subnav') if link_class[:venues] == 'active' %>
       <%= render(:partial => 'calagator/sources/subnav') if link_class[:import] == 'active' %>
 

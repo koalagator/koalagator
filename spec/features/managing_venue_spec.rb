@@ -16,7 +16,7 @@ describe "Venue Editing", js: true do
 
   it "A user edits an existing venue" do
     visit "/"
-    click_on venue.title
+    first(:link, venue.title).click
     click_on "edit"
 
     venue_name = find_field("Venue Name").value

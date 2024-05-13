@@ -3,10 +3,11 @@
 module Calagator
   class Event < Calagator::ApplicationRecord
     class Browse < Struct.new(:order, :date, :time)
-      def initialize(attributes = {})
+      def initialize(attributes = {}, scope = nil)
         members.each do |key|
           send "#{key}=", attributes[key]
         end
+        @scope = scope
       end
 
       def events

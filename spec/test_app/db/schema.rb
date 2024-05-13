@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_22_035554) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_10_051940) do
+  create_table "calagator_curations", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "display_name"
+    t.string "description"
+    t.integer "priority", default: 0, null: false
+    t.boolean "unlisted", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_calagator_curations_on_name", unique: true
+  end
+
   create_table "calagator_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

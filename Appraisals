@@ -8,6 +8,6 @@ appraise "rails-7-1" do
   gem "turbolinks"
 
   gem "mysql2", "~> 0.5.3"
-  gem "pg", "~> 0.19"
+  gem "pg", "~> 1.5"
   gem "rails-controller-testing", group: "test"
 end

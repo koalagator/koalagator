@@ -16,3 +16,31 @@
 .inline {
   display: inline;
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-start {
+  align-items: start;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
