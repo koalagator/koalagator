@@ -1,8 +1,16 @@
-<div id="events_subnav" class="subnav">
+<div id="events_subnav" class="subnav flex justify-between">
     <ul class="clearfix">
-      <li><%= link_to 'Browse events', root_url,
+      <li><%= link_to 'Home', root_url,
               :class => subnav_class_for("site", "index") %>
       </li>
+      <% curations.each do |curation| %>
+      <li><%= link_to curation.display_name, curation_path(curation.name),
+        :class => subnav_class_for("curations", "show", curation.name) %>
+      </li>
+      <% end %>
+      <%= render partial: "calagator/events/subnav_custom" %>
+    </ul>
+    <ul>
       <li><%= link_to 'Add an event', new_event_url,
               :class => subnav_class_for("events", "new") %>
       </li>

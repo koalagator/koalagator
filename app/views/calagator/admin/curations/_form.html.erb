@@ -1,0 +1,56 @@
+<%= form_with model: curation, url: (curation.new_record? ? admin_curations_path : admin_curation_path(curation)) do |form| %>
+  <div class="flex flex-col items-start">
+    <%= form.label :name, class: "font-bold required" %>
+    <%= form.text_field :name, required: true, oninput: "formatNameField(event)", pattern: "[a-z0-9_\-]+" %>
+  </div>
+
+  <div class="flex flex-col items-start">
+    <%= form.label :display_name, class: "font-bold required" %>
+    <%= form.text_field :display_name, required: true %>
+  </div>
+
+  <div class="flex flex-col items-start">
+    <%= form.label :description, class: "font-bold" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="flex flex-col items-start">
+    <%= form.label :priority, class: "font-bold required" %>
+    <%= form.number_field :priority, required: true %>
+  </div>
+
+  <div class="flex flex-col items-start">
+    <%= form.label :unlisted, class: "font-bold required" %>
+    <%= form.check_box :unlisted %>
+  </div>
+
+  <fieldset style="margin-top: 1rem;">
+    <legend class="font-bold">Tag Filters</legend>
+    <p>Configure tags, comma separated, to configure the curated events.</p>
+    
+    <div class="flex flex-col items-start mb-2">
+      <%= form.label :block_list, class: "font-bold" %>
+      <%= form.text_field :block_list %>
+      <span>Events with any of these tags will <strong>always</strong> be excluded.</span>
+    </div>
+
+    <div class="flex flex-col items-start mb-2">
+      <%= form.label :require_list, class: "font-bold" %>
+      <%= form.text_field :require_list %>
+      <span>Events <strong>must</strong> have one of these tags to be included.</span>
+    </div>
+
+    <div class="flex flex-col items-start mb-2">
+      <%= form.label :deny_list, class: "font-bold" %>
+      <%= form.text_field :deny_list %>
+      <span>Events with any of these tags will be excluded.</span>
+    </div>
+    
+    <div class="flex flex-col items-start mb-2">
+      <%= form.label :allow_list, class: "font-bold" %>
+      <%= form.text_field :allow_list %>
+      <span>Events with any of these tags will be included, <strong>overriding</strong> the deny list.</span>
+    </div>
+  </fieldset>
+  <%= form.submit %>
+<% end %>

@@ -81,10 +81,15 @@ module Calagator
       end
     end
 
-    def subnav_class_for(controller_name, action_name)
+    def subnav_class_for(controller_name, action_name, id_name = nil)
+      id_fail = false
+      if id_name.present?
+        id_fail = (id_name != params[:id])
+      end
+
       css_class = "#{controller.controller_name}_#{controller.action_name}_subnav"
       if [controller.controller_name, controller.action_name] == [controller_name, action_name]
-        css_class += " active"
+        css_class += " active" unless id_fail
       end
       css_class
     end

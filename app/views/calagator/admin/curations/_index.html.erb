@@ -1,0 +1,12 @@
+<tr>
+  <td><%= curation.priority %></td>
+  <td><%= !curation.unlisted %></td>
+  <td><%= curation.name %></td>
+  <td><%= curation.display_name %></td>
+  <td><%= curation.description %></td>
+  <td>
+    <%= link_to "Edit", edit_admin_curation_path(curation) %>
+    |
+    <%= button_to "Destroy", destroy_user_session_path, method: :delete, class: "a-like", form_class: "inline", data: { confirm: "Are you sure?" } %>
+  </td>
+</tr>

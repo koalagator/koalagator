@@ -21,6 +21,13 @@ Calagator::Engine.routes.draw do
   get "admin/events"
   post "lock_event" => "admin#lock_event"
 
+  namespace :admin do
+    resources :curations, except: :show
+  end
+
+  get "curations", to: redirect("/")
+  resources :curations, only: :show
+
   resources :events do
     collection do
       post :squash_many_duplicates
