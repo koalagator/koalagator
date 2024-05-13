@@ -58,7 +58,7 @@ body {
 }
 
 #app_menu li.active {
-  background: image-url("nav_marker.gif") no-repeat center bottom;
+  background: image-url("nav_marker.png") no-repeat center bottom;
 }
 
 #project_menu {
@@ -110,11 +110,11 @@ body {
 
 .subnav a {
   color: $header_text;
-  padding-bottom: .42em;
+  padding-bottom: .5em;
 }
 
 .subnav .active {
-  background: image-url("subnav_marker.gif") no-repeat center bottom;
+  background: image-url("subnav_marker.png") no-repeat center bottom;
 }
 
 
@@ -711,4 +711,14 @@ fieldset .no_label, fieldset .help {
 
 .sources_index tr.even td {
   background-color: white;
+}
+
+.hr-sm {
+  color: #999;
+  border-top: 0px;
+}
+
+#curation_description {
+  max-width: 800px;
+  margin-left: 0px;
 }

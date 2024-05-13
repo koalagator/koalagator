@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "username" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "username", oninput: "formatNameField(event)", pattern: "[a-z0-9_\-]+" %>
   </div>
 
   <div class="field">
