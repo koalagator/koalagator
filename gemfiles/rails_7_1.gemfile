@@ -10,6 +10,6 @@ gem "launchy", "~> 2.5.2"
 gem "rails-controller-testing", group: "test"
 gem "turbolinks"
 gem "mysql2", "~> 0.5.3"
-gem "pg", "~> 0.19"
+gem "pg", "~> 1.5"
 
 gemspec path: "../"
