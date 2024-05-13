@@ -54,7 +54,6 @@ module Calagator
 
       def set_curation
         @curation = Curation.find(params[:id])
-
       rescue ActiveRecord::RecordNotFound
         redirect_to admin_curations_path
       end

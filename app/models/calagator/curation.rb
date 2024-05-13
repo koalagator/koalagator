@@ -21,10 +21,10 @@ module Calagator
 
     validates :name, :display_name, :priority, presence: true
     validates :name,
-      format: { with: /\A[a-z0-9\-_]+\z/, message: "only allows ASCII letters, numbers, dashes and underscores" },
+      format: {with: /\A[a-z0-9\-_]+\z/, message: "only allows ASCII letters, numbers, dashes and underscores"},
       uniqueness: true,
-      length: { maximum: 64 }
-    
+      length: {maximum: 64}
+
     scope :order_by_priority, ->(direction = :desc) { order(priority: direction) }
     scope :listed, ->(listed = true) { where(unlisted: !listed) }
   end
