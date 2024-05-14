@@ -1,5 +1,6 @@
 <%= content_for :title, "Events" %>
 
+<% cache_if(browse.default?, Calagator::CacheObserver.daily_key_for("events_index", request)) do %>
 <%= render partial: "index", locals: {browse: @browse, links: {
     ical: icalendar_feed_link,
     atom: atom_feed_link,
@@ -7,3 +8,4 @@
     ical_export: icalendar_export_link
   }}
 %>
+<% end %>

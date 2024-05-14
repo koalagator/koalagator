@@ -1,5 +1,4 @@
 <% links ||= {} %>
-<% cache_if(browse.default?, Calagator::CacheObserver.daily_key_for("events_index", request)) do %>
 <div class='list_description'>
   <h2>Viewing <strong><%= browse.events.size %></strong>
   <%= browse.date ? 'filtered' : 'future' %> events
@@ -58,4 +57,3 @@
 <div class='list_items'>
   <%= render :partial => 'calagator/events/table', :locals => { :events => browse.events } %>
 </div>
-<% end %>
