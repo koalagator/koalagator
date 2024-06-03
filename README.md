@@ -38,7 +38,7 @@ Ps. We're still settling in so there may still be references to calagator while 
 Why
 ---
 
-By releasing this code under a liberal MIT open source license, we hope to empower other people so they can better organize and participate in more events that support free sharing of information, open society, and involved citizenry.
+By releasing this code under a GNU Affero General Public License (AGPL), we hope to empower other people so they can better organize and participate in more events that support free sharing of information, open society, and involved citizenry.
 
 
 Installing
@@ -65,7 +65,7 @@ This free, open source software was made possible by a group of volunteers that 
 License
 -------
 
-This program is provided under an MIT open source license, read the [MIT-LICENSE.txt](http://github.com/koalagator/koalagator/blob/main/MIT-LICENSE.txt) file for details.
+This program is provided under GNU Affero General Public License (AGPL), read the [LICENSE.md](http://github.com/koalagator/koalagator/blob/main/LICENSE.md) file for details.
 
 
 Copyright
