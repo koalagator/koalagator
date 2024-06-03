@@ -18,6 +18,7 @@ List of Calagator releases and changes, with the latest at the top:
   * Project renamed to Koalagator
     - Updated user-facing `calagator` references to `koalagator`.
     - Code-base kept using `Calagator` namespace, for potential compatibility.
+  * Switch to AGPL license going forward.
   * Added FORKING.md to document necessary changes for a fork.
   * Made changes to assist forking / upstreaming in the future.
 
