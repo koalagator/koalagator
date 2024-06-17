@@ -47,7 +47,8 @@ module Calagator
     :mapping_tiles,
     :venues_map_options,
     :denylist_patterns,
-    :devise_enabled
+    :devise_enabled,
+    :cache_enabled
 
   self.title = NAME
   self.tagline = "A Tech Calendar"
@@ -64,6 +65,7 @@ module Calagator
     /\bcialis\b/
   ]
   self.devise_enabled = false
+  self.cache_enabled = true
 
   def self.configure_search_engine
     kind = search_engine.try(:to_sym)

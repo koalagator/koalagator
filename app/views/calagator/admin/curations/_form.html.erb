@@ -30,25 +30,25 @@
     
     <div class="flex flex-col items-start mb-2">
       <%= form.label :block_list, class: "font-bold" %>
-      <%= form.text_field :block_list %>
+      <%= form.text_field :block_list, value: curation.block_list.to_s %>
       <span>Events with any of these tags will <strong>always</strong> be excluded.</span>
     </div>
 
     <div class="flex flex-col items-start mb-2">
       <%= form.label :require_list, class: "font-bold" %>
-      <%= form.text_field :require_list %>
+      <%= form.text_field :require_list, value: curation.require_list.to_s %>
       <span>Events <strong>must</strong> have one of these tags to be included.</span>
     </div>
 
     <div class="flex flex-col items-start mb-2">
       <%= form.label :deny_list, class: "font-bold" %>
-      <%= form.text_field :deny_list %>
+      <%= form.text_field :deny_list, value: curation.deny_list.to_s %>
       <span>Events with any of these tags will be excluded.</span>
     </div>
     
     <div class="flex flex-col items-start mb-2">
       <%= form.label :allow_list, class: "font-bold" %>
-      <%= form.text_field :allow_list %>
+      <%= form.text_field :allow_list, value: curation.allow_list.to_s %>
       <span>Events with any of these tags will be included, <strong>overriding</strong> the deny list.</span>
     </div>
   </fieldset>

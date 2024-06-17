@@ -45,6 +45,9 @@ Calagator.setup do |config|
   # Values: :sql, :sunspot.
   config.search_engine = :sql
 
+  # Enable caching of views (not recommended for sites with little activity)
+  config.cache_enabled = true
+
   # Set the iCalendar SEQUENCE, which should be increased each time an event
   # is updated. If an admin needs to forcefully increment the SEQUENCE for all
   # events, they can set this icalendar_sequence_offset value to something
