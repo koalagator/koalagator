@@ -30,6 +30,14 @@ module Calagator
       raw "<span title=\"@#{name}\">#{admin_flag}#{display_name}</span>"
     end
 
+    def nav_section
+      @nav_section || :root
+    end
+
+    def active_on(*sections)
+      sections.map { |c| c.to_s }.include?(nav_section.to_s) ? "active" : nil
+    end
+
     FLASH_TYPES = %i[success failure].freeze
 
     def render_flash

@@ -10,6 +10,8 @@ module Calagator
 
     authorize_resource :venues, only: %i[new edit create update destroy]
 
+    nav_section :venues
+
     def venue
       @venue ||= params[:id] ? Venue.find(params[:id]) : Venue.new
     end

@@ -3,6 +3,9 @@
 module Calagator
   class SiteController < Calagator::ApplicationController
     # Raise exception, mostly for confirming that exception_notification works
+
+    nav_section :about, only: :about
+
     def omfg
       raise ArgumentError, "OMFG"
     end

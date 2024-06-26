@@ -4,7 +4,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 module Calagator
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
     helper Calagator::EventsHelper
     helper Calagator::ApplicationHelper
     helper Calagator::EventsHelper
@@ -60,6 +60,11 @@ module Calagator
       }, **options
     end
     private_class_method :devise_require_admin
+
+    def self.nav_section(section, options = {})
+      before_action -> { @nav_section = section }, **options
+    end
+    private_class_method :nav_section
 
     #---[ Helpers ]---------------------------------------------------------
 

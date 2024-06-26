@@ -13,6 +13,8 @@ module Calagator
     authorize_resource :events, only: %i[new edit create update destroy clone]
     before_action :find_and_redirect_if_locked, only: %i[edit update destroy]
 
+    nav_section :events
+
     # GET /events
     # GET /events.xml
     def index
