@@ -1,0 +1,28 @@
+<%= form_with model: user, url: user.new_record? ? admin_users_path : admin_user_path(user) do |form| %>
+  <div class="flex flex-col max-w-content">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="flex flex-col max-w-content">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="flex flex-col max-w-content">
+    <%= form.label :display_name %>
+    <%= form.text_field :display_name %>
+  </div>
+
+  <div>
+    <%= form.label :admin %>
+    <%= form.check_box :admin %>
+  </div>
+
+  <div class="flex gap-2">
+    <%= form.submit %>
+    <%= link_to admin_users_path do %>
+      <button type="button">Cancel</button>
+    <% end %>
+  </div>
+<% end %>

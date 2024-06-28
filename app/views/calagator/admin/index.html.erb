@@ -5,5 +5,8 @@
   <li><%= link_to "Squash duplicate events", duplicates_events_path %></li>
   <li><%= link_to "Squash duplicate venues", duplicates_venues_path %></li>
   <li><%= link_to "Lock events", admin_events_path %></li>
+  <% if Calagator.devise_enabled %>
+    <li><%= link_to "Manage users", admin_users_path %></li>
+  <% end %>
   <li><%= link_to "Manage curations", admin_curations_path %></li>
 </ul>

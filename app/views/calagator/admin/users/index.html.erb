@@ -1,0 +1,38 @@
+<h2>
+  <%= link_to "Admin", admin_path %> / Users
+</h2>
+
+<div class="flex flex-col items-start">
+  <%= link_to "Invite User", new_admin_user_path %>
+  <%= will_paginate @users %>
+  <table class="w-auto">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Display Name</th>
+        <th>Admin?</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.display_name %></td>
+          <td><%= user.admin %></td>
+          <td><%= user.created_at %></td>
+          <td><%= user.updated_at %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_user_path(user) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -33,6 +33,11 @@ Calagator::Engine.routes.draw do
 
   namespace :admin do
     resources :curations, except: :show
+    if Calagator.devise_enabled
+      resources :users do
+        get :invite, as: :invite
+      end
+    end
   end
 
   get "curations", to: redirect("/")

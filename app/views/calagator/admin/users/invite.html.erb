@@ -1,0 +1,19 @@
+<p>
+  User <strong><%= @user.name %></strong> has been created.
+</p>
+
+<p>
+  If email has been properly set up on this instance, they should receive an email shortly instructing them to reset their password.
+</p>
+
+<p>
+  Otherwise, you can manually provide them with the following link:
+</p>
+
+<p>
+  <code><%= "#{root_url}users/password/edit?reset_password_token=#{params[:token]}" %></code>
+</p>
+
+<%= link_to admin_users_path do %>
+  <button type="button">Back</button>
+<% end %>
