@@ -21,6 +21,11 @@ module Calagator
       leaflet
     ]
 
+    config.to_prepare do
+      # Include custom helpers from parent app
+      Calagator::ApplicationController.helper Rails.application.helpers
+    end
+
     config.after_initialize do
       Calagator.configure_search_engine
     end

@@ -39,7 +39,11 @@
                   :as => :boolean,
                   :hint => venue.location \
                             ? "([#{venue.latitude}, #{venue.longitude}] currently; if checked, we'll try again.)" \
-                            : "(if checked, we'll try to determine a map position for this venue.)" %>
+                            : "(If checked, we'll try to determine a map position for this venue.)" %>
+    <% end %>
+
+    <% if Calagator.devise_enabled && current_user&.admin? %>
+      <%= f.input :pinned, label: "Pinned to Navbar?", as: :boolean, hint: "(If checked, this venue will be featured in the navbar.)" %>
     <% end %>
 
     <li class='trap'>

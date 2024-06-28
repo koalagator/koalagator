@@ -16,6 +16,7 @@
 #  latitude        :decimal(7, 4)
 #  locality        :string
 #  longitude       :decimal(7, 4)
+#  pinned          :boolean          default(FALSE), not null
 #  postal_code     :string
 #  region          :string
 #  street_address  :string

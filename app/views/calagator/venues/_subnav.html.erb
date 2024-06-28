@@ -1,5 +1,13 @@
-<div id="venues_subnav" class="subnav">
+<div id="venues_subnav" class="subnav flex justify-between">
     <ul class="clearfix">
+      <li><%= link_to 'Home', root_url,
+              :class => subnav_class_for("site", "index") %>
+      </li>
+      <%= render partial: "calagator/shared/subnav_curations", locals: { curations: Calagator::Curation.order_by_priority } %>
+      <%= render partial: "calagator/shared/subnav_pinned_venues", locals: { venues: Calagator::Venue.pinned } %>
+      <%= render partial: "calagator/venues/subnav_custom" %>
+    </ul>
+    <ul>
       <li><%= link_to 'Browse venues', venues_url,
               :class => subnav_class_for("venues", "index") %>
       </li>

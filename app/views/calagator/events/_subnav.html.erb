@@ -3,11 +3,8 @@
       <li><%= link_to 'Home', root_url,
               :class => subnav_class_for("site", "index") %>
       </li>
-      <% curations.each do |curation| %>
-      <li><%= link_to curation.display_name, curation_path(curation.name),
-        :class => subnav_class_for("curations", "show", curation.name) %>
-      </li>
-      <% end %>
+      <%= render partial: "calagator/shared/subnav_curations", locals: { curations: Calagator::Curation.order_by_priority } %>
+      <%= render partial: "calagator/shared/subnav_pinned_venues", locals: { venues: Calagator::Venue.pinned } %>
       <%= render partial: "calagator/events/subnav_custom" %>
     </ul>
     <ul>

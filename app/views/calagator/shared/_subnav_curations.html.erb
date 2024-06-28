@@ -1,0 +1,5 @@
+<% curations.each do |curation| %>
+  <li><%= link_to curation.display_name, curation_path(curation.name),
+    :class => subnav_class_for("curations", "show", curation.name) %>
+  </li>
+<% end %>

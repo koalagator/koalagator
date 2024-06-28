@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_10_051940) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_28_055300) do
   create_table "calagator_curations", force: :cascade do |t|
     t.string "name", null: false
     t.string "display_name"
@@ -116,6 +116,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_10_051940) do
     t.integer "events_count"
     t.string "created_by_name"
     t.integer "created_by_id"
+    t.boolean "pinned", default: false, null: false
     t.index ["created_by_id"], name: "index_venues_on_created_by_id"
   end
 
