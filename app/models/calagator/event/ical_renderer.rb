@@ -25,7 +25,7 @@ module Calagator
 
       def self.render_icalendar(events, opts)
         cal = RiCal.Calendar do |calendar|
-          calendar.prodid = "-//Calagator//EN"
+          calendar.prodid = "-//#{Calagator::NAME}//EN"
 
           Array(events).each do |event|
             calendar.event do |entry|

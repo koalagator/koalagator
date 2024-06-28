@@ -6,7 +6,17 @@ Calagator::Engine.routes.draw do
 
   root "site#index"
 
-  devise_for :users, class_name: "Calagator::User" if Calagator.devise_enabled
+  # Change routes if registrations are closed
+  if Calagator.open_registration
+    devise_for :users, class_name: "Calagator::User" if Calagator.devise_enabled
+  else
+    devise_for :users, skip: [:registrations], class_name: "Calagator::User" if Calagator.devise_enabled
+    as :user do
+      get 'users/sign_up' => 'site#closed_registrations', :as => 'new_user_registration'
+      get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+      put 'users' => 'devise/registrations#update', :as => 'user_registration'
+    end
+  end
 
   get "omfg" => "site#omfg"
   get "hello" => "site#hello"

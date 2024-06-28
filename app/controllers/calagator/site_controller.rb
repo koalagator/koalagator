@@ -37,5 +37,8 @@ module Calagator
       @url = params[:url]
       raise ArgumentError if /^javascript:/.match?(@url)
     end
+
+    def closed_registrations
+    end
   end
 end

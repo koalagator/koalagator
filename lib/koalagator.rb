@@ -38,6 +38,7 @@ module Calagator
     :admin_password,
     :admin_icon,
     :admin_resources,
+    :open_registration,
     :user_resources,
     :search_engine,
     :icalendar_sequence_offset,
@@ -54,6 +55,7 @@ module Calagator
   self.tagline = "A Tech Calendar"
   self.url = "http://my-calagator.org/"
   self.administrator_email = "your@email.addr"
+  self.open_registration = true
   self.search_engine = :sql
   self.icalendar_sequence_offset = 0
   self.mapping_marker_color = "green"

@@ -41,6 +41,9 @@ Calagator.setup do |config|
   # Emoji used as administrator icon
   config.admin_icon = "🐨"
 
+  # Configure open registration, if devise is enabled
+  config.open_registration = true
+
   # Search engine to use for searching events.
   # Values: :sql, :sunspot.
   config.search_engine = :sql
