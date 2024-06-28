@@ -88,7 +88,7 @@ module Calagator
     scope :with_public_wifi, -> { where(wifi: true) }
     scope :in_business, -> { where(closed: false) }
     scope :out_of_business, -> { where(closed: true) }
-    scope :pinned, ->(pinned = true) { where(:pinned => pinned)}
+    scope :pinned, ->(pinned = true) { where(pinned: pinned) }
 
     def self.search(query, opts = {})
       SearchEngine.search(query, opts)

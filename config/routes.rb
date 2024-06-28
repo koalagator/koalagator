@@ -12,9 +12,9 @@ Calagator::Engine.routes.draw do
   else
     devise_for :users, skip: [:registrations], class_name: "Calagator::User" if Calagator.devise_enabled
     as :user do
-      get 'users/sign_up' => 'site#closed_registrations', :as => 'new_user_registration'
-      get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
-      put 'users' => 'devise/registrations#update', :as => 'user_registration'
+      get "users/sign_up" => "site#closed_registrations", :as => "new_user_registration"
+      get "users/edit" => "devise/registrations#edit", :as => "edit_user_registration"
+      put "users" => "devise/registrations#update", :as => "user_registration"
     end
   end
 
