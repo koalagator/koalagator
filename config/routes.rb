@@ -40,6 +40,7 @@ Calagator::Engine.routes.draw do
     end
   end
 
+  get "embed", to: "site#embed", as: "embed"
   get "curations", to: redirect("/")
   resources :curations, only: :show
 

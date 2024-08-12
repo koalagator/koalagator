@@ -15,6 +15,10 @@ module Calagator
       render plain: "hello"
     end
 
+    def embed
+      render layout: "calagator/embed"
+    end
+
     def index
       @overview = Event::Overview.new
       respond_to do |format|

@@ -1,0 +1,7 @@
+<% content_for :head do %>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@event-calendar/build@3.3.0/event-calendar.min.css">
+  <%= stylesheet_link_tag "calagator/custom/calendar" %>
+  <%= javascript_import_module_tag "calendar" %>
+<% end %>
+
+<events-calendar id="calendar" src="<%= src %>"></events-calendar>

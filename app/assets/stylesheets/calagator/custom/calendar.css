@@ -1,0 +1,137 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  height: 100%;
+  margin: 0px;
+}
+
+.ec-body {
+  overflow: visible;
+  padding-top: 0.25rem;
+}
+
+.ec-event-body {
+  display: block;
+}
+
+.event-time {
+  display: inline;
+  font-weight: bold;
+  margin-right: 0.25rem;
+}
+
+.ec-day-grid .event-title {
+  display: inline;
+  white-space: initial;
+  font-weight: normal;
+  overflow: hidden;
+}
+
+.ec-event {
+  z-index: auto;
+}
+
+.ec {
+  height: 100%;
+}
+
+events-calendar {
+  display: block;
+  height: 100%;
+}
+
+calendar-event {
+  display: block;
+  position: relative;
+  --details-arrow-size: 12px;
+  --details-border-color: black;
+  --details-bg-color: white;
+}
+
+events-calendar[view="dayGridMonth"] calendar-event {
+  cursor: pointer;
+}
+
+calendar-event h4 {
+  margin: 0px;
+}
+
+.event-body {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+events-calendar[view="dayGridMonth"] .event-details-container {
+  display: none;
+  position: relative;
+  container-type: size;
+  z-index: 10;
+}
+
+events-calendar[view="dayGridMonth"] calendar-event[open] .event-details-container {
+  display: block;
+}
+
+events-calendar[view="dayGridMonth"] .event-details {
+  color: black;
+  background-color: var(--details-bg-color);
+  position: absolute;
+  left: 0px;
+  right: -22px;
+  z-index: 9;
+  padding: 0.5rem;
+  border: 1px solid var(--details-border-color);
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  /* min-width: 400px; */
+  max-height: 400px;
+  overflow: auto;
+}
+
+.event-details > h4 {
+  display: none;
+}
+
+events-calendar[view="dayGridMonth"] .event-details > h4 {
+  display: initial;
+}
+
+events-calendar[view="dayGridMonth"] .event-details-arrow {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: calc(0.25rem + var(--details-arrow-size));
+  left: calc(0px - var(--details-arrow-size));
+}
+
+events-calendar[view="dayGridMonth"] .event-details-arrow::before,
+events-calendar[view="dayGridMonth"] .event-details-arrow::after {
+  z-index: 10;
+  content: "";
+  position: absolute;
+  top: calc(var(--details-arrow-size) * -1);
+  left: 50%;
+  border-style: solid;
+  border-width: var(--details-arrow-size) var(--details-arrow-size) 0;
+  border-color: var(--details-border-color) transparent;
+  width: min-content;
+  transform: rotate(180deg);
+}
+
+events-calendar[view="dayGridMonth"] .event-details-arrow::after {
+  top: calc((var(--details-arrow-size) * -1) + 1px);
+  border-color: var(--details-bg-color) transparent;
+}
+
+.event-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  color: #464646; 
+}

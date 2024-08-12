@@ -2,7 +2,7 @@
 
 module Calagator
   class CurationsController < Calagator::ApplicationController
-    before_action :set_curation, only: :show
+    before_action :set_curation, only: %i[show]
 
     def show
       @browse = Event::Browse.new(params, @curation.events)

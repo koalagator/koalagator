@@ -1,0 +1,16 @@
+<%= render partial: "calagator/shared/calendar", locals: {src: params[:src]} %>
+
+<script>
+  function getView() {
+    if (window.matchMedia('(max-width: 945px)').matches) {
+      return 'listMonth'
+    }
+    return 'dayGridMonth'
+  }
+
+  const calendar = document.getElementById("calendar")
+  const resizeObserver = new ResizeObserver(() => {
+    calendar.setAttribute("view", getView())
+  })
+  resizeObserver.observe(calendar)
+</script>
