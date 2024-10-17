@@ -14,6 +14,9 @@ module Calagator
         @user = User.new
       end
 
+      def show
+      end
+
       def create
         @user = User.new(user_params)
         temp_pass = SecureRandom.base36
