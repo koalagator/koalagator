@@ -9,6 +9,20 @@ rescue LoadError
   exit 1
 end
 
+TAGS = [
+  "gardening",
+  "birdwatching",
+  "camping",
+  "hiking",
+  "nature",
+  "public lecture",
+  "book launch"
+].freeze
+
+def random_tags
+  TAGS.sample(rand(2..4)).join(", ")
+end
+
 FactoryBot.define do
   factory :seed_venue, class: Calagator::Venue do
     title { Faker::Company.name }
@@ -53,6 +67,8 @@ FactoryBot.define do
     end
     created_at { start_time - 1.day }
     end_time { start_time + 3.hours }
+
+    tag_list { random_tags }
 
     trait :with_venue do
       before(:create) do |seed_event|
