@@ -79,6 +79,39 @@ FactoryBot.define do
   end
 end
 
+Calagator::Curation.create(
+  description: "events related to being around the home",
+  display_name: "at home",
+  name: "at_home",
+  priority: 0,
+  block_list: "",
+  require_list: "gardening, nature",
+  deny_list: "",
+  allow_list: ""
+)
+
+Calagator::Curation.create(
+  description: "events related to being outdoors",
+  display_name: "outdoors",
+  name: "outdoors",
+  priority: 1,
+  block_list: "",
+  require_list: "birdwatching, hiking, camping, nature",
+  deny_list: "",
+  allow_list: ""
+)
+
+Calagator::Curation.create(
+  description: "events related to civic engagement",
+  display_name: "civic engagement",
+  name: "civic_engagement",
+  priority: 2,
+  block_list: "",
+  require_list: "public lecture, book launch",
+  deny_list: "",
+  allow_list: ""
+)
+
 puts "Seeding database with sample data..."
 FactoryBot.create_list(:seed_venue, 25, :with_events)
 FactoryBot.create_list(:seed_venue, 25)
