@@ -10,12 +10,12 @@ About
 -----
 
 Koalagator is an open source community calendaring platform.
-The project is a community fork of the community developed project Calagator.
+The project is an community fork of the community developed project Calagator.
 Koalagator is run by a wholly new core team, contributors welcome.
 
-Thank you to everyone who contributed to the original calagator project. 
+Thank you to everyone who contributed to the original calagator project (you're still listed here as contributors).
 We appreciate the encouragment from the ruby community for us to undertaking a revivial of this project.
-Koalagator is a hard fork of calagator. We've upgraded the project from Rails 4.2 to Rails 7.1 as part of this revival.
+Koalagator is a hard community fork of calagator. We've upgraded the project from Rails 4.2 to Rails 7.1 as part of this revival.
 
 About the revival
 -----------------
@@ -40,12 +40,39 @@ Why
 
 By releasing this code under a GNU Affero General Public License (AGPL), we hope to empower other people so they can better organize and participate in more events that support free sharing of information, open society, and involved citizenry.
 
+Understanding the code base
+---------------------------
+Koalagator is an open source community-ecosystem calendar platform.
 
-Installing
-----------
+Community members can quickly see, what's on today, tomorrow and in the coming weeks.
+They can search events by tag and even subscribe calendar feed for any tags they want to follow more closely.
 
-Read the [INSTALL.md](http://github.com/koalagator/koalagator/blob/main/INSTALL.md) file for details on installing the software.
+Technically speaking this project is a Rails Engine (but please dont let this scare you away).
 
+To start your own koalagator instance, you install the koalagator gem locally and run 'koalagtor new projectname'.
+Going forward your local instance includes koalagator in the gemfile, and benefits from new features by upgrading the gemfile when you see fit.
+
+We encourage you to contribute to Koalagator itself, which can benefit all current and future community-ecosystem running on kolagator. Cloning this repo, lets you work on the Koalagator gem itself. 
+
+#### Overview of development workflows
+
+The development workflow is; clone this repo, bundle, migrate, run seeds with demo data, bin/rails server
+To run tests: run main test suite, run appraisal test suite
+To upgrade the gem: bump gem version, build gem locally, run koalagator new, bundle & test.
+To publish to rubygems: TODO
+
+Read [DEVELOPMENT.md](http://github.com/koalagator/koalagator/blob/main/DEVELOPMENT.md) for details instructions.
+For specific guidance on upgrading Rails, read [RAILS_UPGRADES.md](http://github.com/koalagator/koalagator/blob/main/RAILS_UPGRADES.md).
+
+## A note on Koalagtor vs Calagator
+
+As a community fork of calagator, we've renamed most of the superficial/branding parts of the app as kalagator.
+Within the codebase the term calagator is still in common use. Renaming everything is an ongoing process, expect some references to calagator herein. Join us if you'd like this switch over to occur quicker.
+
+Setup an Instance/ Self Hosting
+-------------------------------
+
+Read [SETUP_AN_INSTANCE.md](http://github.com/koalagator/koalagator/blob/main/INSTALL.md) file for details instructions on setting up your own instance of Koalagator for your own local community ecosystem.
 
 Contributing
 ------------
