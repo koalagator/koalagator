@@ -69,8 +69,8 @@ For specific guidance on upgrading Rails, read [RAILS_UPGRADES.md](http://github
 As a community fork of calagator, we've renamed most of the superficial/branding parts of the app as kalagator.
 Within the codebase the term calagator is still in common use. Renaming everything is an ongoing process, expect some references to calagator herein. Join us if you'd like this switch over to occur quicker.
 
-Setup an Instance/ Self Hosting
--------------------------------
+Setup an Instance
+-----------------
 
 Read [SETUP_AN_INSTANCE.md](http://github.com/koalagator/koalagator/blob/main/INSTALL.md) file for details instructions on setting up your own instance of Koalagator for your own local community ecosystem.
 
