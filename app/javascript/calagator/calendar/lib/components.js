@@ -1,4 +1,4 @@
-import { Optional, toTitleCase } from "./utils"
+import { Optional, toTitleCase } from "calendar/lib/utils"
 
 class BaseComponent extends HTMLElement {
   static observe(...attr) {

@@ -12,17 +12,16 @@ module Calagator
 
     # https://stackoverflow.com/questions/69635552/how-to-set-up-importmap-rails-in-rails-7-engine
     initializer "calagator.importmap", before: "importmap" do |app|
-      app.config.assets.paths << root.join("app/javascript")
-      app.config.assets.paths << root.join("vendor/javascript")
-
       app.config.importmap.paths << root.join("config/importmap.rb")
       app.config.importmap.cache_sweepers +=
         ["vendor/javascript", "app/javascript"].map { |str| root.join(str) }
     end
 
+    config.assets.paths += %w[app/javascript vendor/javascript].map {|path| root.join(path)}
     config.assets.precompile += %w[
       *.png
       *.gif
+      *.js
       calagator/errors.css
       leaflet.js
       leaflet_google_layer.js

@@ -1,5 +1,5 @@
-import {CalendarEvent} from './event.js'
-import {BaseComponent} from './lib/components.js'
+import {CalendarEvent} from 'calendar/event'
+import {BaseComponent} from 'calendar/lib/components'
 import ICAL from "ical.js";
 import EventCalendar from "@event-calendar/core"
 import ListView from "@event-calendar/list"
