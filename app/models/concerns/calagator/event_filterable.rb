@@ -9,7 +9,7 @@ module Calagator
     def events
       event_list = Event.all
       event_list.merge!(Event.tagged_with(block_list, exclude: true)) if block_list.any?
-      event_list.merge!(Event.tagged_with(require_list), any: true) if require_list.any?
+      event_list.merge!(Event.tagged_with(require_list, any: true)) if require_list.any?
       if deny_list.any?
         deny = event_list.tagged_with(deny_list, exclude: true).or(
           event_list.tagged_with(allow_list, any: true).except(:select, :order)
