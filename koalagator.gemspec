@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = [">= 2.6.0"]
 
-  s.files = Dir["{app,config,lib,vendor}/**/*"] + Dir["db/**/*.rb"] + ["MIT-LICENSE.txt", "Rakefile", "README.md", "rails_template.rb"]
+  s.files = Dir["{app,config,lib,vendor}/**/*"] + Dir["db/**/*.rb"] + ["LICENSE.md", "Rakefile", "README.md", "rails_template.rb"]
   s.executables << "koalagator"
 
   # To change this Rails requirement, update RAILS_VERSION in lib/calagator/version.rb
