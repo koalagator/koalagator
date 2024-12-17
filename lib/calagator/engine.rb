@@ -17,7 +17,7 @@ module Calagator
         ["vendor/javascript", "app/javascript"].map { |str| root.join(str) }
     end
 
-    config.assets.paths += %w[app/javascript vendor/javascript].map {|path| root.join(path)}
+    config.assets.paths += %w[app/javascript vendor/javascript].map { |path| root.join(path) }
     config.assets.precompile += %w[
       *.png
       *.gif
