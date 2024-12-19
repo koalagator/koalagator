@@ -14,6 +14,11 @@ Conventions used in this document:
 ## Change Log
 List of Calagator releases and changes, with the latest at the top:
 
+### [5.1.0] - Unreleased
+  * Ruby Retreat AU (Under the Clocktower release)
+    - Curations now has a 'listed' scope being curations that are not 'unlisted'.
+    - The curations nav section now shows just listed curations (hides unlisted ones)
+
 ### [5.0.0] - Unreleased
   * Project renamed to Koalagator
     - Updated user-facing `calagator` references to `koalagator`.
@@ -69,7 +74,6 @@ List of Calagator releases and changes, with the latest at the top:
   * Remove use of SortedSet in Source::Parser (#682)
 #### Breaking changes
   Support for meetup and Facebook API's removed as those API's are now no longer free to use.
-
   * Remove Meetup parser (#681)
   * Remove Facebook parser (#683)
 ### [1.1.0] - 2019-12-01

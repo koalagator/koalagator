@@ -17,33 +17,40 @@ Before you start, you will need to:
 
 ## Getting Started
 
-1. Get the source code: From your command line, run `git clone https://github.com/calagator/calagator.git`, which will create a `calagator` directory with the source code. Change into this directory (`cd calagator`) and run the remaining commands from there.
+1. Get the source code: From your command line, run `git clone https://github.com/koalagator/koalagator.git`, which will create a `koalagator` directory with the source code. Change into this directory (`cd koalagator`) and run the remaining commands from there.
 
-2. Install Bundler-managed gems, (the actual libraries that this application uses, like Ruby on Rails) by running `bundle install`. This may take a long time to complete.
+2. Install system dependancies
 
-3. Initialize your database by running:
+    # sqlite related dependancies
+    brew install sqlite pkg-config
+
+3. Install Bundler-managed gems, (the actual libraries that this application uses, like Ruby on Rails) by running `bundle install`. This may take a long time to complete.
+
+4. Initialize your database by running:
 
         bundle exec rake app:db:migrate app:db:test:prepare
 
     If you like, you can also generate some sample data with
-
         bundle exec rake app:db:seed
 
-4. At this point, you should be set up to run Calagator's test suite:
+5. At this point, you should be set up to run Koalagator's test suite:
 
         bundle exec bin/rails spec
 
-5. You're now ready to start up Calagator in `development` mode, which automatically reloads code as you change it:
+6. You're now ready to start up Koalagator in `development` mode, which automatically reloads code as you change it:
 
         bundle exec bin/rails server
 
-   If all went according to plan, you should be able to access your running Calagator at: [http://localhost:3000](http://localhost:3000).
+   If all went according to plan, you should be able to access your running Koalagator at: [http://localhost:3000](http://localhost:3000).
 
     To stop the server, press `CTRL-C`.
 
     If you're running calagator in a Vagrantbox, add `-b 0.0.0.0` to the bundle exec command to handle requests from the host OS:
 
     `bundle exec bin/rails server -b 0.0.0.0`
+
+The above should give you enough to work on new features and test a sample app.
+
 
 ## Running the tests
 

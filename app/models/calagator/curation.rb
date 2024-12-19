@@ -18,6 +18,7 @@
 module Calagator
   class Curation < Calagator::ApplicationRecord
     include EventFilterable
+    scope :listed, -> { where(unlisted: false) }
 
     validates :name, :display_name, :priority, presence: true
     validates :name,

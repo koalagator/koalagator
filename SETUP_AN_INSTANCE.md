@@ -1,18 +1,16 @@
-# Installing Calagator
+# Setup an Instance
 
-Calagator is distributed as a [Rails engine](http://guides.rubyonrails.org/engines.html), which is a type of Ruby gem that can be "mounted" inside of a Rails application to add functionality. In this document, we'll refer to the app that Calagator is mounted in as the *host application*.
+Koalagator is distributed as a [Rails engine](http://guides.rubyonrails.org/engines.html), which is a type of Ruby gem that can be "mounted" inside of a Rails application to add functionality. In this document, we'll refer to the app that Koalagator is mounted in as the *host application*.
 
 ## Requirements
 
-Calagator requires Ruby >= 2.6.0, and a host application built on Rails 5 or newer.
+Koalagator requires Ruby >= 2.6.0, and a host application built on Rails 5 or newer.
 
-## Running a site based on Calagator
+## Running a site based on Koalagator
 
-If you're looking to build your own community calendar using Calagator, follow these instructions. If you're aiming to contribute code to Calagator itself, see the instructions in [DEVELOPMENT.md](https://github.com/calagator/calagator/blob/main/DEVELOPMENT.md).
+If you're looking to build your own community calendar using Koalagator, follow these instructions. If you're aiming to contribute code to Koalagator itself, see the instructions in [DEVELOPMENT.md](https://github.com/Koalagator/Koalagator/blob/main/DEVELOPMENT.md).
 
 ### Getting Started
-
-**At the moment, calagator is only compatible with Rails 5, which is not the current major version release. You can still add calagator to an existing Rails 5 app, but the generator may not work as expected until we upgrade to Rails 6.**
 
 First, install the `koalagator` gem:
 
@@ -31,9 +29,14 @@ If all went according to plan, you should be able to see your calendar at: [http
 
 To stop the server, press `CTRL-C`.
 
+## A note on Koalagtor vs Calagator
+
+As a community fork of calagator, we've renamed most of the superficial/branding parts of the app as kalagator.
+Within the codebase the term calagator is still in common use. Renaming everything is an ongoing process, expect some references to calagator herein. Join us if you'd like this switch over to occur quicker.
+
 ## Configuration
 
-Calagator's settings can be configured by editing these files in your host application:
+Koalagator's settings can be configured by editing these files in your host application:
 
 * `config/initializers/01_calagator.rb`
 * `config/initializers/02_geokit.rb`
@@ -44,18 +47,18 @@ Please see these files for more details.
 
 ### Devise Authentication
 Devise can be enabled in the `01_calagator.rb` initializer.
-You will also want to configure Calagator's admin username, email, and password; this will
+You will also want to configure Koalagator's admin username, email, and password; this will
 be used to automatically create the initial admin user.
 
 Alternately, you could create an admin user in the rails console like this:
 ```
-User.create(name: "admin", email: "admin@example.com", password: "mypassword", password_confirmation: "mypassword", admin: true)
+User.create(name: "admin", email: "admin@example.com", password: "insecure", password_confirmation: "insecure", admin: true)
 ```
 
 If enabled, you must also configure your mail settings in `config/environments/production.rb`.
 If it's not already there, please add the following:
 ```rb
-config.action_mailer.default_url_options = { host: 'my-koalagator-url.example' }
+config.action_mailer.default_url_options = { host: 'example.com' }
 ```
 Replace the example host with your own.
 
@@ -65,11 +68,11 @@ You will also want to set up [Action Mailer](https://guides.rubyonrails.org/acti
 
 ### Time Zone
 
-It's important to make sure your time zone is properly configured in `config/application.rb`. Calagator relies heavily on this setting when displaying event times.
+It's important to make sure your time zone is properly configured in `config/application.rb`. Koalagator relies heavily on this setting when displaying event times.
 
 ### API Keys
 
-Calagator uses API keys to communicate with certain external services.
+Koalagator uses API keys to communicate with certain external services.
 
 * Google Maps: To use Google's geocoder, and to use Google to display maps, you must get an API key.  See `config/initializers/01_calagator.rb` and `config/initializers/02_geokit.rb` for details.
 
@@ -93,13 +96,13 @@ You can start the Solr search service for local development with:
 
 You will then need to initially populate your records by running:
 
-    bundle exec rake app:sunspot:reindex:calagator
+    bundle exec rake app:sunspot:reindex:Koalagator
 
 You can stop the Solr search service with:
 
     bundle exec rake sunspot:solr:stop
 
-Calagator has tests that verify functionality against Solr automatically, if the tests find the service running; you'll see pending tests if Solr isn't found. To start a test instance of Solr, do:
+Koalagator has tests that verify functionality against Solr automatically, if the tests find the service running; you'll see pending tests if Solr isn't found. To start a test instance of Solr, do:
 
     bundle exec rake RAILS_ENV=test app:sunspot:solr:start
 
@@ -109,9 +112,9 @@ You should set up a firewall to protect the ports utilized by the Solr search se
 
 There are two places you'll want to customize right away. Both are *.html.erb files you'll need to create.
 
-`views/calagator/site/_description.html.erb` is the description in the sidebar on the home page of your calendar.
+`views/koalagator/site/_description.html.erb` is the description in the sidebar on the home page of your calendar.
 
-`views/calagator/site/about.html.erb` is the about page linked to from the home page. The existing sidebar has links to anchors called `find_local_events`, `share_local_events`, and `get_involved` as suggested sections of the About page.
+`views/koalagator/site/about.html.erb` is the about page linked to from the home page. The existing sidebar has links to anchors called `find_local_events`, `share_local_events`, and `get_involved` as suggested sections of the About page.
 
 <!--
 **TODO: engine CSS and view overrides, variables.scss, config.scss(?)**
