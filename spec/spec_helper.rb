@@ -134,6 +134,15 @@ RSpec.configure do |config|
     # mocks.verify_partial_doubles = true
   end
 
+  # Cleanup of seleniunm deprecation warning when running test suite
+  # Selenium generating this redundant warning.
+  # WARN Selenium [:clear_local_storage] [DEPRECATION] clear_local_storage is deprecated and will be removed in a future release.
+  # Will occur until capybarra addresses it 
+  # Workaround is to ignore these from the logger
+  # https://github.com/teamcapybara/capybara/issues/2779
+  # If you can remove the line below and running `rspec spec` doesnt blow up with the above warning, then you can remove this config item.
+  Selenium::WebDriver.logger.ignore(:clear_local_storage, :clear_session_storage)
+
   # Reset to the Sql search engine before each test. Individual tests that
   # override this use "around"; we'll use "around" here too to ensure that
   # this block runs before the individual test's override.
