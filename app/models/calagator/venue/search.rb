@@ -5,7 +5,7 @@ module Calagator
     class Search < Struct.new(:tag, :query, :wifi, :all, :closed, :include_closed)
       def initialize(attributes = {})
         members.each do |key|
-          send "#{key}=", attributes[key]
+          send :"#{key}=", attributes[key]
         end
       end
 

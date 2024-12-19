@@ -15,7 +15,7 @@ module Calagator
       def clone
         clone = Event.new
         ATTRIBUTES.each do |attribute|
-          clone.send "#{attribute}=", event.send(attribute)
+          clone.send :"#{attribute}=", event.send(attribute)
         end
         if event.start_time
           clone.start_time = clone_time_for_today(event.start_time)

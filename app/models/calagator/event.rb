@@ -117,25 +117,25 @@ module Calagator
     #---[ Overrides ]-------------------------------------------------------
 
     def url=(value)
-      super UrlPrefixer.prefix(value)
+      super(UrlPrefixer.prefix(value))
     end
 
     # Set the start_time to the given +value+, which could be a Time, Date,
     # DateTime, String, Array of Strings, or nil.
     def start_time=(value)
-      super time_for(value)
+      super(time_for(value))
     rescue ArgumentError
       errors.add :start_time, "is invalid"
-      super nil
+      super(nil)
     end
 
     # Set the end_time to the given +value+, which could be a Time, Date,
     # DateTime, String, Array of Strings, or nil.
     def end_time=(value)
-      super time_for(value)
+      super(time_for(value))
     rescue ArgumentError
       errors.add :end_time, "is invalid"
-      super nil
+      super(nil)
     end
 
     def time_for(value)

@@ -137,7 +137,7 @@ RSpec.configure do |config|
   # Cleanup of seleniunm deprecation warning when running test suite
   # Selenium generating this redundant warning.
   # WARN Selenium [:clear_local_storage] [DEPRECATION] clear_local_storage is deprecated and will be removed in a future release.
-  # Will occur until capybarra addresses it 
+  # Will occur until capybarra addresses it
   # Workaround is to ignore these from the logger
   # https://github.com/teamcapybara/capybara/issues/2779
   # If you can remove the line below and running `rspec spec` doesnt blow up with the above warning, then you can remove this config item.

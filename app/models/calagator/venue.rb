@@ -95,7 +95,7 @@ module Calagator
     end
 
     def url=(value)
-      super UrlPrefixer.prefix(value)
+      super(UrlPrefixer.prefix(value))
     end
 
     # Display a single line address.

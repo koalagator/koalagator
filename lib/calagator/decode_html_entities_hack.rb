@@ -25,7 +25,7 @@ module Calagator
       attributes.each do |field, value|
         decoded_content = HTMLEntities.new.decode(value)
         if decoded_content.present? && decoded_content != value
-          send("#{field}=", decoded_content)
+          send(:"#{field}=", decoded_content)
         end
       end
     end
