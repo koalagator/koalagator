@@ -9,20 +9,6 @@ rescue LoadError
   exit 1
 end
 
-TAGS = [
-  "gardening",
-  "birdwatching",
-  "camping",
-  "hiking",
-  "nature",
-  "public lecture",
-  "book launch"
-].freeze
-
-def random_tags
-  TAGS.sample(rand(2..4)).join(", ")
-end
-
 FactoryBot.define do
   factory :seed_venue, class: Calagator::Venue do
     title { Faker::Company.name }
@@ -68,8 +54,6 @@ FactoryBot.define do
     created_at { start_time - 1.day }
     end_time { start_time + 3.hours }
 
-    tag_list { random_tags }
-
     trait :with_venue do
       before(:create) do |seed_event|
         venue = create(:seed_venue)
@@ -78,39 +62,6 @@ FactoryBot.define do
     end
   end
 end
-
-Calagator::Curation.create(
-  description: "events related to being around the home",
-  display_name: "at home",
-  name: "at_home",
-  priority: 0,
-  block_list: "",
-  require_list: "gardening, nature",
-  deny_list: "",
-  allow_list: ""
-)
-
-Calagator::Curation.create(
-  description: "events related to being outdoors",
-  display_name: "outdoors",
-  name: "outdoors",
-  priority: 1,
-  block_list: "",
-  require_list: "birdwatching, hiking, camping, nature",
-  deny_list: "",
-  allow_list: ""
-)
-
-Calagator::Curation.create(
-  description: "events related to civic engagement",
-  display_name: "civic engagement",
-  name: "civic_engagement",
-  priority: 2,
-  block_list: "",
-  require_list: "public lecture, book launch",
-  deny_list: "",
-  allow_list: ""
-)
 
 puts "Seeding database with sample data..."
 FactoryBot.create_list(:seed_venue, 25, :with_events)
