@@ -50,6 +50,7 @@ These people have contributed to Calagator's design and implementation:
   * Mark Dilley
   * Mark Lehman
   * Markus Roberts
+  * Matt Hood
   * Mason Medeiros
   * Maureen Dugan
   * Micah Geisel

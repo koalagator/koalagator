@@ -2,7 +2,7 @@
 
 Calagator.setup do |config|
   # Site name
-  config.title = "Calagator"
+  config.title = "Koalagator"
 
   # Site tagline
   config.tagline = "A Tech Calendar"
