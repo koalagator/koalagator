@@ -5,7 +5,7 @@ module Calagator
     class Browse < Struct.new(:order, :date, :time)
       def initialize(attributes = {}, scope = nil)
         members.each do |key|
-          send "#{key}=", attributes[key]
+          send :"#{key}=", attributes[key]
         end
         @scope = scope
       end

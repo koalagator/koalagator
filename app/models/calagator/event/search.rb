@@ -5,7 +5,7 @@ module Calagator
     class Search < Struct.new(:query, :tag, :order, :current)
       def initialize(attributes = {})
         members.each do |key|
-          send "#{key}=", attributes[key]
+          send :"#{key}=", attributes[key]
         end
         self.order ||= "date"
         validate!

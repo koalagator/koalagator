@@ -54,7 +54,7 @@ module Calagator
 
         it "limits the number of created events to list in the flash" do
           excess = 5
-          events = (1..(5 + excess)) \
+          events = (1..(5 + excess))
             .each_with_object([]) { |_i, result| result << @event }
           allow(@source).to receive(:to_events).and_return(events)
           post :import, params: {source: {url: @source.url}}

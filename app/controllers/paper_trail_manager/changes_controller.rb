@@ -104,7 +104,7 @@ class PaperTrailManager
     # Return the URL for the item represented by the +version+, e.g. a Company record instance referenced by a version.
     def change_item_url(version)
       version_type = version.item_type.underscore.split("/").last
-      send("#{version_type}_url", version.item_id)
+      send(:"#{version_type}_url", version.item_id)
     rescue NoMethodError
       nil
     end

@@ -73,11 +73,11 @@ module Calagator
     # and their values are either "active" or nil.
     def link_class
       @_link_class_cache ||= {
-        events: ((controller_name == "events" ||
+        events: (controller_name == "events" ||
                       controller_name == "sources" ||
                       controller_name == "site" ||
-                      controller_name == "curations") && "active"),
-        venues: (controller_name == "venues" && "active")
+                      controller_name == "curations") && "active",
+        venues: controller_name == "venues" && "active"
       }
     end
     helper_method :link_class
