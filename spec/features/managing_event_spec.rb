@@ -44,7 +44,7 @@ describe "Event Editing", js: true do
     expect(page).to have_content "Description\nAn event for beginners"
     expect(page).to have_content "Tags\nbeginners, ruby"
 
-    click_on "Koalagator"
+    click_on "Calagator"
     within "#whats_happening" do
       expect(page).to have_content "Ruby ABCs"
     end
@@ -110,7 +110,7 @@ describe "Event Cloning", js: true do
     expect(page).to have_content "Description\nAn event for beginners"
     expect(page).to have_content "Tags\nbeginners, ruby"
 
-    click_on "Koalagator"
+    click_on "Calagator"
     click_on "View future events »"
     expect(page).to have_content "Ruby Event Part Two"
   end
@@ -137,7 +137,7 @@ describe "Event Deletion", js: true do
 
     expect(page).to have_content '"Ruby and You" has been deleted'
 
-    click_on "Koalagator"
+    click_on "Calagator"
     within "#tomorrow" do
       expect(page).to have_content "- No events -"
     end
