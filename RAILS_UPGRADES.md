@@ -1,8 +1,9 @@
 # RAILS UPGRADES
 
-Here is some advice on performing rails upgrades in Calagator.
+Here is some advice on performing rails upgrades in Koalagator.
 
-When working with calagator there are sort of fours layers to consider.
+When working with Koalagator there are sort of fours layers to consider:
+Building the main app, Testing the main app, Testing Appraisal alternatives, Testing the Gem project generation
 
 1. Building the main app in the code repo
 
