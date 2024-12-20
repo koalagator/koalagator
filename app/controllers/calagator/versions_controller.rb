@@ -8,7 +8,7 @@ module Calagator
 
       singular = @record.class.name.singularize.underscore.split("/").last
       plural = @record.class.name.pluralize.underscore.split("/").last
-      instance_variable_set("@#{singular}", @record)
+      instance_variable_set(:"@#{singular}", @record)
 
       if request.xhr?
         render partial: "calagator/#{plural}/form", locals: {singular.to_sym => @record}

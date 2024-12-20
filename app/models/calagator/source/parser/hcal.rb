@@ -27,7 +27,7 @@ module Calagator
           next unless hcal.respond_to?(hcal_field)
           next unless (value = decoded_field(hcal, hcal_field))
 
-          event.send "#{field}=", value
+          event.send :"#{field}=", value
         end
         event_or_duplicate(event)
       end.uniq do |event|

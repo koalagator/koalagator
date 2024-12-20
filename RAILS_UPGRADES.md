@@ -55,6 +55,12 @@ rake spec
 
 ## Upgrade appraisal
 
+## Update documentation
+
+Review/update this wording in 'SETUP_AN_INSTANCE.md'.
+
+    "Koalagator requires Ruby >= 2.6.0, and a host application built on Rails 5 or newer."
+
 
 
 
