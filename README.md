@@ -57,11 +57,15 @@ We encourage you to contribute to Koalagator itself, which can benefit all curre
 #### Overview of development workflows
 
 The development workflow is; clone this repo, bundle, migrate, run seeds with demo data, bin/rails server
+
 To run tests: run main test suite, run appraisal test suite
+
 To upgrade the gem: bump gem version, build gem locally, run koalagator new, bundle & test.
-To publish to rubygems: TODO
+
+To publish to rubygems: [RELEASE.md](https://github.com/koalagator/koalagator/blob/main/RELEASE.md)
 
 Read [DEVELOPMENT.md](http://github.com/koalagator/koalagator/blob/main/DEVELOPMENT.md) for details instructions.
+
 For specific guidance on upgrading Rails, read [RAILS_UPGRADES.md](http://github.com/koalagator/koalagator/blob/main/RAILS_UPGRADES.md).
 
 ## A note on Koalagtor vs Calagator
