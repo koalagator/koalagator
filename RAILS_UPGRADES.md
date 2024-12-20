@@ -6,23 +6,30 @@ When working with calagator there are sort of fours layers to consider.
 
 1. Building the main app in the code repo
 
-bundle
-rails server
+```
+    bundle install
+    rails server
+```
 
-2. Testing the main app in the code repo
+3. Testing the main app in the code repo
 
-rake spec
+    rake spec
 
-3. Testing appraisal alternatives
+4. Testing appraisal alternatives
 
-bundle exec appraisal install
-bundle exec appraisal rake spec
+```
+    bundle exec appraisal install
+    bundle exec appraisal rake spec
+```
 
-4. Testing the gem
+5. Testing the gem
 
 # Update version.rb
-gem build gemspec.gem
-gem install calagator
+
+```
+    gem build gemspec.gem
+    gem install calagator
+```
 
 ## Before the upgrade
 
@@ -43,15 +50,16 @@ And the testing files:
 * Appraisal   # this: appraise '<here>' in format 'rails_x_x'
 * test.yaml   # here: test >  strategy > rails <here> in format 'rails_x_x'
 
+```
+    bundle update rails # then resolve any issues
+    bundle install # then resolve any issues
+```
 
-bundle update rails # then resolve any issues
-bundle install # then resolve any issues
-
-Commit this "
+Commit this.
 
 ## Run tests and resolve issues in tests
 
-rake spec
+    rake spec
 
 ## Upgrade appraisal
 
