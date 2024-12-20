@@ -76,7 +76,7 @@ Within the codebase the term calagator is still in common use. Renaming everythi
 Setup an Instance
 -----------------
 
-Read [SETUP_AN_INSTANCE.md](http://github.com/koalagator/koalagator/blob/main/INSTALL.md) file for details instructions on setting up your own instance of Koalagator for your own local community ecosystem.
+Read [SETUP_AN_INSTANCE.md](https://github.com/koalagator/koalagator/blob/main/SETUP_AN_INSTANCE.md) file for details instructions on setting up your own instance of Koalagator for your own local community ecosystem.
 
 Contributing
 ------------
