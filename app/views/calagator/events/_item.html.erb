@@ -82,7 +82,16 @@ html_classes << " contentbar" if has_contentbar
     <% if event.persisted? %>
       <h3>Share</h3>
       <div class="share">
-        <a class="fb-share" href="#"
+        <a class="mastodon-share social-popover" href="#"
+          onclick="
+            window.open(
+              'https://mastodonshare.com/share?url='+encodeURIComponent('<%= shareable_event_url(event) %>'),
+              'facebook-share-dialog',
+              'width=626,height=436');
+            return false;">
+          Share
+        </a>
+        <a class="facebook-share social-popover" href="#"
           onclick="
             window.open(
               'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('<%= shareable_event_url(event) %>'),
