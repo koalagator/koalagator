@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/koalagator/koalagator"
   s.summary = "A calendar for communities"
   s.description = "#{Calagator::NAME} is an open source community calendaring platform"
-  s.license = "MIT"
+  s.license = "AGPL-3.0-or-later"
 
   s.required_ruby_version = [">= 2.6.0"]
 
