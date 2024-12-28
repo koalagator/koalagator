@@ -78,12 +78,11 @@ RSpec.configure do |config|
   Capybara.always_include_port = true
   Capybara.register_driver(:cuprite) do |app|
     Capybara::Cuprite::Driver.new(
-      app, 
-      window_size: [1200, 800], 
-      inspector: ENV['INSPECTOR']
+      app,
+      window_size: [1200, 800],
+      inspector: ENV["INSPECTOR"]
     )
   end
-
 
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with

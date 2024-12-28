@@ -13,9 +13,9 @@ describe "Administrative suite is hidden behind authorization" do
   ].each do |path|
     it "Visitors are not permitted in #{path}" do
       visit path
-    # FIXME - Commented out to implement cuprite, how to test this now?
-    # Maybe this? https://github.com/rubycdp/cuprite?tab=readme-ov-file#authorization
-    # rescue Selenium::WebDriver::Error::UnexpectedAlertOpenError
+      # FIXME - Commented out to implement cuprite, how to test this now?
+      # Maybe this? https://github.com/rubycdp/cuprite?tab=readme-ov-file#authorization
+      # rescue Selenium::WebDriver::Error::UnexpectedAlertOpenError
       # expect(page).to have_content("Access denied")
     end
 
