@@ -14,6 +14,10 @@ Conventions used in this document:
 ## Change Log
 List of Calagator releases and changes, with the latest at the top:
 
+### [5.2.0] - Unreleased
+  * Adds Mastodon share button
+  * Removes Twitter share button
+
 ### [5.1.0] - Unreleased
   * Ruby Retreat AU (Under the Clocktower release)
     - Curations now has a 'listed' scope being curations that are not 'unlisted'.
