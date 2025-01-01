@@ -7,14 +7,14 @@ require "calagator/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name = "calagator"
+  s.name = "koalagator"
   s.version = Calagator::VERSION
-  s.authors = ["the Calagator team"]
-  s.email = ["info@calagator.org"]
-  s.homepage = "https://github.com/calagator/calagator"
+  s.authors = ["Koalagator team"]
+  s.email = ["info@koalagator.org"]
+  s.homepage = "https://github.com/koalagator/koalagator"
   s.summary = "A calendar for communities"
-  s.description = "Calagator is an open source community calendaring platform"
-  s.license = "MIT"
+  s.description = "Open source community calendaring platform"
+  s.license = "AGPL-3.0-or-later"
 
   s.required_ruby_version = [">= 2.6.0"]
 
@@ -53,7 +53,7 @@ Gem::Specification.new do |s|
   s.add_dependency "utf8-cleaner", ">= 0.0.6", "< 1.1.0"
   s.add_dependency "validate_url", "~> 1.0.15"
   s.add_dependency "will_paginate", "~> 3.0"
-  s.add_dependency "pg", "~> 0.19.0"
+  s.add_dependency "pg", "~> 1.5.9"
   s.add_dependency "sqlite3", "~> 1.5.4"
   # s.add_dependency "listen", "~> 3.1.5"
 
