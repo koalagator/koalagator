@@ -28,8 +28,8 @@ Building the main app, Testing the main app, Testing Appraisal alternatives, Tes
 # Update version.rb
 
 ```
-    gem build gemspec.gem
-    gem install calagator
+    gem build koalagator.gemspec
+    gem install koalagator
 ```
 
 ## Before the upgrade
