@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/koalagator/koalagator"
   s.summary = "A calendar for communities"
   s.description = "#{Calagator::NAME} is an open source community calendaring platform"
-  s.license = "MIT"
+  s.license = "AGPL-3.0-or-later"
 
   s.required_ruby_version = [">= 2.6.0"]
 
@@ -65,6 +65,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "appraisal", "~> 2.4"
   s.add_development_dependency "capybara", "~> 3.40"
+  s.add_development_dependency "cuprite", "~> 0.15"
   s.add_development_dependency "database_cleaner", "~> 2.1.0"
   s.add_development_dependency "factory_bot_rails", "~> 6.4.4"
   s.add_development_dependency "faker", "~> 3.5.1"
@@ -74,7 +75,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec-collection_matchers", "~> 1.2.1"
   s.add_development_dependency "rspec-its", "~> 2.0.0"
   s.add_development_dependency "rspec-rails", "~> 7.1"
-  s.add_development_dependency "selenium-webdriver", "~> 4.27"
   s.add_development_dependency "simplecov", "~> 0.18"
   s.add_development_dependency "simplecov-lcov", "~> 0.8"
   s.add_development_dependency "sunspot_solr", "~> 2.1"

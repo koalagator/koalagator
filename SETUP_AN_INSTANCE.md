@@ -86,6 +86,8 @@ This is the default search engine which uses SQL queries. This option requires n
 
 #### Sunspot
 
+DEPRECATION NOTICE: Use of Sunspot is deprecated. Sunspot is scheduled to be removed from the project.
+
 This optional search engine uses the Sunspot gem. This option requires additional setup, dependencies, and service. It provides relevance-based sorting. It does not provide substring matches.
 
 To use Sunspot, you will need to have installed the [JDK](https://www.oracle.com/java/technologies/downloads/) (Java Development Kit). On MacOS we've used the [Eclipse Temurin Java Development Kit](https://formulae.brew.sh/cask/temurin) via [Homebrew](https://brew.sh).

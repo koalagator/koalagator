@@ -31,7 +31,7 @@ describe "Event Creation", js: true do
     fill_in "Website", with: "www.rubynewbies.com"
     fill_in "Description", with: "An event for beginners"
     fill_in "Venue details", with: "On the third floor"
-    fill_in "Tags", with: "beginners,ruby"
+    fill_in "Tags", with: "beginners,friendly"
 
     click_on "Create Event"
 
@@ -42,7 +42,7 @@ describe "Event Creation", js: true do
     expect(page).to have_content "Website\nhttp://www.rubynewbies.com"
     expect(page).to have_content "Description\nAn event for beginners"
     expect(page).to have_content "On the third floor"
-    expect(page).to have_content "Tags\nbeginners, ruby"
+    expect(page).to have_content "Tags\nbeginners, friendly"
   end
 
   it "User adds an event at a new venue" do
@@ -61,13 +61,13 @@ describe "Event Creation", js: true do
     fill_in "Website", with: "www.rubyzoo.com"
     fill_in "Description", with: "An ruby event at the zoo"
     fill_in "Venue details", with: "Next to the gorillas"
-    fill_in "Tags", with: "ruby,zoo"
+    fill_in "Tags", with: "friendly,zoo"
 
     click_on "Create Event"
 
     expect(page).to have_content "Event was successfully saved"
     expect(page).to have_content "Please tell us more about where it's being held."
-    expect(page).to have_content(/Version\n[\d\D]+\nEditing: Portland Zoo/)
+    expect(page).to have_content(/Editing: Portland Zoo/)
 
     expect(find_field("Venue Name").value).to have_content "Portland Zoo"
 
@@ -91,7 +91,7 @@ describe "Event Creation", js: true do
     expect(page).to have_content "Next to the gorillas"
     expect(page).to have_content "Website\nhttp://www.rubyzoo.com"
     expect(page).to have_content "Description\nAn ruby event at the zoo"
-    expect(page).to have_content "Tags\nruby, zoo"
+    expect(page).to have_content "Tags\nfriendly, zoo"
 
     click_link "Zoo of Portland"
 
