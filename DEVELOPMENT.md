@@ -45,10 +45,6 @@ Before you start, you will need to:
 
     To stop the server, press `CTRL-C`.
 
-    If you're running calagator in a Vagrantbox, add `-b 0.0.0.0` to the bundle exec command to handle requests from the host OS:
-
-    `bundle exec bin/rails server -b 0.0.0.0`
-
 The above should give you enough to work on new features and test a sample app.
 
 
