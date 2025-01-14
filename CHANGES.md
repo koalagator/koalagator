@@ -15,6 +15,8 @@ Conventions used in this document:
 List of Calagator releases and changes, with the latest at the top:
 
 ### [5.2.0] - Unreleased
+  * Add Dockerfile
+  * Remove Vagrant
   * Adds Mastodon share button
   * Removes Twitter share button
 
