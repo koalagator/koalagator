@@ -1,4 +1,4 @@
-# Developing Calagator
+# Developing Koalagator
 
 ## Prerequisites
 
@@ -31,6 +31,7 @@ Before you start, you will need to:
         bundle exec rake app:db:migrate app:db:test:prepare
 
     If you like, you can also generate some sample data with
+
         bundle exec rake app:db:seed
 
 5. At this point, you should be set up to run Koalagator's test suite:
@@ -46,7 +47,6 @@ Before you start, you will need to:
     To stop the server, press `CTRL-C`.
 
 The above should give you enough to work on new features and test a sample app.
-
 
 ## Running the tests
 
@@ -78,7 +78,7 @@ Update version number in /lib/calagator/version.rb
 You'll need to come out of your project folder.
 I made a folder called 'ruby_2_6' for this to test against ruby 2.6 projects for example.
 
-   `bundle exec calendar new yourappname`
+   `bundle exec koalagator new yourappname`
 
 This process tests the gem works, that the new app gems build and that migrations work and more.
 If any errors come up, fix these are repeat from step 1.
