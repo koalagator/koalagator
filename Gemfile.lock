@@ -29,6 +29,7 @@ PATH
       rails_autolink (~> 1.1)
       recaptcha (~> 5.8)
       rest-client (~> 2.0)
+      rexml (~> 3.4.0)
       sassc-rails (~> 2.1)
       sprockets-rails (~> 3.4)
       sqlite3 (~> 1.7.3)
