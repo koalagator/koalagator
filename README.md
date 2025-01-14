@@ -68,6 +68,11 @@ Read [DEVELOPMENT.md](http://github.com/koalagator/koalagator/blob/main/DEVELOPM
 
 For specific guidance on upgrading Rails, read [RAILS_UPGRADES.md](http://github.com/koalagator/koalagator/blob/main/RAILS_UPGRADES.md).
 
+## Docker
+
+Docker added in 2025, setup using defaults in Rails 7.1
+The Dockerfile is untested, if you try it and have problems, please create an issue.
+
 ## A note on Koalagtor vs Calagator
 
 As a community fork of calagator, we've renamed most of the superficial/branding parts of the app as kalagator.
