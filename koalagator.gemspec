@@ -63,6 +63,10 @@ Gem::Specification.new do |s|
   s.add_dependency "devise", "~> 4.9.4"
   s.add_dependency "importmap-rails", "~> 2.0"
 
+  unless Calagator::MAJOR_RUBY_VERSION <= 2
+    s.add_dependency "rexml", "~> 3.4.0" # moved outside ruby core from 3.0
+  end
+
   s.add_development_dependency "appraisal", "~> 2.4"
   s.add_development_dependency "capybara", "~> 3.40"
   s.add_development_dependency "cuprite", "~> 0.15"
