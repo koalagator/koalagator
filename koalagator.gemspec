@@ -56,7 +56,7 @@ Gem::Specification.new do |s|
   s.add_dependency "validate_url", "~> 1.0.15"
   s.add_dependency "will_paginate", "~> 3.0"
   # s.add_dependency "pg", "~> 1.5"
-  s.add_dependency "sqlite3", "~> 1.7.3"
+  s.add_dependency "sqlite3", "~> 2.5.0"
   # Fix deprecation warning with Zeitwerk
   s.add_dependency "observer", "~> 0.1"
   # s.add_dependency "listen", "~> 3.1.5"
