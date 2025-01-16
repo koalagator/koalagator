@@ -41,7 +41,7 @@ Gem::Specification.new do |s|
   s.add_dependency "loofah-activerecord", ">= 1.2", "< 3.0"
   s.add_dependency "lucene_query", "0.1"
   s.add_dependency "microformats", "~> 4.5"
-  s.add_dependency "nokogiri", "~> 1.17.2"
+  s.add_dependency "nokogiri", "~> 1.18.1"
   s.add_dependency "paper_trail", "~> 15.1"
   s.add_dependency "rack-contrib", "~> 2.3"
   s.add_dependency "rails-observers", "~> 0.1.5"
