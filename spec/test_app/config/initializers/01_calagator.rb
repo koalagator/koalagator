@@ -47,7 +47,6 @@ Calagator.setup do |config|
   config.open_registration = false
 
   # Search engine to use for searching events.
-  # Values: :sql, :sunspot.
   config.search_engine = :sql
 
   # Enable caching of views (not recommended for sites with little activity)
