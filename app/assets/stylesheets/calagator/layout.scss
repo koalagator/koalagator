@@ -25,10 +25,9 @@ body {
   clear: both;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Sanchez);
-
 #global_header #project_title {
-  font-family: Sanchez;
+  font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+  font-weight: 600;
   color: $header_text;
   font-size: 29px;
   line-height: 31px;
@@ -116,7 +115,6 @@ body {
 .subnav .active {
   background: image-url("subnav_marker.png") no-repeat center bottom;
 }
-
 
 
 #content {
