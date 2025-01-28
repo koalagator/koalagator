@@ -12,9 +12,11 @@ Conventions used in this document:
   * [MIGRATION] - Change schema, run `bundle exec rake db:migrate` to apply.
 
 ## Change Log
-List of Calagator releases and changes, with the latest at the top:
+List of releases and changes, with the latest at the top:
 
 ### [5.2.0] - Unreleased
+  * Typographic shift to Moden Font Stacks (selected from modernfontstacks.com)
+  * Removes externally loaded fonts (performance benefits)
   * Add Dockerfile
   * Remove Vagrant
   * Adds Mastodon share button

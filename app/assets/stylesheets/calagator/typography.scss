@@ -9,7 +9,17 @@
   - Images in paragraphs float left by default.
     (The .right and .inline classes override this)
 
+  A note on typeface choices:
 
+  Moving from extenal fonts to a system font 'text driven' style.
+
+  From a design perspective, leaning into a typgraphic text style 
+  reminiscent of early functional text heavy website, 
+  like Craigslist, Myspace and early Ebay.
+
+  System fonts stacks also means faster loading with no external fonts. 
+    
+  Modern Font stacks drawn from https://modernfontstacks.com (accessed 2025).
 
 ############################################################## */
 
@@ -21,7 +31,7 @@
 body {
   font-size: 75%;
   color: $dk_green;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 
@@ -154,8 +164,7 @@ caption     { background: #eee; }
 
 .alt {
   color: #666;
-  font-family: "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif;
-  font-style: italic;
+  font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
   font-weight: normal;
 }
 

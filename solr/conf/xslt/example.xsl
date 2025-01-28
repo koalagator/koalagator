@@ -119,7 +119,7 @@
       }
     </script>
     <style type="text/css">
-      body { font-family: "Lucida Grande", sans-serif }
+      body { font-family: system-ui, sans-serif; }
       td.name { font-style: italic; font-size:80%; }
       td { vertical-align: top; }
       ul { margin: 0px; margin-left: 1em; padding: 0px; }
