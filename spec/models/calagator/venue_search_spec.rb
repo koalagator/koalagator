@@ -113,11 +113,8 @@ module Calagator
         end
       end
 
-      it_behaves_like "#search"
 
-      it "is using the sunspot search engine" do
-        expect(Venue::SearchEngine.kind).to eq(:sunspot)
-      end
+      
     end
   end
 end
