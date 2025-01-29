@@ -21,6 +21,8 @@ List of releases and changes, with the latest at the top:
   * Remove Vagrant
   * Adds Mastodon share button
   * Removes Twitter share button
+  * Removed Sunspot/Solr search engine. Unused code and related pending tests deleted.
+  * With solr pending specs removed. We're down to just 3 pending specs, the rest passing.
 
 ### [5.1.0] - Unreleased
   * Ruby Retreat AU (Under the Clocktower release)
@@ -141,7 +143,7 @@ Prior to version 1.0, Calagator was distributed as a standalone Rails app instea
     * We now use the Rails 3.2 asset pipeline to compile assets.
       * [!][THEME] Theme maintainers need to make a few small changes when upgrading.
         See https://github.com/calagator/calagator/wiki/Asset-Pipeline-Theme-Upgrade for details.
-    * Improved venue search, backed by by SQL.
+    * Improved venue search, backed by by SQL or Sunspot.
     * Added Twitter and Facebook share buttons to event pages
     * Added ability to export all events at a given venue to iCalendar
     * Fixed Google geocoder: v2 was deprecated, using v3 now
