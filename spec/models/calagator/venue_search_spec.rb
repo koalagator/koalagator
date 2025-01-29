@@ -91,33 +91,5 @@ module Calagator
         expect(Venue::SearchEngine.kind).to eq(:sql)
       end
     end
-
-    describe "Sunspot" do
-      around do |example|
-        server_running = begin
-          # Try opening the configured port. If it works, it's running.
-          TCPSocket.new("127.0.0.1", Sunspot::Rails.configuration.port).close
-          true
-        rescue Errno::ECONNREFUSED
-          false
-        end
-
-        if server_running
-          Event::SearchEngine.use(:sunspot)
-          Venue::SearchEngine.use(:sunspot)
-          Event.reindex
-          described_class.reindex
-          example.run
-        else
-          pending "Solr not running. Start with `rake sunspot:solr:start RAILS_ENV=test`"
-        end
-      end
-
-      it_behaves_like "#search"
-
-      it "is using the sunspot search engine" do
-        expect(Venue::SearchEngine.kind).to eq(:sunspot)
-      end
-    end
   end
 end

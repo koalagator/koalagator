@@ -84,32 +84,6 @@ You can specify the search engine to use in `config/initializers/01_calagator.rb
 
 This is the default search engine which uses SQL queries. This option requires no additional setup, dependencies, or service. It does not provide relevance-based sorting. It does provide substring matches.
 
-#### Sunspot
-
-DEPRECATION NOTICE: Use of Sunspot is deprecated. Sunspot is scheduled to be removed from the project.
-
-This optional search engine uses the Sunspot gem. This option requires additional setup, dependencies, and service. It provides relevance-based sorting. It does not provide substring matches.
-
-To use Sunspot, you will need to have installed the [JDK](https://www.oracle.com/java/technologies/downloads/) (Java Development Kit). On MacOS we've used the [Eclipse Temurin Java Development Kit](https://formulae.brew.sh/cask/temurin) via [Homebrew](https://brew.sh).
-
-You can start the Solr search service for local development with:
-
-    bundle exec rake app:sunspot:solr:start
-
-You will then need to initially populate your records by running:
-
-    bundle exec rake app:sunspot:reindex:Koalagator
-
-You can stop the Solr search service with:
-
-    bundle exec rake sunspot:solr:stop
-
-Koalagator has tests that verify functionality against Solr automatically, if the tests find the service running; you'll see pending tests if Solr isn't found. To start a test instance of Solr, do:
-
-    bundle exec rake RAILS_ENV=test app:sunspot:solr:start
-
-You should set up a firewall to protect the ports utilized by the Solr search service. These ports are described in the [config/sunspot.yml](config/sunspot.yml) file.
-
 ## Customization
 
 There are two places you'll want to customize right away. Both are *.html.erb files you'll need to create.
