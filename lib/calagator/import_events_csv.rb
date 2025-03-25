@@ -8,11 +8,10 @@ module Calagator
       @csv = SmarterCSV::Reader.new(input,
         col_sep: ",",
         row_sep: "\n",
-        user_provided_headers: %i[title description venue start_date end_date tag_list]
-      )
+        user_provided_headers: %i[title description venue start_date end_date tag_list])
       @events = process_events
     end
-    
+
     def valid?
       @valid
     end
@@ -29,7 +28,7 @@ module Calagator
 
     private def process_events
       event_list = []
-      
+
       @valid = true
       csv.process do |row|
         event = ImportedEvent.new(row.first)
@@ -80,7 +79,7 @@ module Calagator
 
       def set_title(value)
         return errors[:title] = "is empty" unless value.present?
-        
+
         @title = value.to_s
       end
 
@@ -93,12 +92,10 @@ module Calagator
 
         value_s = value.to_s
         value_i = value_s.to_i
-
-        target_venue = nil
-        if value_s.match?(/^\s*\d+\s*$/) && value_i > 0
-          target_venue = Calagator::Venue.find_by(id: value_i)
+        target_venue = if value_s.match?(/^\s*\d+\s*$/) && value_i > 0
+          Calagator::Venue.find_by(id: value_i)
         else
-          target_venue = Calagator::Venue.search(value_s, limit: 1).first
+          Calagator::Venue.search(value_s, limit: 1).first
         end
 
         return errors[:venue] = "cannot be found" unless target_venue.present?
