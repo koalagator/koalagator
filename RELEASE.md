@@ -1,6 +1,6 @@
-# Releasing the Calagator gem
+# Releasing the Koalagator gem
 
-We release Calagator to the RubyGems package repository and we also create releases on Github.
+We release Koalagator to the RubyGems package repository and we also create releases on Github.
 
 
 ## Update dependencies
