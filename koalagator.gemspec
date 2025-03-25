@@ -61,6 +61,7 @@ Gem::Specification.new do |s|
   # s.add_dependency "listen", "~> 3.1.5"
   s.add_dependency "devise", "~> 4.9.4"
   s.add_dependency "importmap-rails", "~> 2.0"
+  s.add_dependency "smarter_csv", "~> 1.13"
 
   unless Calagator::MAJOR_RUBY_VERSION <= 2
     s.add_dependency "rexml", "~> 3.4.0" # moved outside ruby core from 3.0
