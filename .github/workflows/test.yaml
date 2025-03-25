@@ -30,7 +30,7 @@ jobs:
           - postgresql
           - sqlite3
         ruby:
-          - 3.3.0
+          - 3.4.2
         rails:
           - rails_7_1
         # exclude:
