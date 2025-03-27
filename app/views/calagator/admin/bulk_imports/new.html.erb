@@ -1,0 +1,19 @@
+<h1>Bulk Imports</h1>
+
+<p>This feature supports bulk importing of events from a spreadsheet file</p>
+<p>To work as expected the uploaded file needs to be in `.csv` format.</p>
+<p>The header row in the csv file also needs to match our system defined field headings<p>
+<p>We recommend you copy your spreadsheet data into this template, and upload the resultant file</p>
+
+<p>v0.1 of this importer, associates all events with a venue named 'TBA', for now its better than nothing.</p>
+<p>Once imported you can go through each event and allocate to a real venue.</p>
+
+<p>Drag and drop / attach your .csv file into the file area below: </p>
+
+<div class="form-label"><h3>Upload Your Spreadsheet (.csv)</h3></div>
+
+<%= form_with url: admin_bulk_imports_path, multipart: true do |form| %>
+    <%= file_field_tag :csv_file, accept:'.csv' %>
+    <br><br>
+    <%= form.submit "Upload attached File" %>
+<% end %>
