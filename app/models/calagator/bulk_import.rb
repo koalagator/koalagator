@@ -1,5 +1,4 @@
 module Calagator
-    class BulkImport
-
-    end
+  class BulkImport
+  end
 end
