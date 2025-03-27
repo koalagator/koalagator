@@ -12,7 +12,7 @@ module Calagator
 
       def create
         # example code via: https://guides.rubyonrails.org/form_helpers.html#uploading-files
-      
+
         uploaded_file = params[:csv_file]
         if uploaded_file.present?
           csv_data = CSV.parse(uploaded_file.read, headers: true)
@@ -20,7 +20,7 @@ module Calagator
             # Process each row of the CSV file
             # SomeInvoiceModel.create(amount: row['Amount'], status: row['Status'])
             Rails.logger.info row.inspect
-            #<CSV::Row "id":"po_1KE3FRDSYPMwkcNz9SFKuaYd" "Amount":"96.22" "Created (UTC)":"2022-01-04 02:59" "Arrival Date (UTC)":"2022-01-05 00:00" "Status":"paid">
+            # <CSV::Row "id":"po_1KE3FRDSYPMwkcNz9SFKuaYd" "Amount":"96.22" "Created (UTC)":"2022-01-04 02:59" "Arrival Date (UTC)":"2022-01-05 00:00" "Status":"paid">
           end
         end
         # ...
