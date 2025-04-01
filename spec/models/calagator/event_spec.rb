@@ -79,11 +79,11 @@ module Calagator
       end
 
       it "is current if event is happening today" do
-        expect(build(:event, start_time: 1.hour.from_now)).to be_current
+        expect(build(:event, start_time: 1.hour.from_now.to_datetime)).to be_current
       end
 
       it "is ongoing if it began before today but ends today or later" do
-        expect(build(:event, start_time: 1.day.ago, end_time: 1.day.from_now)).to be_ongoing
+        expect(build(:event, start_time: 1.day.ago, end_time: 1.day.from_now.to_datetime)).to be_ongoing
       end
     end
 
@@ -136,7 +136,7 @@ module Calagator
         @basic_event = described_class.new(
           title: "Web 2.0 Conference",
           url: "http://www.web2con.com/",
-          start_time: 1.day.from_now,
+          start_time: 1.day.from_now.to_datetime,
           end_time: nil,
           venue: @basic_venue
         )
@@ -550,7 +550,7 @@ module Calagator
       end
 
       it "returns future events when provided na" do
-        future = described_class.create!(title: subject.title, start_time: 1.day.from_now)
+        future = described_class.create!(title: subject.title, start_time: 1.day.from_now.to_datetime)
         events = described_class.find_duplicates_by_type("na")
         expect(events).to eq([nil] => [subject, future])
       end

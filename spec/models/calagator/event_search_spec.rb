@@ -45,7 +45,7 @@ module Calagator
 
       it "sorts by start time descending" do
         event2 = create(:event, start_time: 1.day.ago)
-        event1 = create(:event, start_time: 1.day.from_now)
+        event1 = create(:event, start_time: 1.day.from_now.to_datetime)
         expect(described_class.search("")).to eq([event1, event2])
       end
 
@@ -63,14 +63,14 @@ module Calagator
 
       it "can sort by start date" do
         event2 = create(:event, start_time: 1.year.ago)
-        event1 = create(:event, start_time: 1.year.from_now)
+        event1 = create(:event, start_time: 1.year.from_now.to_datetime)
         expect(described_class.search("", order: "date")).to eq([event1, event2])
       end
 
       it "can limit to current and upcoming events" do
         create(:event, start_time: 1.year.ago, end_time: 1.year.ago + 1.hour)
-        event2 = create(:event, start_time: 1.hour.ago, end_time: 1.hour.from_now)
-        event3 = create(:event, start_time: 1.year.from_now, end_time: 1.year.from_now + 1.hour)
+        event2 = create(:event, start_time: 1.hour.ago, end_time: 1.hour.from_now.to_datetime)
+        event3 = create(:event, start_time: 1.year.from_now.to_datetime, end_time: 1.year.from_now.to_datetime + 1.hour)
         expect(described_class.search("", skip_old: true)).to eq([event3, event2])
       end
 
@@ -82,8 +82,8 @@ module Calagator
       it "limit applies to current and past queries separately" do
         create(:event, title: "omg", start_time: 1.year.ago)
         create(:event, title: "omg", start_time: 1.year.ago)
-        create(:event, title: "omg", start_time: 1.year.from_now)
-        create(:event, title: "omg", start_time: 1.year.from_now)
+        create(:event, title: "omg", start_time: 1.year.from_now.to_datetime)
+        create(:event, title: "omg", start_time: 1.year.from_now.to_datetime)
         expect(described_class.search("omg", limit: 1).to_a.size).to eq(2)
       end
 

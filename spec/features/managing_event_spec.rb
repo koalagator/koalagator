@@ -75,7 +75,7 @@ describe "Event Cloning", js: true do
 
   before do
     Timecop.travel("2014-10-09")
-    create :event, title: "Ruby Event Part One", start_time: 4.days.from_now
+    create :event, title: "Ruby Event Part One", start_time: 4.days.from_now.to_datetime
     devise_sign_in create(:user)
   end
 
@@ -121,7 +121,7 @@ describe "Event Deletion", js: true do
   include_context "devise"
 
   before do
-    create :event, title: "Ruby and You", start_time: 1.day.from_now
+    create :event, title: "Ruby and You", start_time: 1.day.from_now.to_datetime
     devise_sign_in create(:user)
   end
 
