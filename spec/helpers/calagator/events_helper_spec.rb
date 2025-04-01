@@ -42,7 +42,7 @@ module Calagator
       end
 
       it "displays tomorrow as 'Tomorrow'" do
-        event = Event.new start_time: "2010-01-01", end_time: 1.day.from_now
+        event = Event.new start_time: "2010-01-01", end_time: 1.day.from_now.to_datetime
         expect(helper.today_tomorrow_or_weekday(event)).to eq("Started Friday")
       end
     end

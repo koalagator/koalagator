@@ -59,7 +59,7 @@ FactoryBot.define do
     description { Faker::Lorem.paragraph }
     start_time do
       [
-        Faker::Time.between(from: 2.years.ago, to: 2.years.from_now),
+        Faker::Time.between(from: 2.years.ago, to: 2.years.from_now.to_datetime),
         Faker::Time.backward(days: 1),
         Faker::Time.forward(days: 1),
         Faker::Time.forward(days: 7)
