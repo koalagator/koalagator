@@ -1,19 +1,14 @@
-require 'Date'
+require "Date"
 
 module Calagator
   class BulkImport
-
     def initialize(csv_data)
       @csv_data = csv_data
       @csv_errors = []
-      @count_saved_successfully 
-      @count_not_saved
-    end 
-
-    def csv_errors
-      @csv_errors
     end
-    
+
+    attr_reader :csv_errors
+
     def process_csv_file(csv_data)
       csv_data.map {|row| process_row(row, 1)}.map {|event| event.save}
     rescue 

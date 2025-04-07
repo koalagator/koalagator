@@ -64,7 +64,6 @@ Gem::Specification.new do |s|
   s.add_dependency "smarter_csv", "~> 1.13"
   s.add_dependency "csv", "~> 3.3.3"
 
-
   unless Calagator::MAJOR_RUBY_VERSION <= 2
     s.add_dependency "rexml", "~> 3.4.0" # moved outside ruby core from 3.0
   end
@@ -86,6 +85,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "timecop", "~> 0.9.5"
   s.add_development_dependency "uglifier", "~> 4.2.0"
   s.add_development_dependency "webmock", "~> 3.5"
-  s.add_development_dependency "better_errors", '~> 2.10', '>= 2.10.1'
-  s.add_development_dependency "binding_of_caller", '~> 1.0', '>= 1.0.1'
+  s.add_development_dependency "better_errors", "~> 2.10", ">= 2.10.1"
+  s.add_development_dependency "binding_of_caller", "~> 1.0", ">= 1.0.1"
 end
