@@ -16,7 +16,7 @@
 # undoing everything it does. Don't use that mode.
 #
 # TODO (2025): Review and remove if no longer needed
-# 
+#
 module Calagator
   module DecodeHtmlEntitiesHack
     def self.included(base)
