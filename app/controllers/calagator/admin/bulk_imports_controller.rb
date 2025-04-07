@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'csv'
+
+require "csv"
 require "calagator/import_events_csv"
 
 module Calagator
@@ -25,7 +26,7 @@ module Calagator
         end
 
         respond_to do |format|
-          if bulk_import&.csv_errors.empty?
+          if bulk_import&.csv_errors&.empty?
             Rails.logger.info "csv_errors is empty"
             format.html { render :new, notice: "Successfully imported all records." }
           else
@@ -33,8 +34,10 @@ module Calagator
             Rails.logger.info "#{bulk_import.csv_errors}"
             # bulk_import.count_saved_successfully = 0
             # bulk_import.count_not_saved = 0
-            format.html { render :new, notice: "#{0} records imported successully. #{0} records reported the following errors:
-            #{bulk_import.csv_errors}" }
+            format.html {
+              render :new, notice: "0 records imported successully. 0 records reported the following errors:
+            #{bulk_import.csv_errors}"
+            }
           end
         end
       end
