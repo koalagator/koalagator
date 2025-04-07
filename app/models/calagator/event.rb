@@ -53,7 +53,7 @@ module Calagator
     has_paper_trail
     acts_as_taggable_on :tags
 
-    xss_foliate strip: %i[title description venue_details]
+    # xss_foliate strip: %i[title description venue_details]
 
     include DecodeHtmlEntitiesHack
     include ActiveModel::Serializers::Xml
