@@ -17,17 +17,16 @@ module Calagator
     end
 
     def process_row(row, index)
-
       # tag_list: row['event_tag_list']
-    
+
       event = Calagator::Event.new(
-        title: row['title'],
-        venue_id: set_venue(row['venue'])&.id,
-        url: row['url'],
-        event_start: set_event_at(row['event_start_at']),
-        event_end: set_event_at(row['event_end_at']),
-        description: row['description'],		
-        venue_details: row['venue_details']
+        title: row["title"],
+        venue_id: set_venue(row["venue"])&.id,
+        url: row["url"],
+        event_start: set_event_at(row["event_start_at"]),
+        event_end: set_event_at(row["event_end_at"]),
+        description: row["description"],
+        venue_details: row["venue_details"]
       )
       unless event.valid?
         Rails.logger.info "Event Error"
@@ -40,11 +39,13 @@ module Calagator
         return event
       end
     end
+
     def set_event_at(value)
       Time.iso8601(value)
     rescue
       errors[:start_date] = "is not in ISO 8601 time format"
     end
+
     def set_venue(value)
       value_s = value.to_s
       value_i = value_s.to_i
