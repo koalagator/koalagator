@@ -1,5 +1,3 @@
-require "Date"
-
 module Calagator
   class BulkImport
     def initialize(csv_data)
@@ -11,9 +9,9 @@ module Calagator
 
     def process_csv_file(csv_data)
       csv_data.map {|row| process_row(row, 1)}.map {|event| event.save; puts "event saved"}
-    rescue 
-      Rails.logger.info "rescue called within .process_csv_file"
-      return false
+    # rescue 
+    #   Rails.logger.info "rescue called within .process_csv_file"
+    #   return false
     end
 
     def process_row(row, index)
@@ -23,27 +21,27 @@ module Calagator
         title: row["title"],
         venue_id: set_venue(row["venue"])&.id,
         url: row["url"],
-        event_start: set_event_at(row["event_start_at"]),
-        event_end: set_event_at(row["event_end_at"]),
+        start_time: set_event_at(row["event_start_at"]),
+        end_time: set_event_at(row["event_end_at"]),
         description: row["description"],
-        venue_details: row["venue_details"]
+        venue_details: row["venue_details"],
+        tag_list: row["event_tag_list"]
       )
-      unless event.valid?
+
+      if event.valid?
+        Rails.logger.info "Event Saved"
+        return event
+      else
         Rails.logger.info "Event Error"
         Rails.logger.info "event errors: #{event.errors.full_messages}"
         @csv_errors << "Row #{index}: #{event.errors.full_messages}"
         Rails.logger.info "rescue called within .process_csv_file"
         raise "Invalid Event"
-      else
-        Rails.logger.info "Event Saved"
-        return event
       end
     end
 
     def set_event_at(value)
-      Time.iso8601(value)
-    rescue
-      errors[:start_date] = "is not in ISO 8601 time format"
+      Time.strptime value, "%d/%m/%Y %H:%M:%S"
     end
 
     def set_venue(value)
