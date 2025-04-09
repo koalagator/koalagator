@@ -10,8 +10,9 @@ module Calagator
     attr_reader :csv_errors
 
     def process_csv_file(csv_data)
-      csv_data.map {|row| process_row(row, 1)}.map {|event| event.save}
+      csv_data.map {|row| process_row(row, 1)}.map {|event| event.save; puts "event saved"}
     rescue 
+      Rails.logger.info "rescue called within .process_csv_file"
       return false
     end
 
@@ -28,14 +29,15 @@ module Calagator
         description: row['description'],		
         venue_details: row['venue_details']
       )
-      if event.valid?
-        Rails.logger.info "Event Saved"
-        event
-      else
+      unless event.valid?
         Rails.logger.info "Event Error"
         Rails.logger.info "event errors: #{event.errors.full_messages}"
         @csv_errors << "Row #{index}: #{event.errors.full_messages}"
+        Rails.logger.info "rescue called within .process_csv_file"
         raise "Invalid Event"
+      else
+        Rails.logger.info "Event Saved"
+        return event
       end
     end
     def set_event_at(value)
