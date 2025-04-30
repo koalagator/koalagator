@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.description = "#{Calagator::NAME} is an open source community calendaring platform"
   s.license = "AGPL-3.0-or-later"
 
-  s.required_ruby_version = [">= 2.6.0"]
+  s.required_ruby_version = [">= 3.0.0"]
 
   s.files = Dir["{app,config,lib,vendor}/**/*"] + Dir["db/**/*.rb"] + ["LICENSE.md", "Rakefile", "README.md", "rails_template.rb"]
   s.executables << "koalagator"
