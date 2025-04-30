@@ -33,12 +33,12 @@ module Calagator
     end
 
     def set_event_at(value)
-      return '' unless value.present?
+      return "" unless value.present?
       Time.strptime value, "%d/%m/%Y %H:%M:%S"
     end
 
     def set_venue(value)
-      return '' unless value.present?
+      return "" unless value.present?
       value_s = value.to_s
       value_i = value_s.to_i
       target_venue = if value_s.match?(/^\s*\d+\s*$/) && value_i > 0
