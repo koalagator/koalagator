@@ -14,6 +14,12 @@ Conventions used in this document:
 ## Change Log
 List of releases and changes, with the latest at the top:
 
+### [5.3.0] - Unreleased
+  * Bulk Import from CSV File now available within /admin
+  * Bulk Import raises validation errors if exact duplicate already imported
+  * Bulk Import raises validation errors if any event is invalid, on screen error messages explain the issue and row.
+  * Bulk Import redirects to all events page after successful import. Any events added today show in orange.
+
 ### [5.2.0] - Unreleased
   * Typographic shift to Moden Font Stacks (selected from modernfontstacks.com)
   * Removes externally loaded fonts (performance benefits)
