@@ -20,7 +20,8 @@ rowspans = calculate_rowspans(events)
       <th class='date'>Sort By: <%= link_to "Date", url_for(params.to_unsafe_h.merge(:order => 'date')) %></th>
       <th class='event_summary'>
         <%= events_sort_link('name') -%>,
-        <%= events_sort_link('venue') -%>
+        <%= events_sort_link('venue') -%>,
+        <%= events_sort_link('created_at') -%>
         <%- if scores -%>,
         <%= events_sort_link('score') -%>
         <%- end -%>, 
@@ -42,7 +43,7 @@ rowspans = calculate_rowspans(events)
           </td>
           <% end %>
           <td class='event_summary'>
-            <a class='summary p-name u-url' href='<%= url_for event_url(event) %>' name='<%= "event-#{event.id}" %>' id='<%= "event-#{event.id}" %>'><%= event.title %></a><br />
+            <a class='summary p-name u-url' href='<%= url_for event_url(event) %>' name='<%= "event-#{event.id}" %>' id='<%= "event-#{event.id}" %>' title="Added <%= event.created_at %>"><%= event.title %></a><br/>
             <%= normalize_time(event, :context => event.start_time.to_date) -%>
             <% if event.venue && !event.venue.title.blank? %>
               <a class='location p-location h-card' href='<%= url_for venue_url(event.venue) %>'><%= event.venue.title -%></a>

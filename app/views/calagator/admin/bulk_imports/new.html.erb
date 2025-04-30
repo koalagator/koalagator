@@ -1,3 +1,15 @@
+  <% if @bulk_import && @bulk_import&.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@bulk_import&.errors.count, "error") %> in '<code><%= @uploaded_file.original_filename %></code>' prohibited this import from being saved:</h2>
+
+      <ul>
+        <% @bulk_import&.errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <h1>Bulk Imports</h1>
 
 <p>This feature supports bulk importing of events from a spreadsheet file</p>
