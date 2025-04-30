@@ -34,7 +34,7 @@ module Calagator
       if event.valid?
         event
       else
-        return @errors << "Row #{index}: #{event.errors.full_messages}"
+        @errors << "Row #{index}: #{event.errors.full_messages}"
       end
     end
 
