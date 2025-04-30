@@ -100,7 +100,9 @@ module Calagator
       end_date += 1.day if start_date == end_date
       on_or_after_date(start_date).before_date(end_date)
     }
-
+    scope :find_duplicate, ->(title, start_time, end_time, venue) {
+      includes(:venue).where(title: title, start_time: start_time, end_time: end_time, venue: venue)
+    }
     # Expand the simple sort order names from the URL into more intelligent SQL order strings
     scope :ordered_by_ui_field, lambda { |ui_field|
       scope = case ui_field

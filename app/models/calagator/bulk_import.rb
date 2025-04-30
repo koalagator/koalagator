@@ -15,9 +15,10 @@ module Calagator
     end
 
     def process_row(row, index)
+      venue = set_venue(row["venue"])
       event = Calagator::Event.new(
         title: row["title"],
-        venue_id: set_venue(row["venue"])&.id,
+        venue_id: venue&.id,
         url: row["url"],
         start_time: set_event_at(row["event_start_at"]),
         end_time: set_event_at(row["event_end_at"]),
@@ -25,10 +26,15 @@ module Calagator
         venue_details: row["venue_details"],
         tag_list: row["event_tag_list"]
       )
+
+      if Calagator::Event.find_duplicate(event.title, event.start_time, event.end_time, venue).any?
+        return @errors << "Row #{index}: 'Duplicate of an existing event.'"
+      end
+
       if event.valid?
         event
       else
-        @errors << "Row #{index}: #{event.errors.full_messages}"
+        return @errors << "Row #{index}: #{event.errors.full_messages}"
       end
     end
 
