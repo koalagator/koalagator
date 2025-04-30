@@ -50,6 +50,7 @@ vagrant/cookbooks/vagrant/recipes/local.rb
 pkg/
 .sass-cache
 .DS_Store
+*/.DS_Store
 .idea/*
 spec/test_app/log/*
 spec/test_app/db/*.sqlite3*

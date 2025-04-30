@@ -31,7 +31,7 @@ module Calagator
 
       it "uses the label Date when using a tag" do
         assign :tag, ActsAsTaggableOn::Tag.new
-        expect(helper.events_sort_label(nil)).to eq(" by <strong>Date.</strong>")
+        expect(helper.events_sort_label(nil)).to eq(" by <strong>Event Date.</strong>")
       end
     end
 
@@ -165,7 +165,7 @@ module Calagator
       end
 
       it "displays a different default label when searching by tag" do
-        expect(helper.sorting_label_for(nil, true)).to eq "Date"
+        expect(helper.sorting_label_for(nil, true)).to eq "Event Date"
       end
     end
   end

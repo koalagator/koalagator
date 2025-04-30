@@ -1,0 +1,34 @@
+  <% if @bulk_import && @bulk_import&.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@bulk_import&.errors.count, "error") %> in '<code><%= @uploaded_file.original_filename %></code>' prohibited this import from being saved:</h2>
+
+      <ul>
+        <% @bulk_import&.errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h1>Bulk Imports</h1>
+
+<p>This feature supports bulk importing of events from a spreadsheet file</p>
+<p>To work as expected the uploaded file needs to be in `.csv` format.</p>
+<p>The header row in the csv file also needs to match our system defined field headings<p>
+<p>We recommend you copy your spreadsheet data into this template, and upload the resultant file</p>
+<p><%= link_to 'Koalagator Bulk Import Template v1.0', 'https://docs.google.com/spreadsheets/d/1QBGzaMjVCjUHQxQ3YIfX5Kivck2Rmow0IlyRAjDrbf4/edit?gid=0#gid=0' %></p>
+<p>1. Open the Template. 2. File > 'Make a copy' 3. Copy paste your records in 4. Review and tidy up records for a clean import.</p>
+<p>Once the sheet is ready. Download in .csv format by going:  File > Download > Comma Separated Value (.csv)</p>
+
+<p>The first version of this importer, will associate all events with a venue named 'TBA', for now its better than nothing.</p>
+<p>Once imported you can go through each event and allocate to a real venue.</p>
+
+<p>Drag and drop / attach your .csv file into the file area below: </p>
+
+<div class="form-label"><h3>Upload Your Spreadsheet (.csv)</h3></div>
+
+<%= form_with url: admin_bulk_imports_path, multipart: true do |form| %>
+    <%= file_field_tag :csv_file, accept:'.csv' %>
+    <br><br>
+    <%= form.submit "Upload attached File" %>
+<% end %>

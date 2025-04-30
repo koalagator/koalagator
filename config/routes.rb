@@ -33,6 +33,7 @@ Calagator::Engine.routes.draw do
 
   namespace :admin do
     resources :curations, except: :show
+    resources :bulk_imports
     if Calagator.devise_enabled
       resources :users do
         get :invite, as: :invite
