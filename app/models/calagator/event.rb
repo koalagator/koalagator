@@ -108,6 +108,8 @@ module Calagator
         order(Arel.sql("lower(events.title)"))
       when "venue"
         includes(:venue).order(Arel.sql("lower(venues.title)")).references(:venues)
+      when "created_at"
+        return order(created_at: :desc)
       else
         all
       end

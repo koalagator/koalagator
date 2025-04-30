@@ -183,7 +183,8 @@ module Calagator
       "name" => "Event Name",
       "venue" => "Location",
       "score" => "Relevance",
-      "date" => "Date"
+      "created_at" => "Date Added",
+      "date" => "Event Date"
     }.freeze
     private_constant :SORTING_LABELS
   end
