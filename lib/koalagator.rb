@@ -16,7 +16,6 @@ require "will_paginate/array"
 require "rest-client"
 require "loofah"
 require "loofah-activerecord"
-require "bluecloth"
 require "acts-as-taggable-on"
 require "jquery-rails"
 require "jquery-ui-rails"
@@ -26,6 +25,7 @@ require "utf8-cleaner"
 require "lucene_query"
 require "rack/contrib/jsonp"
 require "devise"
+require "kramdown"
 
 module Calagator
   mattr_accessor :title,
