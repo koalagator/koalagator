@@ -15,6 +15,7 @@ Conventions used in this document:
 List of releases and changes, with the latest at the top:
 
 ### [5.3.0] - Unreleased
+  * Updates to CommonMark for Markdown now using Kramdown (native ruby)
   * Bulk Import from CSV File now available within /admin
   * Bulk Import raises validation errors if exact duplicate already imported
   * Bulk Import raises validation errors if any event is invalid, on screen error messages explain the issue and row.
