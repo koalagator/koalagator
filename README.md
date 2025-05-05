@@ -17,6 +17,8 @@ Thank you to everyone who contributed to the original calagator project (you're 
 We appreciate the encouragment from the ruby community for us to undertaking a revivial of this project.
 Koalagator is a hard community fork of calagator. We've upgraded the project from Rails 4.2 to Rails 7.1 as part of this revival.
 
+See also our [Koalagator Browser Extension for Firefox/Chrome](https://github.com/koalagator/koalagator-browser-extension) it supports most major event sites and enables super one-click adding of events to your instance.
+
 About the revival
 -----------------
 
