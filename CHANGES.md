@@ -20,6 +20,12 @@ List of releases and changes, with the latest at the top:
   * Bulk Import raises validation errors if exact duplicate already imported
   * Bulk Import raises validation errors if any event is invalid, on screen error messages explain the issue and row.
   * Bulk Import redirects to all events page after successful import. Any events added today show in orange.
+  * New Events Tabular view available via Admin Tools. View supports community newsletters to pull out formatted event data.
+  * * Added to support a community newsletter that was willing to proactivley add events
+  * * But they needed to be able to get the events back out in a four column format
+  * * Four column format includes columbs for: Title, Date Time, Venue, Details
+  * * Venues are linked to the instance venue record.
+  * * Title links to the events external url if present. If not present it links to the instance event record.
 
 ### [5.2.0] - Unreleased
   * Typographic shift to Moden Font Stacks (selected from modernfontstacks.com)
