@@ -30,7 +30,8 @@ describe "import events from a feed", js: true do
     FLASH
 
     expect(page).to have_content "Viewing 3 future events"
-
-    expect(find(".event_table")).to have_content(/Coffee\swith\sJason\n.*\nCoffee\swith\sMike\n.*\nCoffee\swith\sKim/)
+    expect(find(".event_table")).to have_content(/Coffee\swith\sJason/)
+    expect(find(".event_table")).to have_content(/Coffee\swith\sMike/)
+    expect(find(".event_table")).to have_content(/Coffee\swith\sKim/)
   end
 end

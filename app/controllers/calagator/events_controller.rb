@@ -24,6 +24,15 @@ module Calagator
       render_events @events
     end
 
+    # GET /events/tabular
+    # GET /events/tabular.xml
+    def tabular
+      @browse = Event::Browse.new(params)
+      @events = @browse.events
+      @browse.errors.each { |error| append_flash :failure, error }
+      render_events @events
+    end
+
     # GET /events/1
     # GET /events/1.xml
     def show
