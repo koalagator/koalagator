@@ -47,6 +47,7 @@ Calagator::Engine.routes.draw do
 
   resources :events do
     collection do
+      get "tabular" => "events#tabular"
       post :squash_many_duplicates
       get :search
       get :duplicates
