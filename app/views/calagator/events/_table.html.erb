@@ -34,16 +34,16 @@ rowspans = calculate_rowspans(events)
       <% events.each_with_index do |event, index| %>
         <tr class='vevent h-event'>
           <% if rowspans[index] > 0 %>
-          <td class='date' rowspan="<%=rowspans[index]%>">
-            <div class='day_of_week <%= today_tomorrow_or_weekday(event).downcase -%>'>
-              <%= today_tomorrow_or_weekday(event) %>
-            </div>
-            <% show_year = event.start_time.year != Time.now.year %>
-            <%= datetime_format(event.start_time,'%b %d') -%><%= ", "+datetime_format(event.start_time,'%Y') if show_year %>
-          </td>
+            <td class='date' rowspan="<%=rowspans[index]%>">
+              <div class='day_of_week <%= today_tomorrow_or_weekday(event).downcase -%>'>
+                <%= today_tomorrow_or_weekday(event) %>
+              </div>
+              <% show_year = event.start_time.year != Time.now.year %>
+              <%= datetime_format(event.start_time,'%b %d') -%><%= ", "+datetime_format(event.start_time,'%Y') if show_year %>
+            </td>
           <% end %>
           <td class='event_summary'>
-            <%= link_to event.title, event_url, class: "summary p-name u-url #{'orange' if event.created_at.to_date == Date.today}",  
+            <%= link_to event.title, event, class: "summary p-name u-url #{'orange' if event.created_at.to_date == Date.today}",
                 id: "event-#{event.id}",
                 name: "event-#{event.id}",
                 title: "Added #{event.created_at}"
