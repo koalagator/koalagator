@@ -1,4 +1,14 @@
 <h1>Tabular Events</h1>
+<p>This special events view has been added to support groups that want to copy/paste events into a newsletter or external publication.</p>
+<p>Specifically it was first added to support a group that is proactivley adding multiple events from the community to then be able to pull this info back out in a useful format.</p>
+<p>The events listing is split into four colummns: Title, Date Time, Venue and Description.</p>
+<p>Note: Unlike elsewhere in the app, the venue title here links to the event website in the first instance.</p>
+<p>If no website is included in the event record, the event title will link to the event record.</p>
+<p>In this way end users of the listing of upcoming events will be linked directly to the event website where available.</p>
+<p>The venue listed will always link to the instances venue record, such that accessibility details and directions are easily discoverable.</p>
+<p>To copy/paste, select from the left hand side of Title the first record and drag until you are at the right hand side of the description of the last record.<p>
+<p>Tip: Use the filter tool (right hand side) to narrow down the event dates before doing a copy/paste</p>
+
 <%= content_for :title, "Events" %>
 
 <% cache_if(@browse.default? && Calagator.cache_enabled, Calagator::CacheObserver.daily_key_for("events_index", request)) do %>
