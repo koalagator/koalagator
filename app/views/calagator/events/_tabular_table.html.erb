@@ -41,6 +41,7 @@ rowspans = calculate_rowspans(events)
                 name: "event-#{event.id}",
                 title: "Added #{event.created_at}"
               %>
+              <%= "nbsp;" if event&.title&.blank?) %>
               <br/>
             </td>
             <td class='event_date'>
@@ -48,6 +49,7 @@ rowspans = calculate_rowspans(events)
                 <%= today_tomorrow_or_weekday(event) %>
                 <% show_year = event.start_time.year != Time.now.year %>
                 <%= datetime_format(event.start_time,'%b %d') -%><%= ", "+datetime_format(event.start_time,'%Y') if show_year %>
+                <%= "nbsp;" if event&.start_time&.blank?) %>
               </div>
               <%= normalize_time(event, :context => event.start_time.to_date) -%>
             </td>
@@ -56,9 +58,11 @@ rowspans = calculate_rowspans(events)
             <% if event.venue && !event.venue.title.blank? %>
               <a class='location p-location h-card' href='<%= url_for venue_url(event.venue) %>'><%= event.venue.title %></a>
             <% end -%>
+            <%= "nbsp;" if event&.venue&.blank?) %>
           </td>  
           <td class='event_summary'>
             <%= format_description(event.description) %>    
+            <%= "nbsp;" if event&.description&.blank?) %>
           </td>
         </tr>
       <% end %>
