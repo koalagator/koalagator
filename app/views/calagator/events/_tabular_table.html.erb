@@ -49,9 +49,9 @@ rowspans = calculate_rowspans(events)
                 <%= today_tomorrow_or_weekday(event) %>
                 <% show_year = event.start_time.year != Time.now.year %>
                 <%= datetime_format(event.start_time,'%b %d') -%><%= ", "+datetime_format(event.start_time,'%Y') if show_year %>
-                <%= "&nbsp;".html_safe if event&.start_time&.blank? %>
               </div>
               <%= normalize_time(event, :context => event.start_time.to_date) -%>
+              <%= "&nbsp;".html_safe if event&.start_time&.blank? %>
             </td>
           <% end %>
           <td class='event_location'>
