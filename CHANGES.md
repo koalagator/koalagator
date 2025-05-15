@@ -15,6 +15,8 @@ Conventions used in this document:
 List of releases and changes, with the latest at the top:
 
 ### [5.3.0] - Unreleased
+  * Events & Venues now use friendly urls. Improve sharing and SEO.
+  * * Generated url was /1 now /1-title-shows-here
   * Updates to CommonMark for Markdown now using Kramdown (native ruby)
   * Bulk Import from CSV File now available within /admin
   * Bulk Import raises validation errors if exact duplicate already imported
