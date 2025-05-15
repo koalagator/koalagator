@@ -94,9 +94,18 @@ module Calagator
       SearchEngine.search(query, opts)
     end
 
+    #---[ Overrides ]-------------------------------------------------------
+
     def url=(value)
       super(UrlPrefixer.prefix(value))
     end
+
+    def to_param
+      return id if title.blank?
+      [id, title.parameterize].join("-")
+    end
+
+    #---[ / Overrides ]-------------------------------------------------------
 
     # Display a single line address.
     def full_address
