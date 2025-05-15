@@ -153,8 +153,8 @@ module Calagator
     def to_param
       return id if title.blank?
       [id, title.parameterize].join("-")
-    end 
-    
+    end
+
     private :time_for
 
     #---[ Lock toggling ]---------------------------------------------------
