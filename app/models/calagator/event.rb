@@ -149,6 +149,12 @@ module Calagator
       end # this will throw ArgumentError if invalid
       value
     end
+
+    def to_param
+      return id if title.blank?
+      [id, title.parameterize].join("-")
+    end 
+    
     private :time_for
 
     #---[ Lock toggling ]---------------------------------------------------
