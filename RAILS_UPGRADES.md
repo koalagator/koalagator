@@ -14,13 +14,13 @@ Building the main app, Testing the main app, Testing Appraisal alternatives, Tes
 
 3. Testing the main app in the code repo
 
-    rake spec
+    rails spec
 
 4. Testing appraisal alternatives
 
 ```
     bundle exec appraisal install
-    bundle exec appraisal rake spec
+    bundle exec appraisal rails spec
 ```
 
 5. Testing the gem
@@ -40,7 +40,7 @@ Building the main app, Testing the main app, Testing Appraisal alternatives, Tes
 
 ## Update the Rails version in all the places
 
-Update rails version in: 
+Update rails version in:
 
 * Gemfile    # this: gem 'rails', '<here>'
 * gemspec    # this: s.add_dependency 'rails', '~> <here>'

@@ -21,18 +21,18 @@ Before you start, you will need to:
 
 2. Install system dependancies
 
-    # sqlite related dependancies
+    # sqlite related dependencies
     brew install sqlite pkg-config
 
 3. Install Bundler-managed gems, (the actual libraries that this application uses, like Ruby on Rails) by running `bundle install`. This may take a long time to complete.
 
 4. Initialize your database by running:
 
-        bundle exec rake app:db:migrate app:db:test:prepare
+        bundle exec rails app:db:migrate app:db:test:prepare
 
     If you like, you can also generate some sample data with
 
-        bundle exec rake app:db:seed
+        bundle exec rails app:db:seed
 
 5. At this point, you should be set up to run Koalagator's test suite:
 
@@ -52,26 +52,26 @@ The above should give you enough to work on new features and test a sample app.
 
 #### Run the main test suite
 
-    `bundle exec rake spec`
+    `bundle exec rails spec`
 
 #### Run appraisal test suite
 
-    `bundle exec appraisal install && bundle exec appraisal rake spec`
+    `bundle exec appraisal install && bundle exec appraisal rails spec`
 
 ## Building the calagator gem locally
 
 By default the project relies on the released version of the calagator gem on rubygems.org.
-To test and develop the gem locally you need to build it locally. 
+To test and develop the gem locally you need to build it locally.
 
 ### 1. Update the gem version (for local testing)
 
-To test your own gem you'll want to give it a local version, generally dont commit this version.
+To test your own gem you'll want to give it a local version, generally don't commit this version.
 
 Update version number in /lib/calagator/version.rb
 
 ### 2. Build the gemspec and locally install the gem
 
-    `gem build calagator.gemspec && gem install calagator`
+    `gem build koalagator.gemspec && gem install koalagator`
 
 ### 3. Go to another folder to test the gem
 
@@ -82,7 +82,8 @@ I made a folder called 'ruby_2_6' for this to test against ruby 2.6 projects for
 
 This process tests the gem works, that the new app gems build and that migrations work and more.
 If any errors come up, fix these are repeat from step 1.
-### 4. Activley test the gem built app
+
+### 4. Actively test the gem built app
 
 Go in the new directory.
 
