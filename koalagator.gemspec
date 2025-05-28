@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.description = "#{Calagator::NAME} is an open source community calendaring platform"
   s.license = "AGPL-3.0-or-later"
 
-  s.required_ruby_version = [">= 3.0.0"]
+  s.required_ruby_version = [">= 3.1.0"]
 
   s.files = Dir["{app,config,lib,vendor}/**/*"] + Dir["db/**/*.rb"] + ["LICENSE.md", "Rakefile", "README.md", "rails_template.rb"]
   s.executables << "koalagator"
@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", Calagator::RAILS_VERSION
   s.add_dependency "sprockets-rails", "~> 3.4"
   s.add_dependency "activemodel-serializers-xml", "~> 1.0"
-  s.add_dependency "acts-as-taggable-on", "~> 10.0"
+  s.add_dependency "acts-as-taggable-on", "~> 11.0"
   s.add_dependency "annotate", ">= 3.1.1", "< 3.3.0"
   s.add_dependency "bootsnap", "~> 1.18.4"
   s.add_dependency "font-awesome-rails", "~> 4.7"

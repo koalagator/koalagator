@@ -58,6 +58,7 @@ These people have contributed to Calagator's design and implementation:
   * Michael Xavier
   * Moxvallix
   * Natalie Blackburn
+  * Oscar Alan Pierce
   * Paige Saez
   * Pam Selle
   * Patrick McSweeny
