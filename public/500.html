@@ -17,8 +17,10 @@
       <img src="/assets/confused-alligator-sm.png" />
     </div>
     <p class="guide">Confused Alligator will look into the problem and try to clear up the confusion soon.</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.4/purify.min.js"></script>
     <script>
-      document.write('<a href="' + document.referrer + '">Back to Safety</a>');
+      var safeReferrer = DOMPurify.sanitize(document.referrer);
+      document.write('<a href="' + safeReferrer + '">Back to Safety</a>');
     </script>
   </div>
 </body>
