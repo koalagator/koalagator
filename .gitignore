@@ -45,7 +45,6 @@ tags
 tmp/*
 vagrant/cookbooks/vagrant/recipes/local.rb
 .ruby-gemset
-.ruby-version
 .bundle/
 pkg/
 .sass-cache
