@@ -14,7 +14,7 @@ Conventions used in this document:
 ## Change Log
 List of releases and changes, with the latest at the top:
 
-### [5.3.0] - Unreleased
+### [5.1.0] - Unreleased
   * Updates Rails to 7.2.2.x
   * Updates to CommonMark for Markdown now using Kramdown (native ruby)
   * Bulk Import from CSV File now available within /admin
@@ -28,29 +28,32 @@ List of releases and changes, with the latest at the top:
   * * Venues are linked to the instance venue record.
   * * Title links to the events external url if present. If not present it links to the instance event record.
 
-### [5.2.0] - Unreleased
-  * Typographic shift to Moden Font Stacks (selected from modernfontstacks.com)
-  * Removes externally loaded fonts (performance benefits)
-  * Add Dockerfile
-  * Remove Vagrant
-  * Adds Mastodon share button
-  * Removes Twitter share button
-  * Removed Sunspot/Solr search engine. Unused code and related pending tests deleted.
-  * With solr pending specs removed. We're down to just 3 pending specs, the rest passing.
-
-### [5.1.0] - Unreleased
-  * Ruby Retreat AU (Under the Clocktower release)
-    - Curations now has a 'listed' scope being curations that are not 'unlisted'.
-    - The curations nav section now shows just listed curations (hides unlisted ones)
-
-### [5.0.0] - Unreleased
+### [5.0.1] - Unreleased
+  * Ruby 3.0 specified as minimum ruby (since were on Rails 7 now).
+  * Tidy CHANGES.md
+  
+### [5.0.0] - 2025-03-20
+  Major Changes
   * Project renamed to Koalagator
     - Updated user-facing `calagator` references to `koalagator`.
     - Code-base kept using `Calagator` namespace, for potential compatibility.
   * Switch to AGPL license going forward.
+  * Ruby Retreat AU 2024 "Under the Clocktower" community contributions
+    - Curations now has a 'listed' scope being curations that are not 'unlisted'.
+    - The curations nav section now shows just listed curations (hides unlisted ones)
+  * Add Dockerfile
+  * Remove Vagrant
+  
+  Other Changes
+  * Typographic shift to Moden Font Stacks (selected from modernfontstacks.com)
+  * Removes externally loaded fonts (performance benefits)
+  * Adds Mastodon share button
+  * Removes Twitter share button
   * Added FORKING.md to document necessary changes for a fork.
   * Made changes to assist forking / upstreaming in the future.
-
+  * Removed Sunspot/Solr search engine. Unused code and related pending tests deleted.
+  * With solr pending specs removed. We're down to just 3 pending specs, the rest passing.
+  
 ### [4.1.0] - 2024-03-14
   * Upgrade to Rails 7.1
   * Recommended Ruby version is now 3.3
