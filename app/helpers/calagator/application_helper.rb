@@ -45,7 +45,7 @@ module Calagator
         next if flash[type].blank?
 
         content_tag(:div, class: "flash #{type} flash_#{type}") do
-          "#{(type == :failure) ? "ERROR: " : ""}#{flash[type]}".html_safe
+          "#{"ERROR: " if type == :failure}#{flash[type]}".html_safe
         end
       end.compact.join.html_safe
     end

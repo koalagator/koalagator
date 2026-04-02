@@ -10,6 +10,7 @@ module Calagator
     let(:klass) do
       Class.new do
         include ActiveModel::Validations
+
         validates :title, denylist: true
         attr_accessor :title
       end

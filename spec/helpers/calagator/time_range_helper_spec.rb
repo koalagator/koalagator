@@ -26,7 +26,7 @@ module Calagator
     ]
 
     [nil, Date.new(2008, 4, 1)].each do |context_date|
-      describe "with#{context_date.nil? ? "out" : ""} context date" do
+      describe "with#{"out" if context_date.nil?} context date" do
         %i[text hcal html].each do |format|
           tests.each do |label, end_time, expected_without_context, expected_with_context|
             expected = context_date ? expected_with_context : expected_without_context
