@@ -39,8 +39,6 @@ Go to Github and manually create a release for the tag, and paste the CHANGES fo
 
 Then make the RubyGems.org release:
 
-```
-gem release
-```
+    $ gem release
 
 You can go to our RubyGems page to see that it looks correct. Take the link for this release and share it on twitter!
