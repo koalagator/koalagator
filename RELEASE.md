@@ -41,4 +41,4 @@ Then make the RubyGems.org release:
 
     $ gem release
 
-You can go to our RubyGems page to see that it looks correct. Take the link for this release and share it on twitter!
+You can go to our RubyGems page to see that it looks correct. Take the link for this release and share it on [Mastodon](https://fosstodon.org/@koalagator)!
