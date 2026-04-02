@@ -29,7 +29,7 @@ After updating dependencies, look at CHANGES.md, and make sure there are entries
 
 ### 3. Bump the version
 
-The `tag` flag creates a new commit and then tags it.
+We are using the gem-release gem. The `tag` flag creates a new commit and then tags it.
 
     $ gem bump --version [major|minor|patch] --tag --push
 
