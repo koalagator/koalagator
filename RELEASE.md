@@ -27,18 +27,53 @@ After updating dependencies, look at CHANGES.md, and make sure there are entries
 
     $ rails spec && bundle exec appraisal install && bundle exec appraisal rails spec && standardrb --fix
 
+### 2. Make a dedicated branch for the release
+
+    Lets say you are releasing version 99.1.0
+
+    $ git checkout -b 99.1.0 # note that the branch is just 99.1.0 NOT v99.1.0 ('v' as in v99.1.0 is kept for tag naming).
+
 ### 3. Bump the version
 
 We are using the gem-release gem. The `tag` flag creates a new commit and then tags it.
 
-    $ gem bump --version [major|minor|patch] --tag --push
+    # Patch: Usually for security fixes and very tiny changes (No real new features).
+
+    $ gem bump --version [major|minor|patch] --tag --push --file lib/calagator/version.rb
+
+    # Minor: New features but no breaking changes.
+
+    $ gem bump --version minor --tag --push --file lib/calagator/version.rb
+
+    # Major: Breaking Changes or very significant release with very significant feature changes.
+
+    $ gem bump --version major --tag --push --file lib/calagator/version.rb
+
+### 4. Run bundle to update the Gemfile.lock with the new version number    
+
+    $ bundle install
+
+    $ git push # to push the updated Gemfile.lock to the branch on origin.
 
 ### 4. Create the release on Github
 
-Go to Github and manually create a release for the tag, and paste the CHANGES for that release into the description.
+Go to Github and manually create a release.
+
+1. Visit  https://github.com/koalagator/koalagator/releases > 'Draft a new release'
+2. Under 'Target' pick the branch eg '99.1.0'
+3. Under 'Tag', 'create new tag' and use this format 'v0.0.0' eg v99.1.0
+4. Press 'Generate release notes' it should set a release title in the format 'v0.0.0' eg v99.1.0 and create text in Write.
+5. Make a new heading Major Changes and move major items up to this section.
+6. Add a human summary at the top to make the release more understandable and attractive.
+7. Set as the latest release. You can optionally 'create a discussion for this release'.
+8. Click 'Publish release'
+
+### 5. Push the gem file to rubygems
 
 Then make the RubyGems.org release:
 
     $ gem release
+
+### 6. Tell everyone!
 
 You can go to our RubyGems page to see that it looks correct. Take the link for this release and share it on [Mastodon](https://fosstodon.org/@koalagator)!
