@@ -89,6 +89,12 @@ Then make the RubyGems.org release:
 
     gem release
 
+What gem release does:
+
+    1. Builds the gem and makes a file eg koalagator-99.1.0.gem
+    2. Pushes the .gem file to rubygems.org 'releasing it'.
+    3. Deletes the .gem file locally. You can always gem build it later if needed.
+
 ### Tell everyone!
 
 You can go to our RubyGems page to see that it looks correct. Take the link for this release and share it on [Mastodon](https://fosstodon.org/@koalagator)!
