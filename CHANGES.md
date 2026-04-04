@@ -14,6 +14,12 @@ Conventions used in this document:
 ## Change Log
 List of releases and changes, with the latest at the top:
 
+### [5.2.1] - 2026-04-05
+  * Upgrade devise and jquery-ui-rails gems to resolve dependabot security warnings.
+  * Upgrade acts-as-taggable-on in preparation for Rails 8 upgrade
+  * Minor gem updates
+  * At the date of this release there are now zero (0) dependabot vulnerability warnings.
+
 ### [5.2.0] - 2026-04-04
   * Upgrade to ruby 4.x from ruby 3.3 (3.3.7 > 4.0.2)
   * Better errors gem upgraded to work with ruby 4. Thanks to [fixes in binding_of_caller](https://github.com/BetterErrors/better_errors/issues/547)
