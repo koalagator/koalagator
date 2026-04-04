@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rubygems"
-require "pathname"
 require_relative "lib/calagator/version"
 
 def assert_minimum_rails_version
