@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", Calagator::RAILS_VERSION
   s.add_dependency "sprockets-rails", "~> 3.4"
   s.add_dependency "activemodel-serializers-xml", "~> 1.0"
-  s.add_dependency "acts-as-taggable-on", "~> 11.0"
+  s.add_dependency "acts-as-taggable-on", "~> 13.0"
   s.add_dependency "annotate", ">= 3.1.1", "< 3.3.0"
   s.add_dependency "bootsnap", "~> 1.23"
   s.add_dependency "font-awesome-rails", "~> 4.7"
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_dependency "geokit", "~> 1.14.0"
   s.add_dependency "htmlentities", "~> 4.4.2"
   s.add_dependency "jquery-rails", "~> 4.6"
-  s.add_dependency "jquery-ui-rails", "~> 7.0"
+  s.add_dependency "jquery-ui-rails", "~> 8.0"
   s.add_dependency "kramdown", "~> 2.5", ">= 2.5.1"
   s.add_dependency "loofah", "~> 2.25.1"
   s.add_dependency "loofah-activerecord", ">= 1.2", "< 3.0"
@@ -56,13 +56,12 @@ Gem::Specification.new do |s|
   s.add_dependency "will_paginate", "~> 3.0"
   # s.add_dependency "pg", "~> 1.5"
   s.add_dependency "sqlite3", "~> 2.9.2"
-  # Fix deprecation warning with Zeitwerk
   s.add_dependency "observer", "~> 0.1"
   # s.add_dependency "listen", "~> 3.1.5"
-  s.add_dependency "devise", "~> 4.9.4"
+  s.add_dependency "devise", "~> 5.0.3"
   s.add_dependency "importmap-rails", "~> 2.0"
   s.add_dependency "smarter_csv", "~> 1.13"
-  s.add_dependency "csv", "~> 3.3.3"
+  s.add_dependency "csv", "~> 3.3.5"
 
   unless Calagator::MAJOR_RUBY_VERSION <= 2
     s.add_dependency "rexml", "~> 3.4.0" # moved outside ruby core from 3.0
