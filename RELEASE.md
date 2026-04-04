@@ -43,11 +43,11 @@ We are using the gem-release gem. The `tag` flag creates a new commit and then t
 
 #### Patch: Usually for security fixes and very tiny changes (No real new features).
 
-    gem bump --version patch --tag --push --file lib/calagator/version.rb
+    gem bump --version patch --tag --file lib/calagator/version.rb
 
 #### Minor: New features but no breaking changes.
 
-    gem bump --version minor --tag --push --file lib/calagator/version.rb
+    gem bump --version minor --tag --file lib/calagator/version.rb
 
 #### Major: Breaking Changes or very significant release with very significant feature changes.
 
