@@ -25,37 +25,43 @@ After updating dependencies, look at CHANGES.md, and make sure there are entries
 
 ### 2. Ensure that ALL specs are passing
 
-    $ rails spec && bundle exec appraisal install && bundle exec appraisal rails spec && standardrb --fix
+    rails spec && standardrb --fix && bundle exec appraisal install && bundle exec appraisal rails spec
 
 ### 2. Make a dedicated branch for the release
 
-    Lets say you are releasing version 99.1.0
+Lets say you are releasing version 99.1.0
 
-    $ git checkout -b 99.1.0 # note that the branch is just 99.1.0 NOT v99.1.0 ('v' as in v99.1.0 is kept for tag naming).
+    git checkout -b 99.1.0 # note that the branch is just 99.1.0 NOT v99.1.0 ('v' as in v99.1.0 is kept for tag naming).
 
 ### 3. Bump the version
 
 We are using the gem-release gem. The `tag` flag creates a new commit and then tags it.
 
-    # Patch: Usually for security fixes and very tiny changes (No real new features).
+#### Patch: Usually for security fixes and very tiny changes (No real new features).
 
-    $ gem bump --version [major|minor|patch] --tag --push --file lib/calagator/version.rb
+    gem bump --version patch --tag --push --file lib/calagator/version.rb
 
-    # Minor: New features but no breaking changes.
+#### Minor: New features but no breaking changes.
 
-    $ gem bump --version minor --tag --push --file lib/calagator/version.rb
+    gem bump --version minor --tag --push --file lib/calagator/version.rb
 
-    # Major: Breaking Changes or very significant release with very significant feature changes.
+#### Major: Breaking Changes or very significant release with very significant feature changes.
 
-    $ gem bump --version major --tag --push --file lib/calagator/version.rb
+    gem bump --version major --tag --file lib/calagator/version.rb
 
 ### 4. Run bundle to update the Gemfile.lock with the new version number    
 
-    $ bundle install
+    bundle install && standardrb --fix 
 
-    $ git push # to push the updated Gemfile.lock to the branch on origin.
+Then commit the changes
+    
+    git commit -am "Update version in Gemfile.lock"
+    
+Then push the updated Gemfile.lock to the branch on origin.
 
-### 4. Create the release on Github
+    git push
+
+### 5. Create the release on Github
 
 Go to Github and manually create a release.
 
@@ -73,7 +79,7 @@ Go to Github and manually create a release.
 Once checks all pass, merge the PR. DONT delete the branch! 
 The branch is kept open to allow for future security/patch releases as needed.
 
-### 6. Push the gem file to rubygems
+### 6. From your local terminal, push the gem file to rubygems
 
 With everything else resolved, pull the latest update to main.
 
@@ -83,6 +89,6 @@ Then make the RubyGems.org release:
 
     gem release
 
-### 6. Tell everyone!
+### Tell everyone!
 
 You can go to our RubyGems page to see that it looks correct. Take the link for this release and share it on [Mastodon](https://fosstodon.org/@koalagator)!
