@@ -39,7 +39,7 @@ We are using the gem-release gem. The `tag` flag creates a new commit and then t
 
 #### Patch: Usually for security fixes and very tiny changes (No real new features).
 
-    gem bump --version [major|minor|patch] --tag --push --file lib/calagator/version.rb
+    gem bump --version patch --tag --push --file lib/calagator/version.rb
 
 #### Minor: New features but no breaking changes.
 
@@ -47,11 +47,15 @@ We are using the gem-release gem. The `tag` flag creates a new commit and then t
 
 #### Major: Breaking Changes or very significant release with very significant feature changes.
 
-    gem bump --version major --tag --push --file lib/calagator/version.rb
+    gem bump --version major --tag --file lib/calagator/version.rb
 
 ### 4. Run bundle to update the Gemfile.lock with the new version number    
 
-    bundle install
+    bundle install && standardrb --fix 
+
+Then commit the changes
+    
+    git commit -am "Update version in Gemfile.lock"
     
 Then push the updated Gemfile.lock to the branch on origin.
 
