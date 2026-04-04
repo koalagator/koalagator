@@ -21,7 +21,7 @@ module Calagator
           if @curation.save
             format.html { redirect_to admin_curations_path, notice: "Successfully created curation." }
           else
-            format.html { render :new, status: :unprocessable_entity }
+            format.html { render :new, status: :unprocessable_content }
           end
         end
       end
@@ -34,7 +34,7 @@ module Calagator
           if @curation.update(curation_params)
             format.html { redirect_to admin_curations_path, notice: "Successfully updated curation." }
           else
-            format.html { render :edit, status: :unprocessable_entity }
+            format.html { render :edit, status: :unprocessable_content }
           end
         end
       end

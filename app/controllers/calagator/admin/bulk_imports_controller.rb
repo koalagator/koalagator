@@ -28,7 +28,7 @@ module Calagator
           if @bulk_import&.errors&.empty?
             format.html { redirect_to events_path(order: "created_at"), notice: "Successfully imported all records." }
           else
-            format.html { render :new, status: :unprocessable_entity }
+            format.html { render :new, status: :unprocessable_content }
           end
         end
       end

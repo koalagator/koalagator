@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.description = "#{Calagator::NAME} is an open source community calendaring platform"
   s.license = "AGPL-3.0-or-later"
 
-  s.required_ruby_version = [">= 3.1.0"]
+  s.required_ruby_version = [">= 3.4.5"]
 
   s.files = Dir["{app,config,lib,vendor}/**/*"] + Dir["db/**/*.rb"] + ["LICENSE.md", "Rakefile", "README.md", "rails_template.rb"]
   s.executables << "koalagator"
@@ -86,5 +86,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "uglifier", "~> 4.2.0"
   s.add_development_dependency "webmock", "~> 3.5"
   s.add_development_dependency "better_errors", "~> 2.10", ">= 2.10.1"
-  s.add_development_dependency "binding_of_caller", "~> 1.0", ">= 1.0.1"
+  s.add_development_dependency "binding_of_caller", "~> 2.0"
 end

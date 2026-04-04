@@ -33,23 +33,27 @@ Lets say you are releasing version 99.1.0
 
     git checkout -b 99.1.0 # note that the branch is just 99.1.0 NOT v99.1.0 ('v' as in v99.1.0 is kept for tag naming).
 
-### 3. Bump the version
+### 3. Update CHANGES.md with the new release
+
+    Update CHANGES.md & commit
+
+### 4. Bump the version
 
 We are using the gem-release gem. The `tag` flag creates a new commit and then tags it.
 
 #### Patch: Usually for security fixes and very tiny changes (No real new features).
 
-    gem bump --version patch --tag --push --file lib/calagator/version.rb
+    gem bump --version patch --tag --file lib/calagator/version.rb
 
 #### Minor: New features but no breaking changes.
 
-    gem bump --version minor --tag --push --file lib/calagator/version.rb
+    gem bump --version minor --tag --file lib/calagator/version.rb
 
 #### Major: Breaking Changes or very significant release with very significant feature changes.
 
     gem bump --version major --tag --file lib/calagator/version.rb
 
-### 4. Run bundle to update the Gemfile.lock with the new version number    
+### 5. Run bundle to update the Gemfile.lock with the new version number    
 
     bundle install && standardrb --fix 
 
@@ -61,7 +65,7 @@ Then push the updated Gemfile.lock to the branch on origin.
 
     git push
 
-### 5. Create the release on Github
+### 6. Create the release on Github
 
 Go to Github and manually create a release.
 
@@ -74,14 +78,16 @@ Go to Github and manually create a release.
 7. Set as the latest release. You can optionally 'create a discussion for this release'.
 8. Click 'Publish release'
 
-### 5. In Github initiate a new PR to merge the branch into main. 
+### 7. In Github initiate a new PR to merge the branch into main. 
 
 Once checks all pass, merge the PR. DONT delete the branch! 
 The branch is kept open to allow for future security/patch releases as needed.
 
-### 6. From your local terminal, push the gem file to rubygems
+### 8. From your local terminal, push the gem file to rubygems
 
 With everything else resolved, pull the latest update to main.
+
+    git checkout main
 
     git pull
 
