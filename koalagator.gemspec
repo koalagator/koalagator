@@ -86,5 +86,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "uglifier", "~> 4.2.0"
   s.add_development_dependency "webmock", "~> 3.5"
   s.add_development_dependency "better_errors", "~> 2.10", ">= 2.10.1"
-  s.add_development_dependency "binding_of_caller", "~> 1.0", ">= 1.0.1"
+  s.add_development_dependency "binding_of_caller", "~> 2.0"
 end
