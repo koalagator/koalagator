@@ -68,11 +68,20 @@ Go to Github and manually create a release.
 7. Set as the latest release. You can optionally 'create a discussion for this release'.
 8. Click 'Publish release'
 
-### 5. Push the gem file to rubygems
+### 5. In Github initiate a new PR to merge the branch into main. 
+
+Once checks all pass, merge the PR. DONT delete the branch! 
+The branch is kept open to allow for future security/patch releases as needed.
+
+### 6. Push the gem file to rubygems
+
+With everything else resolved, pull the latest update to main.
+
+    git pull
 
 Then make the RubyGems.org release:
 
-    $ gem release
+    gem release
 
 ### 6. Tell everyone!
 
