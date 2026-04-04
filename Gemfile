@@ -16,7 +16,7 @@ gem "webrick"
 # turbolinks is used by the test application by default
 # gem 'turbolinks', '~> 5.2.1'
 
-gem "recaptcha", "~> 5.9.0", require: "recaptcha/rails"
+gem "recaptcha", "~> 5.21.1", require: "recaptcha/rails"
 
 # can't declare platform specific development dependencies in the gemspec.
 gem "byebug", "~> 11.1.3", platform: "mri"

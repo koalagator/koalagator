@@ -3,7 +3,7 @@
 module Calagator
   NAME = "Koalagator"
   GEMSPEC = "koalagator"
-  VERSION = "5.0.0"
+  VERSION = "5.1.1"
   RAILS_VERSION = "~> 7.2.3.1"
   MAJOR_RUBY_VERSION = RUBY_VERSION[0].to_i
 end

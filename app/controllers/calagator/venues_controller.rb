@@ -6,6 +6,7 @@ module Calagator
   class VenuesController < Calagator::ApplicationController
     # Provides #duplicates and #squash_many_duplicates
     include DuplicateChecking::ControllerActions
+
     require_admin only: %i[duplicates squash_many_duplicates]
 
     authorize_resource :venues, only: %i[new edit create update destroy]
