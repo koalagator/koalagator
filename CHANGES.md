@@ -14,7 +14,19 @@ Conventions used in this document:
 ## Change Log
 List of releases and changes, with the latest at the top:
 
-### [5.1.0] - Unreleased
+### [5.2.0] - 2026-04-04
+  * Upgrade to ruby 4.x from ruby 3.3 (3.3.7 > 4.0.2)
+  * Better errors gem upgraded to work with ruby 4. Thanks to [fixes in binding_of_caller](https://github.com/BetterErrors/better_errors/issues/547)
+  * Further improvements to RELEASE.md 
+  * Removed comments cruft around older net-http issue
+  * Resolve devise(4.9.4) deprecation warning (Status code :unprocessable_entity is deprecated...)
+  * Minor upgrade Rails 7.2.3.1 (from 7.2.2)
+
+### [5.1.1] - 2026-04-04
+  * Improved RELEASE.md to include refinements to gem release workflow.
+  * Fixes possible gem versioning issue in 5.1.0
+
+### [5.1.0] - 2026-04-01
   * Updates Rails to 7.2.2.x
   * Updates to CommonMark for Markdown now using Kramdown (native ruby)
   * Bulk Import from CSV File now available within /admin
@@ -28,11 +40,11 @@ List of releases and changes, with the latest at the top:
   * * Venues are linked to the instance venue record.
   * * Title links to the events external url if present. If not present it links to the instance event record.
 
-### [5.0.1] - Unreleased
+### [5.0.1] - 2025-04-01
   * Ruby 3.0 specified as minimum ruby (since were on Rails 7 now).
   * Tidy CHANGES.md
   
-### [5.0.0] - 2025-03-20
+### [5.0.0] - 2025-04-01
   Major Changes
   * Project renamed to Koalagator
     - Updated user-facing `calagator` references to `koalagator`.
