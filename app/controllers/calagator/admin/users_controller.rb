@@ -30,7 +30,7 @@ module Calagator
               redirect_to admin_user_invite_path(@user, token: token), notice: "Successfully created user."
             }
           else
-            format.html { render :new, status: :unprocessable_entity }
+            format.html { render :new, status: :unprocessable_content }
           end
         end
       end
@@ -43,7 +43,7 @@ module Calagator
           if @user.update(user_params)
             format.html { redirect_to admin_users_path, notice: "Successfully updated user." }
           else
-            format.html { render :edit, status: :unprocessable_entity }
+            format.html { render :edit, status: :unprocessable_content }
           end
         end
       end
