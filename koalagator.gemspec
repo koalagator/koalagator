@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_dependency "geokit", "~> 1.14.0"
   s.add_dependency "htmlentities", "~> 4.4.2"
   s.add_dependency "jquery-rails", "~> 4.6"
-  s.add_dependency "jquery-ui-rails", "~> 7.0"
+  s.add_dependency "jquery-ui-rails", "~> 8.0"
   s.add_dependency "kramdown", "~> 2.5", ">= 2.5.1"
   s.add_dependency "loofah", "~> 2.25.1"
   s.add_dependency "loofah-activerecord", ">= 1.2", "< 3.0"
@@ -59,7 +59,7 @@ Gem::Specification.new do |s|
   # Fix deprecation warning with Zeitwerk
   s.add_dependency "observer", "~> 0.1"
   # s.add_dependency "listen", "~> 3.1.5"
-  s.add_dependency "devise", "~> 4.9.4"
+  s.add_dependency "devise", "~> 5.0.3"
   s.add_dependency "importmap-rails", "~> 2.0"
   s.add_dependency "smarter_csv", "~> 1.13"
   s.add_dependency "csv", "~> 3.3.3"
