@@ -25,19 +25,19 @@ After updating dependencies, look at CHANGES.md, and make sure there are entries
 
 ### 2. Ensure that ALL specs are passing
 
-    rails spec && standardrb --fix && bundle exec appraisal install && bundle exec appraisal rails spec
+     standardrb --fix && rails spec && bundle exec appraisal install && bundle exec appraisal rails spec
 
-### 2. Make a dedicated branch for the release
+### 3. Make a dedicated branch for the release
 
 Lets say you are releasing version 99.1.0
 
     git checkout -b 99.1.0 # note that the branch is just 99.1.0 NOT v99.1.0 ('v' as in v99.1.0 is kept for tag naming).
 
-### 3. Update CHANGES.md with the new release
+### 4. Update CHANGES.md with the new release
 
     Update CHANGES.md & commit
 
-### 4. Bump the version
+### 5. Bump the version
 
 We are using the gem-release gem. The `tag` flag creates a new commit and then tags it.
 
@@ -53,7 +53,7 @@ We are using the gem-release gem. The `tag` flag creates a new commit and then t
 
     gem bump --version major --tag --file lib/calagator/version.rb
 
-### 5. Run bundle to update the Gemfile.lock with the new version number    
+### 6. Run bundle to update the Gemfile.lock with the new version number    
 
     bundle install && standardrb --fix 
 
@@ -65,7 +65,7 @@ Then push the updated Gemfile.lock to the branch on origin.
 
     git push
 
-### 6. Create the release on Github
+### 7. Create the release on Github
 
 Go to Github and manually create a release.
 
@@ -78,12 +78,12 @@ Go to Github and manually create a release.
 7. Set as the latest release. You can optionally 'create a discussion for this release'.
 8. Click 'Publish release'
 
-### 7. In Github initiate a new PR to merge the branch into main. 
+### 8. In Github initiate a new PR to merge the branch into main. 
 
 Once checks all pass, merge the PR. DONT delete the branch! 
 The branch is kept open to allow for future security/patch releases as needed.
 
-### 8. From your local terminal, push the gem file to rubygems
+### 9. From your local terminal, push the gem file to rubygems
 
 With everything else resolved, pull the latest update to main.
 
