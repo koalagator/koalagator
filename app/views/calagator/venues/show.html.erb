@@ -10,7 +10,7 @@
     <div id='edit_link'>
       <p>
         You can <%= link_to "edit", edit_venue_url(@venue) %>
-        or <%= link_to "delete", venue_url(@venue), method: :delete, data: { confirm: "Are you sure?" } %>
+        or <%= button_to "delete", venue_url(@venue), class: "a-like", form_class: "inline", method: :delete, data: { confirm: "Are you sure?" } %>
         this venue.
       </p>
     </div>

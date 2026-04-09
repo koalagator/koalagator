@@ -61,3 +61,10 @@ $(document).on('change', '#date_start, #date_end',function() {
     $('#date_end').effect('highlight', {}, 3000);
   }
 });
+
+function formatNameField(event) {
+  const target = event.target
+  const value = target.value
+
+  target.value = value.toLowerCase().replaceAll(/[^a-z0-9_\-]/g, "-")
+}

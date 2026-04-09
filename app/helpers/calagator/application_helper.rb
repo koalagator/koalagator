@@ -19,7 +19,7 @@ module Calagator
     end
 
     def markdown(text)
-      BlueCloth.new(text, relaxed: true).to_html
+      Kramdown::Document.new(text).to_html.rstrip
     end
 
     # Return a HTML string with the BR tags converted to XHTML compliant markup.
@@ -34,6 +34,14 @@ module Calagator
       raw "<span title=\"@#{name}\">#{admin_flag}#{display_name}</span>"
     end
 
+    def nav_section
+      @nav_section || :root
+    end
+
+    def active_on(*sections)
+      sections.map { |c| c.to_s }.include?(nav_section.to_s) ? "active" : nil
+    end
+
     FLASH_TYPES = %i[success failure].freeze
 
     def render_flash
@@ -41,7 +49,7 @@ module Calagator
         next if flash[type].blank?
 
         content_tag(:div, class: "flash #{type} flash_#{type}") do
-          "#{(type == :failure) ? "ERROR: " : ""}#{flash[type]}".html_safe
+          "#{"ERROR: " if type == :failure}#{flash[type]}".html_safe
         end
       end.compact.join.html_safe
     end
@@ -85,10 +93,15 @@ module Calagator
       end
     end
 
-    def subnav_class_for(controller_name, action_name)
+    def subnav_class_for(controller_name, action_name, id_name = nil)
+      id_fail = false
+      if id_name.present?
+        id_fail = (id_name != params[:id])
+      end
+
       css_class = "#{controller.controller_name}_#{controller.action_name}_subnav"
       if [controller.controller_name, controller.action_name] == [controller_name, action_name]
-        css_class += " active"
+        css_class += " active" unless id_fail
       end
       css_class
     end

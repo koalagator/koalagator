@@ -14,9 +14,9 @@ require "rspec-rails"
 require "rspec/collection_matchers"
 require "factory_bot_rails"
 require "capybara"
+require "capybara/cuprite"
 require "capybara/rspec"
 require "database_cleaner"
-require "selenium-webdriver"
 require "timecop"
 require "webmock"
 
@@ -69,13 +69,20 @@ RSpec.configure do |config|
   #   )
   # end
 
-  Capybara.current_driver = :selenium_headless
+  Capybara.current_driver = :cuprite
 
   Capybara.server = :webrick
   Capybara.default_driver = :rack_test
   Capybara.default_max_wait_time = 5
-  Capybara.javascript_driver = :selenium_headless
+  Capybara.javascript_driver = :cuprite
   Capybara.always_include_port = true
+  Capybara.register_driver(:cuprite) do |app|
+    Capybara::Cuprite::Driver.new(
+      app,
+      window_size: [1200, 800],
+      inspector: ENV["INSPECTOR"]
+    )
+  end
 
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
@@ -133,6 +140,15 @@ RSpec.configure do |config|
     # a real object. This is generally recommended.
     # mocks.verify_partial_doubles = true
   end
+
+  # Cleanup of seleniunm deprecation warning when running test suite
+  # Selenium generating this redundant warning.
+  # WARN Selenium [:clear_local_storage] [DEPRECATION] clear_local_storage is deprecated and will be removed in a future release.
+  # Will occur until capybarra addresses it
+  # Workaround is to ignore these from the logger
+  # https://github.com/teamcapybara/capybara/issues/2779
+  # If you can remove the line below and running `rspec spec` doesnt blow up with the above warning, then you can remove this config item.
+  # Selenium::WebDriver.logger.ignore(:clear_local_storage, :clear_session_storage)
 
   # Reset to the Sql search engine before each test. Individual tests that
   # override this use "around"; we'll use "around" here too to ensure that

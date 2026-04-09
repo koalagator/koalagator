@@ -1,0 +1,17 @@
+<%= content_for :title, @curation.display_name %>
+
+<h2 class="font-bold"><%= @curation.display_name %></h2>
+<div id="curation_description">
+  <%== markdown @curation.description %>
+  <hr class="hr-sm">
+</div>
+<%= render partial: "calagator/events/index", locals: {
+    browse: @browse,
+    links: {
+      ical: curation_url(@curation.name, format: :ics, protocol: :webcal),
+      atom: curation_url(@curation.name, format: :atom),
+      google: "https://www.google.com/calendar/render?cid=" + curation_url(@curation.name, format: :ics, protocol: :webcal),
+      ical_export: curation_path(@curation.name, format: :ics),
+    }
+  }
+%>

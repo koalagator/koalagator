@@ -5,9 +5,19 @@ Calagator::Engine.routes.draw do
   return unless Calagator::Engine.routes.empty?
   
   root "site#index"
-  
-  devise_for :users, class_name: "Calagator::User" if Calagator.devise_enabled
-  
+
+  # Change routes if registrations are closed
+  if Calagator.open_registration
+    devise_for :users, class_name: "Calagator::User" if Calagator.devise_enabled
+  else
+    devise_for :users, skip: [:registrations], class_name: "Calagator::User" if Calagator.devise_enabled
+    as :user do
+      get "users/sign_up" => "site#closed_registrations", :as => "new_user_registration"
+      get "users/edit" => "devise/registrations#edit", :as => "edit_user_registration"
+      put "users" => "devise/registrations#update", :as => "user_registration"
+    end
+  end
+
   get "omfg" => "site#omfg"
   get "hello" => "site#hello"
   
@@ -23,12 +33,27 @@ Calagator::Engine.routes.draw do
   
   resources :organizations
   
+  namespace :admin do
+    resources :curations, except: :show
+    resources :bulk_imports
+    if Calagator.devise_enabled
+      resources :users do
+        get :invite, as: :invite
+      end
+    end
+  end
+
+  get "embed", to: "site#embed", as: "embed"
+  get "curations", to: redirect("/")
+  resources :curations, only: :show
+
   resources :events do
     collection do
       post :squash_many_duplicates
       get :search
       get :duplicates
       get "tag/:tag", action: :search, as: :tag
+      get "tabular" => "events#tabular"
     end
 
     member do

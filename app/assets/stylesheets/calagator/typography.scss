@@ -9,7 +9,17 @@
   - Images in paragraphs float left by default.
     (The .right and .inline classes override this)
 
+  A note on typeface choices:
 
+  Moving from extenal fonts to a system font 'text driven' style.
+
+  From a design perspective, leaning into a typgraphic text style 
+  reminiscent of early functional text heavy website, 
+  like Craigslist, Myspace and early Ebay.
+
+  System fonts stacks also means faster loading with no external fonts. 
+    
+  Modern Font stacks drawn from https://modernfontstacks.com (accessed 2025).
 
 ############################################################## */
 
@@ -21,7 +31,7 @@
 body {
   font-size: 75%;
   color: $dk_green;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 
@@ -56,14 +66,30 @@ p img       { float: left; margin: 1.5em 1.5em 1.5em 0; padding: 0; }
 p img.right { float: right; margin: 1.5em 0 1.5em 1.5em; }
 p img.inline{ float: none; margin: 1.5em 1.5em;}
 
-a:focus,
-a:hover     { color: #445544; text-decoration: underline; }
-a:link      { color: #66baa9; text-decoration: none;}
-a:visited   { color: #59a12d; text-decoration: none;}
+a:link, .a-like        { color: #66baa9; text-decoration: none;}
+a:visited              { color: #59a12d; text-decoration: none;}
 
-.dark a     { color: #fff; text-decoration: underline; }
+a:focus, .a-like:focus,
+a:hover, .a-like:hover { color: #445544; text-decoration: underline; }
 
-a.summary   { font-weight: bold; }
+.dark a, .dark .a-like { color: #fff; text-decoration: underline; }
+
+a.summary, .a-like.summary { font-weight: bold; }
+
+button.a-like {
+  font-feature-settings: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  font-variation-settings: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  display: inline;
+  cursor: pointer;
+}
 
 blockquote  { margin: 1.5em; color: #666; font-style: italic; }
 strong      { font-weight: bold; }
@@ -138,8 +164,7 @@ caption     { background: #eee; }
 
 .alt {
   color: #666;
-  font-family: "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif;
-  font-style: italic;
+  font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
   font-weight: normal;
 }
 
@@ -213,6 +238,7 @@ a.external.gowalla    { background-image: image-url("external_sites/gowalla.png"
 a.external.meetup     { background-image: image-url("external_sites/meetup.png"); }
 a.external.facebook   { background-image: image-url("external_sites/facebook.png"); }
 a.external.lanyrd     { background-image: image-url("external_sites/lanyrd.png"); }
+a.external.mastodon   { background-image: image-url("external_sites/mastodon.png"); }
 
 #tagcloud .tagcloud_level_0 { font-size: 85%; }
 #tagcloud .tagcloud_level_1 { font-size: 100%; }
@@ -222,3 +248,7 @@ a.external.lanyrd     { background-image: image-url("external_sites/lanyrd.png")
 #tagcloud .tagcloud_level_5 { font-size: 200%; }
 
 #tagcloud .spacer { color: gray }
+
+.text-left {
+  text-align: left;
+}

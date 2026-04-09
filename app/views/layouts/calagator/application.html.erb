@@ -32,6 +32,9 @@
     <!-- JavaScripts, inserted -->
     <%= yield :javascript_insert %>
 
+    <!-- Additional head -->
+    <%= render partial: "layouts/calagator/head" %>
+
     <!-- Auto-discovery, static -->
     <%= auto_discovery_link_tag(:atom, events_url(:format => 'atom'), :title => 'Atom: All Events' )%>
 

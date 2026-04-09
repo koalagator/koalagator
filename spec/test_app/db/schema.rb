@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_28_033750) do
+ActiveRecord::Schema[7.2].define(version: 2024_06_28_055300) do
+  create_table "calagator_curations", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "display_name"
+    t.string "description"
+    t.integer "priority", default: 0, null: false
+    t.boolean "unlisted", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_calagator_curations_on_name", unique: true
+  end
+
   create_table "calagator_organization_events", force: :cascade do |t|
     t.integer "organization_id", null: false
     t.integer "event_id", null: false
@@ -146,6 +157,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_033750) do
     t.integer "events_count"
     t.string "created_by_name"
     t.integer "created_by_id"
+    t.boolean "pinned", default: false, null: false
     t.index ["created_by_id"], name: "index_venues_on_created_by_id"
   end
 

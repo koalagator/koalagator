@@ -34,7 +34,7 @@ describe "Event Editing", js: true do
     fill_in "end_time", with: "07:00 PM"
     fill_in "Website", with: "www.rubynewbies.com"
     fill_in "Description", with: "An event for beginners"
-    fill_in "Tags", with: "beginners,ruby"
+    fill_in "Tags", with: "beginners, friendly"
     click_on "Update Event"
 
     expect(page).to have_content "Event was successfully saved"
@@ -42,9 +42,9 @@ describe "Event Editing", js: true do
     expect(page).to have_content "Friday, October 10, 2014 from 6–7pm"
     expect(page).to have_content "Website\nhttp://www.rubynewbies.com"
     expect(page).to have_content "Description\nAn event for beginners"
-    expect(page).to have_content "Tags\nbeginners, ruby"
+    expect(page).to have_content "Tags\nbeginners, friendly"
 
-    click_on "Calagator"
+    click_on "Koalagator"
     within "#whats_happening" do
       expect(page).to have_content "Ruby ABCs"
     end
@@ -75,7 +75,7 @@ describe "Event Cloning", js: true do
 
   before do
     Timecop.travel("2014-10-09")
-    create :event, title: "Ruby Event Part One", start_time: 4.days.from_now
+    create :event, title: "Ruby Event Part One", start_time: 4.days.from_now.to_datetime
     devise_sign_in create(:user)
   end
 
@@ -100,7 +100,7 @@ describe "Event Cloning", js: true do
     fill_in "end_date", with: "2014-10-28"
     fill_in "Website", with: "www.rubynewbies.com"
     fill_in "Description", with: "An event for beginners"
-    fill_in "Tags", with: "beginners,ruby"
+    fill_in "Tags", with: "beginners, friendly"
     click_on "Create Event"
 
     expect(page).to have_content "Event was successfully saved"
@@ -108,9 +108,10 @@ describe "Event Cloning", js: true do
     expect(page).to have_content "Monday, October 27, 2014 at 6pm"
     expect(page).to have_content "Website\nhttp://www.rubynewbies.com"
     expect(page).to have_content "Description\nAn event for beginners"
-    expect(page).to have_content "Tags\nbeginners, ruby"
 
-    click_on "Calagator"
+    expect(page).to have_content "beginners, friendly"
+
+    click_on "Koalagator"
     click_on "View future events »"
     expect(page).to have_content "Ruby Event Part Two"
   end
@@ -120,7 +121,7 @@ describe "Event Deletion", js: true do
   include_context "devise"
 
   before do
-    create :event, title: "Ruby and You", start_time: 1.day.from_now
+    create :event, title: "Ruby and You", start_time: 1.day.from_now.to_datetime
     devise_sign_in create(:user)
   end
 
@@ -137,7 +138,7 @@ describe "Event Deletion", js: true do
 
     expect(page).to have_content '"Ruby and You" has been deleted'
 
-    click_on "Calagator"
+    click_on "Koalagator"
     within "#tomorrow" do
       expect(page).to have_content "- No events -"
     end

@@ -11,7 +11,6 @@
 .rvmrc
 .vagrant
 Makefile
-Gemfile.lock
 gemfiles/*.lock
 Vagrantfile.local
 config/database~custom.yml
@@ -46,11 +45,11 @@ tags
 tmp/*
 vagrant/cookbooks/vagrant/recipes/local.rb
 .ruby-gemset
-.ruby-version
 .bundle/
 pkg/
 .sass-cache
 .DS_Store
+*/.DS_Store
 .idea/*
 spec/test_app/log/*
 spec/test_app/db/*.sqlite3*

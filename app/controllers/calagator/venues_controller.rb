@@ -6,9 +6,12 @@ module Calagator
   class VenuesController < Calagator::ApplicationController
     # Provides #duplicates and #squash_many_duplicates
     include DuplicateChecking::ControllerActions
+
     require_admin only: %i[duplicates squash_many_duplicates]
 
     authorize_resource :venues, only: %i[new edit create update destroy]
+
+    nav_section :venues
 
     def venue
       @venue ||= params[:id] ? Venue.find(params[:id]) : Venue.new
@@ -65,7 +68,7 @@ module Calagator
       private
 
       def show_all_if_not_found
-        return if venue
+        nil if venue
       rescue ActiveRecord::RecordNotFound => e
         redirect_to venues_path, flash: {failure: e.to_s}
       end
@@ -147,7 +150,7 @@ module Calagator
         flash[:failure] = "<h3>Please fix any errors and try again</h3>"
         respond_to do |format|
           format.html { render action: venue.new_record? ? "new" : "edit" }
-          format.xml { render xml: venue.errors, status: :unprocessable_entity }
+          format.xml { render xml: venue.errors, status: :unprocessable_content }
         end
       end
 
@@ -174,7 +177,7 @@ module Calagator
         message = "Cannot destroy venue that has associated events, you must reassociate all its events first."
         respond_to do |format|
           format.html { redirect_to venue, flash: {failure: message} }
-          format.xml { render xml: message, status: :unprocessable_entity }
+          format.xml { render xml: message, status: :unprocessable_content }
         end
       end
 

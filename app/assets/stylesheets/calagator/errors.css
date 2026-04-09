@@ -1,15 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Sanchez);
-
 body {
   background: #BEF598;
   color: #445545;
   text-align: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:  system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 18px;
   margin: 2em 0;
 }
 h1, h2 { 
-  font-family: Sanchez;
+  font-family: 'Nimbus Mono PS', 'Courier New', monospace;
   line-height: 1.1;
 }
 h1 { 

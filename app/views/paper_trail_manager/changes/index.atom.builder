@@ -19,7 +19,7 @@ atom_feed do |feed|
         end
       end
 
-      entry.title "#{version.event.upcase} #{version.item_type} «#{change_title_for(version)}» #{user ? "by " + user.send(PaperTrailManager.whodunnit_name_method) : ""}"
+      entry.title "#{version.event.upcase} #{version.item_type} «#{change_title_for(version)}» #{"by " + user.send(PaperTrailManager.whodunnit_name_method) if user}"
       entry.updated version.created_at.utc.xmlschema
 
       xm = ::Builder::XmlMarkup.new

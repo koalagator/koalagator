@@ -8,14 +8,26 @@ module Calagator
   class EventsController < Calagator::ApplicationController
     # Provides #duplicates and #squash_many_duplicates
     include Calagator::DuplicateChecking::ControllerActions
+
     require_admin only: %i[duplicates squash_many_duplicates]
 
     authorize_resource :events, only: %i[new edit create update destroy clone]
     before_action :find_and_redirect_if_locked, only: %i[edit update destroy]
 
+    nav_section :events
+
     # GET /events
     # GET /events.xml
     def index
+      @browse = Event::Browse.new(params)
+      @events = @browse.events
+      @browse.errors.each { |error| append_flash :failure, error }
+      render_events @events
+    end
+
+    # GET /events/tabular
+    # GET /events/tabular.xml
+    def tabular
       @browse = Event::Browse.new(params)
       @events = @browse.events
       @browse.errors.each { |error| append_flash :failure, error }
@@ -78,7 +90,7 @@ module Calagator
             flash[:failure] = saver.failure
             render action: @event.new_record? ? "new" : "edit"
           end
-          format.xml { render xml: @event.errors, status: :unprocessable_entity }
+          format.xml { render xml: @event.errors, status: :unprocessable_content }
         end
       end
     end

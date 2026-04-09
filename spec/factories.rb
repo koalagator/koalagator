@@ -20,10 +20,6 @@ FactoryBot.define do
     closed { false }
     wifi { true }
     access_notes { "Access permitted." }
-    after(:create) do
-      Sunspot.commit if Calagator::Venue::SearchEngine.kind == :sunspot
-    end
-
     trait :with_multiple_tags do
       after(:create) { |venue|
         venue.tag_list.add("tag1, tag2", parse: true)
@@ -37,10 +33,6 @@ FactoryBot.define do
     sequence(:description) { |n| "Description of Event #{n}." }
     start_time { Time.zone.now.beginning_of_day }
     end_time { start_time + 1.hour }
-    after(:create) do
-      Sunspot.commit if Calagator::Event::SearchEngine.kind == :sunspot
-    end
-
     trait :with_venue do
       association :venue
     end

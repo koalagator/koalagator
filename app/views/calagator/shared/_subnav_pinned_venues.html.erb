@@ -1,0 +1,5 @@
+<% venues.each do |venue| %>
+  <li><%= link_to venue.title, venue_path(venue),
+    :class => subnav_class_for("venues", "show", venue.id.to_s) %>
+  </li>
+<% end %>

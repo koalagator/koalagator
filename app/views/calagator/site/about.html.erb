@@ -9,4 +9,13 @@
     and <code>get_involved</code>. These are optional, of course, but if you don't want them remember to create your own
     <code>app/views/calagator/site/_sidebar_menu.html.erb</code> to override the existing view.
   </p>
+
+  <div class="replace-this-text">
+    <p>
+      Configure your contact details in the partial: <code>app/views/calagator/site/_contact.html.erb</code>.
+      This partial is used wherever it is suggested that a user contact the administrators for support.
+    </p>
+    <h2>Contact Details</h2>
+    <%= render partial: "calagator/site/contact" %>
+  </div>
 </div>

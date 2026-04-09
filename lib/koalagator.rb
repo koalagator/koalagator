@@ -16,17 +16,16 @@ require "will_paginate/array"
 require "rest-client"
 require "loofah"
 require "loofah-activerecord"
-require "bluecloth"
 require "acts-as-taggable-on"
 require "jquery-rails"
 require "jquery-ui-rails"
 require "font-awesome-rails"
 require "paper_trail_manager"
 require "utf8-cleaner"
-require "sunspot_rails"
 require "lucene_query"
 require "rack/contrib/jsonp"
 require "devise"
+require "kramdown"
 
 module Calagator
   mattr_accessor :title,
@@ -38,6 +37,7 @@ module Calagator
     :admin_password,
     :admin_icon,
     :admin_resources,
+    :open_registration,
     :user_resources,
     :search_engine,
     :icalendar_sequence_offset,
@@ -47,12 +47,15 @@ module Calagator
     :mapping_tiles,
     :venues_map_options,
     :denylist_patterns,
-    :devise_enabled
+    :devise_enabled,
+    :cache_enabled,
+    :tag_cloud_min
 
   self.title = NAME
   self.tagline = "A Tech Calendar"
   self.url = "http://my-calagator.org/"
   self.administrator_email = "your@email.addr"
+  self.open_registration = true
   self.search_engine = :sql
   self.icalendar_sequence_offset = 0
   self.mapping_marker_color = "green"
@@ -64,6 +67,8 @@ module Calagator
     /\bcialis\b/
   ]
   self.devise_enabled = false
+  self.cache_enabled = true
+  self.tag_cloud_min = 10
 
   def self.configure_search_engine
     kind = search_engine.try(:to_sym)

@@ -113,6 +113,6 @@ module Calagator
   end
 end
 
-require_relative "./parser/not_found"
-require_relative "./parser/ical"
-require_relative "./parser/hcal"
+require_relative "parser/not_found"
+require_relative "parser/ical"
+require_relative "parser/hcal"

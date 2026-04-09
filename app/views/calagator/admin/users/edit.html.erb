@@ -1,0 +1,7 @@
+<div>
+  <h2>Editing User</h2>
+  <%= render partial: "form", locals: {user: @user} %>
+  <% unless @user.admin? || @user == current_user %>
+    <%= button_to "Delete User", admin_user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, form_class: "mt-2" %>
+  <% end %>
+</div>

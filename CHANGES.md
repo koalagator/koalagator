@@ -12,15 +12,66 @@ Conventions used in this document:
   * [MIGRATION] - Change schema, run `bundle exec rake db:migrate` to apply.
 
 ## Change Log
-List of Calagator releases and changes, with the latest at the top:
+List of releases and changes, with the latest at the top:
 
-### [5.0.0] - Unreleased
+### [5.2.1] - 2026-04-05
+  * Upgrade devise and jquery-ui-rails gems to resolve dependabot security warnings.
+  * Upgrade acts-as-taggable-on in preparation for Rails 8 upgrade
+  * Minor gem updates
+  * At the date of this release there are now zero (0) dependabot vulnerability warnings.
+
+### [5.2.0] - 2026-04-04
+  * Upgrade to ruby 4.x from ruby 3.3 (3.3.7 > 4.0.2)
+  * Better errors gem upgraded to work with ruby 4. Thanks to [fixes in binding_of_caller](https://github.com/BetterErrors/better_errors/issues/547)
+  * Further improvements to RELEASE.md 
+  * Removed comments cruft around older net-http issue
+  * Resolve devise(4.9.4) deprecation warning (Status code :unprocessable_entity is deprecated...)
+  * Minor upgrade Rails 7.2.3.1 (from 7.2.2)
+
+### [5.1.1] - 2026-04-04
+  * Improved RELEASE.md to include refinements to gem release workflow.
+  * Fixes possible gem versioning issue in 5.1.0
+
+### [5.1.0] - 2026-04-01
+  * Updates Rails to 7.2.2.x
+  * Updates to CommonMark for Markdown now using Kramdown (native ruby)
+  * Bulk Import from CSV File now available within /admin
+  * Bulk Import raises validation errors if exact duplicate already imported
+  * Bulk Import raises validation errors if any event is invalid, on screen error messages explain the issue and row.
+  * Bulk Import redirects to all events page after successful import. Any events added today show in orange.
+  * New Events Tabular view available via Admin Tools. View supports community newsletters to pull out formatted event data.
+  * * Added to support a community newsletter that was willing to proactivley add events
+  * * But they needed to be able to get the events back out in a four column format
+  * * Four column format includes columbs for: Title, Date Time, Venue, Details
+  * * Venues are linked to the instance venue record.
+  * * Title links to the events external url if present. If not present it links to the instance event record.
+
+### [5.0.1] - 2025-04-01
+  * Ruby 3.0 specified as minimum ruby (since were on Rails 7 now).
+  * Tidy CHANGES.md
+  
+### [5.0.0] - 2025-04-01
+  Major Changes
   * Project renamed to Koalagator
     - Updated user-facing `calagator` references to `koalagator`.
     - Code-base kept using `Calagator` namespace, for potential compatibility.
+  * Switch to AGPL license going forward.
+  * Ruby Retreat AU 2024 "Under the Clocktower" community contributions
+    - Curations now has a 'listed' scope being curations that are not 'unlisted'.
+    - The curations nav section now shows just listed curations (hides unlisted ones)
+  * Add Dockerfile
+  * Remove Vagrant
+  
+  Other Changes
+  * Typographic shift to Moden Font Stacks (selected from modernfontstacks.com)
+  * Removes externally loaded fonts (performance benefits)
+  * Adds Mastodon share button
+  * Removes Twitter share button
   * Added FORKING.md to document necessary changes for a fork.
   * Made changes to assist forking / upstreaming in the future.
-
+  * Removed Sunspot/Solr search engine. Unused code and related pending tests deleted.
+  * With solr pending specs removed. We're down to just 3 pending specs, the rest passing.
+  
 ### [4.1.0] - 2024-03-14
   * Upgrade to Rails 7.1
   * Recommended Ruby version is now 3.3
@@ -68,7 +119,6 @@ List of Calagator releases and changes, with the latest at the top:
   * Remove use of SortedSet in Source::Parser (#682)
 #### Breaking changes
   Support for meetup and Facebook API's removed as those API's are now no longer free to use.
-
   * Remove Meetup parser (#681)
   * Remove Facebook parser (#683)
 ### [1.1.0] - 2019-12-01
@@ -129,7 +179,6 @@ Prior to version 1.0, Calagator was distributed as a standalone Rails app instea
       * [!][THEME] Theme maintainers need to make a few small changes when upgrading.
         See https://github.com/calagator/calagator/wiki/Asset-Pipeline-Theme-Upgrade for details.
     * Improved venue search, backed by by SQL or Sunspot.
-      * [!] If you're running a Calagator instance using Sunspot for search, you'll want to run `rake sunspot:reindex` to index your venues.
     * Added Twitter and Facebook share buttons to event pages
     * Added ability to export all events at a given venue to iCalendar
     * Fixed Google geocoder: v2 was deprecated, using v3 now

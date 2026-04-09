@@ -6,7 +6,7 @@ module Calagator
   class VCalendar < Struct.new(:ri_cal_calendar)
     VENUE_CONTENT_RE = /^BEGIN:VVENUE$.*?^END:VVENUE$/m
     def self.parse(raw_ical)
-      raw_ical = raw_ical.gsub(/\r\n/, "\n") # normalize line endings
+      raw_ical = raw_ical.gsub("\r\n", "\n") # normalize line endings
       raw_ical = raw_ical.gsub(/;TZID=GMT:(.*)/, ':\1Z') # normalize timezones
       ri_cal = RiCal.parse_string(raw_ical)
       ri_cal.map do |ri_cal_calendar|

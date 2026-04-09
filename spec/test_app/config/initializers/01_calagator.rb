@@ -2,7 +2,7 @@
 
 Calagator.setup do |config|
   # Site name
-  config.title = "Calagator"
+  config.title = "Koalagator"
 
   # Site tagline
   config.tagline = "A Tech Calendar"
@@ -43,9 +43,14 @@ Calagator.setup do |config|
   # Emoji used as administrator icon (if devise enabled)
   config.admin_icon = "🐨"
 
+  # Configure open registration, if devise is enabled
+  config.open_registration = false
+
   # Search engine to use for searching events.
-  # Values: :sql, :sunspot.
   config.search_engine = :sql
+
+  # Enable caching of views (not recommended for sites with little activity)
+  config.cache_enabled = false
 
   # Set the iCalendar SEQUENCE, which should be increased each time an event
   # is updated. If an admin needs to forcefully increment the SEQUENCE for all

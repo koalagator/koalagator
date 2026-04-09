@@ -155,7 +155,7 @@ module Calagator
 
       def text
         part.parts.reduce("") do |string, (key, value)|
-          prefix = (PREFIXES[[@last_key, key]] || PREFIXES[key])
+          prefix = PREFIXES[[@last_key, key]] || PREFIXES[key]
           suffix = SUFFIXES[key]
           @last_key = key
           "#{string}#{prefix}#{value}#{suffix}"

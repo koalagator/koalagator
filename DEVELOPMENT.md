@@ -1,4 +1,4 @@
-# Developing Calagator
+# Developing Koalagator
 
 ## Prerequisites
 
@@ -17,69 +17,73 @@ Before you start, you will need to:
 
 ## Getting Started
 
-1. Get the source code: From your command line, run `git clone https://github.com/calagator/calagator.git`, which will create a `calagator` directory with the source code. Change into this directory (`cd calagator`) and run the remaining commands from there.
+1. Get the source code: From your command line, run `git clone https://github.com/koalagator/koalagator.git`, which will create a `koalagator` directory with the source code. Change into this directory (`cd koalagator`) and run the remaining commands from there.
 
-2. Install Bundler-managed gems, (the actual libraries that this application uses, like Ruby on Rails) by running `bundle install`. This may take a long time to complete.
+2. Install system dependancies
 
-3. Initialize your database by running:
+    # sqlite related dependencies
+    brew install sqlite pkg-config
 
-        bundle exec rake app:db:migrate app:db:test:prepare
+3. Install Bundler-managed gems, (the actual libraries that this application uses, like Ruby on Rails) by running `bundle install`. This may take a long time to complete.
+
+4. Initialize your database by running:
+
+        bundle exec rails app:db:migrate app:db:test:prepare
 
     If you like, you can also generate some sample data with
 
-        bundle exec rake app:db:seed
+        bundle exec rails app:db:seed
 
-4. At this point, you should be set up to run Calagator's test suite:
+5. At this point, you should be set up to run Koalagator's test suite:
 
         bundle exec bin/rails spec
 
-5. You're now ready to start up Calagator in `development` mode, which automatically reloads code as you change it:
+6. You're now ready to start up Koalagator in `development` mode, which automatically reloads code as you change it:
 
         bundle exec bin/rails server
 
-   If all went according to plan, you should be able to access your running Calagator at: [http://localhost:3000](http://localhost:3000).
+   If all went according to plan, you should be able to access your running Koalagator at: [http://localhost:3000](http://localhost:3000).
 
     To stop the server, press `CTRL-C`.
 
-    If you're running calagator in a Vagrantbox, add `-b 0.0.0.0` to the bundle exec command to handle requests from the host OS:
-
-    `bundle exec bin/rails server -b 0.0.0.0`
+The above should give you enough to work on new features and test a sample app.
 
 ## Running the tests
 
 #### Run the main test suite
 
-    `bundle exec rake spec`
+    `bundle exec rails spec`
 
 #### Run appraisal test suite
 
-    `bundle exec appraisal install && bundle exec appraisal rake spec`
+    `bundle exec appraisal install && bundle exec appraisal rails spec`
 
 ## Building the calagator gem locally
 
 By default the project relies on the released version of the calagator gem on rubygems.org.
-To test and develop the gem locally you need to build it locally. 
+To test and develop the gem locally you need to build it locally.
 
 ### 1. Update the gem version (for local testing)
 
-To test your own gem you'll want to give it a local version, generally dont commit this version.
+To test your own gem you'll want to give it a local version, generally don't commit this version.
 
 Update version number in /lib/calagator/version.rb
 
 ### 2. Build the gemspec and locally install the gem
 
-    `gem build calagator.gemspec && gem install calagator`
+    `gem build koalagator.gemspec && gem install koalagator`
 
 ### 3. Go to another folder to test the gem
 
 You'll need to come out of your project folder.
 I made a folder called 'ruby_2_6' for this to test against ruby 2.6 projects for example.
 
-   `bundle exec calendar new yourappname`
+   `bundle exec koalagator new yourappname`
 
 This process tests the gem works, that the new app gems build and that migrations work and more.
 If any errors come up, fix these are repeat from step 1.
-### 4. Activley test the gem built app
+
+### 4. Actively test the gem built app
 
 Go in the new directory.
 

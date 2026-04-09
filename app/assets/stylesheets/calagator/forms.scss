@@ -152,3 +152,8 @@ ul.errors {
 }
 
 /* @end */
+
+label.required::after {
+  content: " *";
+  color: red;
+}

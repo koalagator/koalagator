@@ -15,6 +15,8 @@
 # Warning: this effectively renders loofah's "escape" scrubbing mode useless by
 # undoing everything it does. Don't use that mode.
 #
+# TODO (2025): Review and remove if no longer needed
+#
 module Calagator
   module DecodeHtmlEntitiesHack
     def self.included(base)
@@ -25,7 +27,7 @@ module Calagator
       attributes.each do |field, value|
         decoded_content = HTMLEntities.new.decode(value)
         if decoded_content.present? && decoded_content != value
-          send("#{field}=", decoded_content)
+          send(:"#{field}=", decoded_content)
         end
       end
     end

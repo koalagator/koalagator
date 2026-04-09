@@ -16,7 +16,7 @@ class PaperTrailManager
     def index
       unless change_index_allowed?
         flash[:error] = "You do not have permission to list changes."
-        return(redirect_to root_url)
+        return redirect_to root_url
       end
 
       @versions = PaperTrail::Version.order("created_at DESC, id DESC")
@@ -49,12 +49,12 @@ class PaperTrailManager
         @version = PaperTrail::Version.find(params[:id])
       rescue ActiveRecord::RecordNotFound
         flash[:error] = "No such version."
-        return(redirect_to action: :index)
+        return redirect_to action: :index
       end
 
       unless change_show_allowed?(@version)
         flash[:error] = "You do not have permission to show that change."
-        return(redirect_to action: :index)
+        return redirect_to action: :index
       end
 
       respond_to do |format|
@@ -69,12 +69,12 @@ class PaperTrailManager
         @version = PaperTrail::Version.find(params[:id])
       rescue ActiveRecord::RecordNotFound
         flash[:error] = "No such version."
-        return(redirect_to(changes_path))
+        return redirect_to(changes_path)
       end
 
       unless change_revert_allowed?(@version)
         flash[:error] = "You do not have permission to revert this change."
-        return(redirect_to changes_path)
+        return redirect_to changes_path
       end
 
       if @version.event == "create"
@@ -104,7 +104,7 @@ class PaperTrailManager
     # Return the URL for the item represented by the +version+, e.g. a Company record instance referenced by a version.
     def change_item_url(version)
       version_type = version.item_type.underscore.split("/").last
-      send("#{version_type}_url", version.item_id)
+      send(:"#{version_type}_url", version.item_id)
     rescue NoMethodError
       nil
     end

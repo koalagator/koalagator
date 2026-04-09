@@ -12,7 +12,6 @@ gem "net-smtp"
 gem "net-imap"
 gem "uri", "0.10.0.2"
 gem "turbolinks"
-gem "mysql2", "~> 0.5.3"
 gem "pg", "~> 0.19"
 
 gemspec path: "../"

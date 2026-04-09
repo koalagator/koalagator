@@ -16,3 +16,43 @@
 .inline {
   display: inline;
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-start {
+  align-items: start;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.max-w-content {
+  max-width: fit-content;
+}

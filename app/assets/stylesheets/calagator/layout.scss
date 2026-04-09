@@ -13,7 +13,7 @@ body {
   height: 95px;
 }
 
-#global_header a, #global_header .a {
+#global_header a, #global_header .a-like {
   color: $default_text;
 }
 
@@ -25,10 +25,9 @@ body {
   clear: both;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Sanchez);
-
 #global_header #project_title {
-  font-family: Sanchez;
+  font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+  font-weight: 600;
   color: $header_text;
   font-size: 29px;
   line-height: 31px;
@@ -58,7 +57,7 @@ body {
 }
 
 #app_menu li.active {
-  background: image-url("nav_marker.gif") no-repeat center bottom;
+  background: image-url("nav_marker.png") no-repeat center bottom;
 }
 
 #project_menu {
@@ -110,13 +109,12 @@ body {
 
 .subnav a {
   color: $header_text;
-  padding-bottom: .42em;
+  padding-bottom: .5em;
 }
 
 .subnav .active {
-  background: image-url("subnav_marker.gif") no-repeat center bottom;
+  background: image-url("subnav_marker.png") no-repeat center bottom;
 }
-
 
 
 #content {
@@ -313,8 +311,15 @@ ul.event_list .list_date {
   width: 40em;
 }
 
-.share .fb-share {
+.share .facebook-share {
   background: rgb(236, 238, 245) image-url('external_sites/facebook.png') no-repeat 2px center;
+}
+
+.share .mastodon-share {
+  background: rgb(236, 238, 245) image-url('external_sites/mastodon.png') no-repeat 2px center;
+}
+
+.share .social-popover {
   color: rgb(59, 89, 152);
   border: 1px solid rgb(202, 212, 231);
   border-radius: 3px;
@@ -323,6 +328,7 @@ ul.event_list .list_date {
   position: relative;
   top: -5px;
 }
+
 
 /* @end */
 
@@ -713,11 +719,16 @@ fieldset .no_label, fieldset .help {
   background-color: white;
 }
 
-.a-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  padding: unset;
+.hr-sm {
+  color: #999;
+  border-top: 0px;
+}
+
+#curation_description {
+  max-width: 800px;
+  margin-left: 0px;
+}
+
+a.orange {
+  color: orange;
 }

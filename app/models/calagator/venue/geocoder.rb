@@ -45,7 +45,7 @@ module Calagator
       def should_geocode?
         [
           perform_geocoding,
-          (venue.location.blank? || venue.force_geocoding == "1"),
+          venue.location.blank? || venue.force_geocoding == "1",
           venue.geocode_address.present?,
           venue.duplicate_of.blank?
         ].all?

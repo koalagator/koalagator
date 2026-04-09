@@ -11,7 +11,7 @@ module Calagator
     end
 
     it "uses default value" do
-      expect(Calagator.title).to eq("Calagator")
+      expect(Calagator.title).to eq("Koalagator")
     end
 
     it "is configurable" do

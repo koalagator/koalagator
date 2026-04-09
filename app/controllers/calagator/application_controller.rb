@@ -4,7 +4,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 module Calagator
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
     helper Calagator::EventsHelper
     helper Calagator::ApplicationHelper
     helper Calagator::EventsHelper
@@ -63,6 +63,11 @@ module Calagator
     end
     private_class_method :devise_require_admin
 
+    def self.nav_section(section, options = {})
+      before_action -> { @nav_section = section }, **options
+    end
+    private_class_method :nav_section
+
     #---[ Helpers ]---------------------------------------------------------
 
     # Returns a data structure used for telling the CSS menu which part of the
@@ -70,10 +75,11 @@ module Calagator
     # and their values are either "active" or nil.
     def link_class
       @_link_class_cache ||= {
-        events: ((controller_name == "events" ||
+        events: (controller_name == "events" ||
                       controller_name == "sources" ||
-                      controller_name == "site") && "active"),
-        venues: (controller_name == "venues" && "active")
+                      controller_name == "site" ||
+                      controller_name == "curations") && "active",
+        venues: controller_name == "venues" && "active"
       }
     end
     helper_method :link_class

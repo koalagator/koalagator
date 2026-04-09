@@ -53,7 +53,7 @@ module Calagator
     has_paper_trail
     acts_as_taggable_on :tags
 
-    xss_foliate strip: %i[title description venue_details]
+    # xss_foliate strip: %i[title description venue_details]
 
     include DecodeHtmlEntitiesHack
     include ActiveModel::Serializers::Xml
@@ -79,6 +79,7 @@ module Calagator
 
     # Duplicates
     include DuplicateChecking
+
     duplicate_checking_ignores_attributes :source_id, :version, :venue_id, :tag_list
     duplicate_squashing_ignores_associations :tags, :base_tags, :taggings
     duplicate_finding_scope -> { future.order(:id) }
@@ -103,7 +104,9 @@ module Calagator
       end_date += 1.day if start_date == end_date
       on_or_after_date(start_date).before_date(end_date)
     }
-
+    scope :find_duplicate, ->(title, start_time, end_time, venue) {
+      includes(:venue).where(title: title, start_time: start_time, end_time: end_time, venue: venue)
+    }
     # Expand the simple sort order names from the URL into more intelligent SQL order strings
     scope :ordered_by_ui_field, lambda { |ui_field|
       scope = case ui_field
@@ -111,6 +114,8 @@ module Calagator
         order(Arel.sql("lower(events.title)"))
       when "venue"
         includes(:venue).order(Arel.sql("lower(venues.title)")).references(:venues)
+      when "created_at"
+        return order(created_at: :desc)
       else
         all
       end
@@ -120,25 +125,25 @@ module Calagator
     #---[ Overrides ]-------------------------------------------------------
 
     def url=(value)
-      super UrlPrefixer.prefix(value)
+      super(UrlPrefixer.prefix(value))
     end
 
     # Set the start_time to the given +value+, which could be a Time, Date,
     # DateTime, String, Array of Strings, or nil.
     def start_time=(value)
-      super time_for(value)
+      super(time_for(value))
     rescue ArgumentError
       errors.add :start_time, "is invalid"
-      super nil
+      super(nil)
     end
 
     # Set the end_time to the given +value+, which could be a Time, Date,
     # DateTime, String, Array of Strings, or nil.
     def end_time=(value)
-      super time_for(value)
+      super(time_for(value))
     rescue ArgumentError
       errors.add :end_time, "is invalid"
-      super nil
+      super(nil)
     end
 
     def time_for(value)

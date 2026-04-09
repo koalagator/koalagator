@@ -26,7 +26,7 @@ describe "Event locking", js: true do
 
     expect(page).to have_content("This event is currently locked and cannot be edited.")
     expect(page).not_to have_selector("a", text: "edit")
-    expect(page).not_to have_selector("a", text: "delete")
+    expect(page).not_to have_selector("button", text: "delete")
   end
 
   it "Admin unlocks a locked event" do
@@ -39,6 +39,6 @@ describe "Event locking", js: true do
 
     expect(page).not_to have_content("This event is currently locked and cannot be edited.")
     expect(page).to have_selector("a", text: "edit")
-    expect(page).to have_selector("a", text: "delete")
+    expect(page).to have_selector("button", text: "delete")
   end
 end
