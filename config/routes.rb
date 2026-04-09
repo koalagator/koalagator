@@ -3,7 +3,7 @@
 Calagator::Engine.routes.draw do
   # Not sure why, but routes is getting loaded twice. This ignores the second load.
   return unless Calagator::Engine.routes.empty?
-  
+
   root "site#index"
 
   # Change routes if registrations are closed
@@ -20,19 +20,19 @@ Calagator::Engine.routes.draw do
 
   get "omfg" => "site#omfg"
   get "hello" => "site#hello"
-  
+
   get "about" => "site#about"
 
   get "opensearch.:format" => "site#opensearch"
   get "defunct" => "site#defunct"
-  
+
   get "admin" => "admin#index"
   get "admin/index"
   get "admin/events"
   post "lock_event" => "admin#lock_event"
-  
+
   resources :organizations
-  
+
   namespace :admin do
     resources :curations, except: :show
     resources :bulk_imports
